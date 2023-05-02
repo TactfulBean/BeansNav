@@ -24,13 +24,13 @@
 import { ref } from "vue";
 import { menuList } from "../assets/json/LinkList.ts";
 
-let linkCarousel = ref<HTMLElement | null>(null);
+let linkCarousel = ref<any>(null);
 
-const mouseWheel = (event: MouseEvent) => {
+const mouseWheel = (event: any) => {
 	if (event.deltaY > 0) {
-		linkCarousel.value && linkCarousel.value.next();
+		linkCarousel.value.next();
 	} else {
-		linkCarousel.value && linkCarousel.value.prev();
+		linkCarousel.value.prev();
 	}
 };
 </script>
