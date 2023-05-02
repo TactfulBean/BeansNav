@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     AButton: typeof import('ant-design-vue/es')['Button']
     ACarousel: typeof import('ant-design-vue/es')['Carousel']
     AInput: typeof import('ant-design-vue/es')['Input']
+    Footer: typeof import('./src/components/Footer.vue')['default']
     LinkBox: typeof import('./src/components/LinkBox.vue')['default']
     Main: typeof import('./src/components/Main.vue')['default']
     SearchBox: typeof import('./src/components/SearchBox.vue')['default']

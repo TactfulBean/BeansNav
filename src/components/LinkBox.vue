@@ -24,7 +24,7 @@
 import { ref } from "vue";
 import { menuList } from "../assets/json/LinkList.ts";
 
-let linkCarousel = ref<any>(null);
+let linkCarousel = ref();
 
 const mouseWheel = (event: any) => {
 	if (event.deltaY > 0) {

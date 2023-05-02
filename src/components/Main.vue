@@ -2,13 +2,25 @@
 	<Time></Time>
 	<SearchBox></SearchBox>
 	<LinkBox></LinkBox>
-	<div class="app-bg-img" style="background-image: url(https://www.todaybing.com/api/today/cn?size=hd)"></div>
+	<div class="app-bg-img" style="background-image: url(https://www.todaybing.com/api/today/cn?size=hd)" ref="wallPaper"></div>
 	<div class="app-cover"></div>
+	<Footer></Footer>
 </template>
 <script setup lang="ts">
 import Time from "./Time.vue";
 import SearchBox from "./SearchBox.vue";
 import LinkBox from "./LinkBox.vue";
+import Footer from "./Footer.vue";
+import { ref } from "vue";
+
+const wallPaper = ref();
+
+const myImage = new Image();
+myImage.src = "https://www.todaybing.com/api/today/cn?size=hd";
+myImage.addEventListener("load", (event: any) => {
+	wallPaper.value.style.backgroundImage = `url(${event.target.src})`;
+	wallPaper.value.style.opacity = 1;
+});
 </script>
 <style scoped lang="less">
 .app-bg-img {
@@ -16,10 +28,11 @@ import LinkBox from "./LinkBox.vue";
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	transition: 0.3s;
+	transition: 1s;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	opacity: 0;
 }
 .app-cover {
 	z-index: 1;

@@ -2,8 +2,42 @@ import { reactive } from "vue";
 
 let menuList = reactive([
 	{
+		name: "常用网站",
+		child: [
+			{
+				name: "柒之社",
+				link: "https://www.07vod.fun/",
+				avatar: "https://www.07vod.fun/favicon.png"
+			},
+			{
+				name: "NyaFun",
+				link: "https://www.mfan.tv/",
+				avatar: "https://www.mfan.tv/favicon.ico"
+			},
+			{
+				name: "大米星球",
+				link: "https://www.dmxq.me/",
+				avatar: "https://ugc.hitv.com/1/22101302373440A2E346E1415C87955C155B224B5Qzkx/dRaWOH0.png"
+			},
+			{
+				name: "哔嘀影视",
+				link: "https://www.bdys01.com/",
+				avatar: "https://www.bdys01.com/images/favicon.ico"
+			},
+			{
+				name: "Switch520",
+				link: "https://xxxxx525.com/",
+				avatar: "https://sway.office.com/s/bRQwebfLdaNez2Nl/images/P31w2bg4VTaH9a"
+			},
+			{
+				name: "磁力熊猫",
+				link: "https://xiongmaodizhi.top/",
+				avatar: "https://b5.us.yaacdn.com/img/xiongmao/favicon.png"
+			}
+		]
+	},
+	{
 		name: "常用工具",
-		class: "1",
 		child: [
 			{
 				name: "ChatGPT",
@@ -24,12 +58,21 @@ let menuList = reactive([
 				name: "聚合图床",
 				link: "https://www.superbed.cn/",
 				avatar: "https://www.superbed.cn/favicon.ico"
+			},
+			{
+				name: "Convertio",
+				link: "https://convertio.co/zh/",
+				avatar: "https://convertio.co/favicon.ico"
+			},
+			{
+				name: "Docsmall",
+				link: "https://docsmall.com/",
+				avatar: "https://docsmall.com/favicon.png"
 			}
 		]
 	},
 	{
 		name: "技术学习",
-		class: "2",
 		child: [
 			{
 				name: "谷歌学术镜像",
@@ -84,24 +127,7 @@ let menuList = reactive([
 		]
 	},
 	{
-		name: "资源搜索",
-		class: "3",
-		child: [
-			{
-				name: "种子吧",
-				link: "http://seed8.org",
-				avatar: "https://pic.imgdb.cn/item/63bcf393be43e0d30e20736f.png"
-			},
-			{
-				name: "巴士资源",
-				link: "http://bashi5.net/?bt",
-				avatar: "http://bashi5.net/favicon.ico"
-			}
-		]
-	},
-	{
 		name: "趣味网站",
-		class: "5",
 		child: [
 			{
 				name: "Emoji合成",
@@ -132,7 +158,6 @@ let menuList = reactive([
 	},
 	{
 		name: "WIKI",
-		class: "6",
 		child: [
 			{
 				name: "MC Wiki",
