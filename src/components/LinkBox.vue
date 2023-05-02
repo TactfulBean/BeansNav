@@ -21,15 +21,11 @@
 </template>
 
 <script setup lang="ts">
-import { createFromIconfontCN } from "@ant-design/icons-vue";
 import { ref } from "vue";
 import { menuList } from "../assets/json/LinkList.js";
 
 let linkCarousel = ref<HTMLElement | null>(null);
 
-const IconFont = createFromIconfontCN({
-	scriptUrl: "//at.alicdn.com/t/c/font_3627162_97fzu7jybss.js"
-});
 const mouseWheel = (event) => {
 	if (event.deltaY > 0) {
 		linkCarousel.value.next();
