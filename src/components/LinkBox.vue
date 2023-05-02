@@ -1,6 +1,6 @@
 <template>
 	<div id="carousel" @wheel="mouseWheel">
-		<a-carousel dot-position="right" ref="linkCarousel">
+		<a-carousel ref="linkCarousel">
 			<div class="layout-col layout-row" v-for="item in menuList">
 				<span style="width: 100%; color: #fff; display: block">{{ item.name }}</span>
 				<div class="app-group-item" v-for="item2 in item.child">

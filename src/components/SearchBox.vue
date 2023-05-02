@@ -22,7 +22,8 @@
 		>
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
-		<ul v-if="text && isFocus" id="languageList">
+		<ul id="languageList" :style="{ height: listHeight }" v-if="isFocus">
+			<li style="padding: 0 20px" class="languageList-Li"></li>
 			<li v-for="item in items" class="languageList-Li" @click="search(text)">
 				<search-outlined style="color: #1e90ff" />
 				{{ item }}
@@ -71,24 +72,32 @@ let inputKey = (event: any) => {
 		}
 	}
 };
-let select = -1;
+let select = 0;
 const languageListLi = <any>document.getElementsByClassName("languageList-Li");
 let selectText = (value: any) => {
 	select += value;
-	select = Math.max(select, 0);
-	select = Math.min(select, items.value.length - 1);
-	text.value = items.value[select];
+	select = Math.max(select, 1);
+	select = Math.min(select, items.value.length);
+	text.value = items.value[select - 1];
 	for (let i = 0; i < languageListLi.length; i++) {
-		languageListLi[i].style.backgroundColor = i === select ? "#ddd" : "#ddd0";
+		languageListLi[i].style.backgroundColor = i === select ? "#afafaf" : "#ddd0";
+		languageListLi[i].style.letterSpacing = i === select ? "1px" : 0;
+		languageListLi[i].style.padding = i === select ? "0 20px" : "0 15px";
 	}
 };
+
+let listHeight = <any>ref(0);
 let searchText = () => {
+	if (!text.value) {
+		listHeight.value = 0;
+	}
 	select = -1;
-	let sugurl = `http://suggestion.baidu.com/su?wd=${text.value}&cb=window.baidu.sug`;
+	let sugurl = `https://suggestion.baidu.com/su?wd=${text.value}&cb=window.baidu.sug`;
 	//@ts-ignore
 	window.baidu = {
 		sug: function (json: any): any {
 			items.value = json.s;
+			listHeight.value = items.value.length * 30 + 30 + "px";
 		}
 	};
 	const script = document.createElement("script");
@@ -115,12 +124,15 @@ let search = (value: any) => {
 	left: 50%;
 	transform: translateX(-50%);
 	box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(10px) saturate(1.5);
+	//border: 1px solid #fff4;
 	border-radius: 30px;
-	opacity: 0.7;
 	transition: 0.3s;
 	.search-input {
 		text-align: center;
+		background-color: transparent;
+		color: #fff;
 	}
 	#search--btn-eng {
 		opacity: 0;
@@ -137,6 +149,10 @@ let search = (value: any) => {
 	width: 530px;
 	opacity: 1;
 	transition: 0.3s;
+	background-color: rgba(255, 255, 255, 0.8);
+	.search-input {
+		color: #000;
+	}
 	#search--btn-eng {
 		opacity: 1;
 	}
@@ -168,32 +184,38 @@ let search = (value: any) => {
 }
 //搜索提示框
 #languageList {
+	height: 0;
+	overflow: hidden;
 	position: absolute;
 	left: 50%;
 	z-index: 1000;
 	margin: 0;
-	padding: 15px 10px;
+	padding: 0;
 	width: 100%;
 	max-width: 620px;
-	border-radius: 30px;
-	background: hsla(0, 0%, 100%, 0.9);
+	border-radius: 15px;
+	background: hsla(0, 0%, 100%, 0.8);
 	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 	list-style: none;
 	transform: translate(-50%, 2%);
-	transition: 0.3s;
+	transition: 0.15s;
 }
 #languageList li {
-	padding: 2px 5px;
-	height: 25px;
+	height: 30px;
+	padding: 0 15px;
 	border-radius: 5px;
 	font-size: 14px;
 	line-height: 25px;
 	cursor: pointer;
 	transition: 0.3s;
 }
-
+.listShow {
+	height: auto;
+	transition: 0.3s;
+}
 #languageList li:hover {
-	background-color: #ddd;
+	background-color: #afafaf;
+	padding: 0 20px;
 	letter-spacing: 1px;
 	transition: 0.3s;
 }
