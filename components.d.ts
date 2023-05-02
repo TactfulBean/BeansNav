@@ -10,12 +10,19 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AButton: typeof import('ant-design-vue/es')['Button']
+    ACard: typeof import('ant-design-vue/es')['Card']
+    ACarousel: typeof import('ant-design-vue/es')['Carousel']
+    ACol: typeof import('ant-design-vue/es')['Col']
     AInput: typeof import('ant-design-vue/es')['Input']
     AInputSearch: typeof import('ant-design-vue/es')['InputSearch']
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
     ALayoutFooter: typeof import('ant-design-vue/es')['LayoutFooter']
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
+    ARow: typeof import('ant-design-vue/es')['Row']
+    LinkBox: typeof import('./src/components/LinkBox.vue')['default']
     Main: typeof import('./src/components/Main.vue')['default']
+    SearchBox: typeof import('./src/components/SearchBox.vue')['default']
+    Time: typeof import('./src/components/Time.vue')['default']
   }
 }
