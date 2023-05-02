@@ -1,8 +1,33 @@
 <template>
-	<div class="search-box" :class="{ focus: isFocus }">
-		<a-input placeholder="搜索" class="search-input" @focus="isFocus = true" @blur="isFocus = false" ref="refInput"></a-input>
-		<a-button shape="circle" id="search--btn-eng"> <icon-font type="icon-bing" style="color: #008b8b" /> </a-button>
-		<a-button shape="circle" id="search--btn-search"> <search-outlined style="color: #1e90ff" /></a-button>
+	<div class="search-box" :class="{ focus: isFocus }" @mouseover="isHover = true" @mouseleave="isHover = false">
+		<a-input
+			placeholder="搜索"
+			class="search-input"
+			v-model:value="text"
+			list="languageList"
+			@focus="isFocus = true"
+			@blur="isHover ? (isFocus = true) : (isFocus = false)"
+			@keyup="inputKey"
+			ref="refInput"
+		>
+		</a-input>
+		<a-button shape="circle" id="search--btn-eng" @click="isFocus = true"> <icon-font type="icon-bing" style="color: #008b8b" /> </a-button>
+		<a-button
+			shape="circle"
+			id="search--btn-search"
+			@click="
+				search(text);
+				isFocus = true;
+			"
+		>
+			<search-outlined style="color: #1e90ff" />
+		</a-button>
+		<ul v-if="text && isFocus" id="languageList">
+			<li v-for="item in items" class="languageList-Li" @click="search(text)">
+				<search-outlined style="color: #1e90ff" />
+				{{ item }}
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -11,20 +36,77 @@ import { nextTick, ref } from "vue";
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue";
 
 nextTick(() => {
-	refInput.value && refInput.value.focus();
+	refInput.value.focus();
 });
 // 输入框
-const refInput = ref<HTMLElement | null>(null);
+const refInput = ref();
+let text = ref("");
+let items = ref();
 const isFocus = ref<boolean>(false);
+const isHover = ref<boolean>(false);
+
 const IconFont = createFromIconfontCN({
 	scriptUrl: "//at.alicdn.com/t/c/font_3627162_97fzu7jybss.js"
 });
+
+let inputKey = (event: any) => {
+	switch (event.keyCode) {
+		case 38:
+			{
+				selectText(-1);
+			}
+			break;
+		case 40:
+			{
+				selectText(1);
+			}
+			break;
+		case 13:
+			{
+				search(text.value);
+			}
+			break;
+		default: {
+			searchText();
+		}
+	}
+};
+let select = -1;
+const languageListLi = <any>document.getElementsByClassName("languageList-Li");
+let selectText = (value: any) => {
+	select += value;
+	select = Math.max(select, 0);
+	select = Math.min(select, items.value.length - 1);
+	text.value = items.value[select];
+	for (let i = 0; i < languageListLi.length; i++) {
+		languageListLi[i].style.backgroundColor = i === select ? "#ddd" : "#ddd0";
+	}
+};
+let searchText = () => {
+	select = -1;
+	let sugurl = `http://suggestion.baidu.com/su?wd=${text.value}&cb=window.baidu.sug`;
+	//@ts-ignore
+	window.baidu = {
+		sug: function (json: any): any {
+			items.value = json.s;
+		}
+	};
+	const script = document.createElement("script");
+	script.src = sugurl;
+	document.head.appendChild(script);
+};
+let search = (value: any) => {
+	text.value = value;
+	if (value.trim() !== "") {
+		window.location.href = `https://cn.bing.com/search?q=${value}`;
+	}
+};
 </script>
 
 <style scoped lang="less">
 //搜索栏
 .search-box {
-	z-index: 999;
+	z-index: 1000;
 	width: 230px;
 	height: 43px;
 	max-width: 80%;
@@ -35,7 +117,6 @@ const IconFont = createFromIconfontCN({
 	box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
 	background-color: rgba(255, 255, 255, 0.9);
 	border-radius: 30px;
-	overflow: hidden;
 	opacity: 0.7;
 	transition: 0.3s;
 	.search-input {
@@ -71,6 +152,7 @@ const IconFont = createFromIconfontCN({
 	height: 100%;
 	color: inherit;
 	padding: 0 45px;
+	border-radius: 30px;
 }
 //搜索引擎选择按钮
 #search--btn-eng {
@@ -83,6 +165,37 @@ const IconFont = createFromIconfontCN({
 	position: absolute;
 	right: 5px;
 	top: 5px;
+}
+//搜索提示框
+#languageList {
+	position: absolute;
+	left: 50%;
+	z-index: 1000;
+	margin: 0;
+	padding: 15px 10px;
+	width: 100%;
+	max-width: 620px;
+	border-radius: 30px;
+	background: hsla(0, 0%, 100%, 0.9);
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	list-style: none;
+	transform: translate(-50%, 2%);
+	transition: 0.3s;
+}
+#languageList li {
+	padding: 2px 5px;
+	height: 25px;
+	border-radius: 5px;
+	font-size: 14px;
+	line-height: 25px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#languageList li:hover {
+	background-color: #ddd;
+	letter-spacing: 1px;
+	transition: 0.3s;
 }
 //max-width<400px
 @media screen and (max-width: 400px) {
