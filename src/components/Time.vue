@@ -23,6 +23,7 @@ setInterval(updateTime, 1000);
 //时间栏
 #time-container {
 	position: fixed;
+	z-index: 999;
 	top: 115px;
 	left: 50%;
 	transform: translateX(-50%);
