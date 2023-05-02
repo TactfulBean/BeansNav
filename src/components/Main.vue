@@ -10,7 +10,7 @@
 </template>
 <script setup lang="ts">
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue";
-import { nextTick, onMounted, ref } from "vue";
+import { nextTick, ref } from "vue";
 nextTick(() => {
 	refInput.value && refInput.value.focus();
 });
