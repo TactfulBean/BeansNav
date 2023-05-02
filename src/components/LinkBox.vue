@@ -22,15 +22,15 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { menuList } from "../assets/json/LinkList.js";
+import { menuList } from "../assets/json/LinkList.ts";
 
 let linkCarousel = ref<HTMLElement | null>(null);
 
 const mouseWheel = (event) => {
 	if (event.deltaY > 0) {
-		linkCarousel.value.next();
+		linkCarousel.value && linkCarousel.value.next();
 	} else {
-		linkCarousel.value.prev();
+		linkCarousel.value && linkCarousel.value.prev();
 	}
 };
 </script>
