@@ -24,6 +24,7 @@ const IconFont = createFromIconfontCN({
 <style scoped lang="less">
 //搜索栏
 .search-box {
+	z-index: 999;
 	width: 230px;
 	height: 43px;
 	max-width: 80%;
