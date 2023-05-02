@@ -10,17 +10,17 @@
 </template>
 <script setup lang="ts">
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue";
-import { onMounted, ref } from "vue";
-onMounted(() => {
-	refInput.value.focus();
+import { nextTick, onMounted, ref } from "vue";
+nextTick(() => {
+	refInput.value && refInput.value.focus();
 });
 const IconFont = createFromIconfontCN({
 	scriptUrl: "//at.alicdn.com/t/c/font_3627162_97fzu7jybss.js"
 });
 const time = ref<string>("");
 const isFocus = ref<boolean>(false);
-
-const refInput = ref(null);
+// 输入框
+const refInput = ref<HTMLElement | null>(null);
 
 const updateTime = () => {
 	const date = new Date();
