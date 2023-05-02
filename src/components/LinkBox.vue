@@ -24,9 +24,9 @@
 import { ref } from "vue";
 import { menuList } from "../assets/json/LinkList.ts";
 
-let linkCarousel = ref(null);
+let linkCarousel = ref<HTMLElement | null>(null);
 
-const mouseWheel = (event) => {
+const mouseWheel = (event: MouseEvent) => {
 	if (event.deltaY > 0) {
 		linkCarousel.value && linkCarousel.value.next();
 	} else {
