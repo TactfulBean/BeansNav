@@ -24,7 +24,7 @@
 		</a-button>
 		<ul id="languageList" :style="{ height: listHeight }" v-if="isFocus">
 			<li style="padding: 0 20px" class="languageList-Li"></li>
-			<li v-for="item in items" class="languageList-Li" @click="search(text)">
+			<li v-for="item in items" class="languageList-Li" @click="search(item)">
 				<search-outlined style="color: #1e90ff" />
 				{{ item }}
 			</li>
@@ -219,11 +219,9 @@ let search = (value: any) => {
 	letter-spacing: 1px;
 	transition: 0.3s;
 }
-//max-width<400px
-@media screen and (max-width: 400px) {
-}
-//max-width<600px
-@media screen and (max-width: 600px) {
+
+//max-width<576px
+@media screen and (max-width: 576px) {
 	.search-box {
 		top: 113px;
 		width: 80%;

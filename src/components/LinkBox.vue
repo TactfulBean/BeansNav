@@ -7,7 +7,13 @@
 					<div>
 						<a :href="item2.link">
 							<a-button>
-								<a-avatar class="app-group-item-icon" shape="square" :src="item2.avatar">{{ item2.name }}</a-avatar>
+								<a-avatar
+									class="app-group-item-icon"
+									shape="square"
+									:src="item2.avatar"
+									:size="{ xs: 40, sm: 56, md: 56, ld: 56, xl: 56, xxl: 56, xxxl: 56 }"
+									>{{ item2.name }}</a-avatar
+								>
 							</a-button>
 						</a>
 					</div>
@@ -60,9 +66,7 @@ const mouseWheel = (event: any) => {
 		border-radius: 15px;
 	}
 	.app-group-item-icon {
-		min-width: 48px;
-		min-height: 48px;
-		border-radius: 10px;
+		border-radius: 12px;
 	}
 }
 
@@ -78,11 +82,8 @@ const mouseWheel = (event: any) => {
 		width: calc(100% / 8);
 	}
 }
-//max-width<400px
-@media screen and (max-width: 400px) {
-}
-//max-width<600px
-@media screen and (max-width: 600px) {
+//max-width<576px
+@media screen and (max-width: 576px) {
 	#carousel {
 		top: 323px;
 		width: 90%;
@@ -101,8 +102,6 @@ const mouseWheel = (event: any) => {
 			border-radius: 10px;
 		}
 		.app-group-item-icon {
-			min-width: 32px;
-			min-height: 32px;
 			border-radius: 8px;
 		}
 	}
