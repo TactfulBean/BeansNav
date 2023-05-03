@@ -11,7 +11,7 @@
 									class="app-group-item-icon"
 									shape="square"
 									:src="item2.avatar"
-									:size="{ xs: 40, sm: 56, md: 56, ld: 56, xl: 56, xxl: 56, xxxl: 56 }"
+									:size="{ xs: 44, sm: 60, md: 60, ld: 60, xl: 60, xxl: 60, xxxl: 60 }"
 									>{{ item2.name }}</a-avatar
 								>
 							</a-button>
@@ -64,9 +64,10 @@ const mouseWheel = (event: any) => {
 		min-width: 64px;
 		min-height: 64px;
 		border-radius: 15px;
+		box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
 	}
 	.app-group-item-icon {
-		border-radius: 12px;
+		border-radius: 14px;
 	}
 }
 
@@ -102,7 +103,7 @@ const mouseWheel = (event: any) => {
 			border-radius: 10px;
 		}
 		.app-group-item-icon {
-			border-radius: 8px;
+			border-radius: 9px;
 		}
 	}
 }
