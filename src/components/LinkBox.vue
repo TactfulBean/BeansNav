@@ -51,7 +51,6 @@ const mouseWheel = (event: any) => {
 	height: 320px;
 	transform: translateX(-50%);
 }
-
 .ant-carousel :deep(.slick-slide) {
 	height: 320px;
 }
