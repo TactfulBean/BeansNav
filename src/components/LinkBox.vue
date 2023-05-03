@@ -83,6 +83,7 @@ const mouseWheel = (event: any) => {
 		width: calc(100% / 8);
 	}
 }
+
 //max-width<576px
 @media screen and (max-width: 576px) {
 	#carousel {
