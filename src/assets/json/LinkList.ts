@@ -5,6 +5,11 @@ let menuList = reactive([
 		name: "常用网站",
 		child: [
 			{
+				name: "异世界动漫",
+				link: "https://www.sbdm.net/",
+				avatar: "https://www.sbdm.net/template/conch/asset/img/favicon.png"
+			},
+			{
 				name: "柒之社",
 				link: "https://www.07vod.fun/",
 				avatar: "https://www.07vod.fun/favicon.png"

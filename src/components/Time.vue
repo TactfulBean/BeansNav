@@ -45,11 +45,8 @@ setInterval(updateTime, 1000);
 	scale: 1.2;
 	transition: 0.3s;
 }
-//max-width<400px
-@media screen and (max-width: 400px) {
-}
 //max-width<600px
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 576px) {
 	#time-container {
 		top: 38px;
 	}
