@@ -82,7 +82,7 @@ let menuList = reactive([
 			{
 				name: "谷歌学术镜像",
 				link: "https://ac.scmor.com/",
-				avatar: "https://ac.scmor.com/res/favicon.ico"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c925a35ea.png"
 			},
 			{
 				name: "Element Plus",
@@ -167,37 +167,37 @@ let menuList = reactive([
 			{
 				name: "MC Wiki",
 				link: "https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki",
-				avatar: "https://pic.imgdb.cn/item/639ff88eb1fccdcd361fb993.png"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c925b564f.png"
 			},
 			{
 				name: "MC百科",
 				link: "https://www.mcmod.cn/",
-				avatar: "https://www.mcmod.cn/images/favicon.ico"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c925b564f.png"
 			},
 			{
 				name: "Terraria Wiki",
 				link: "https://terraria.wiki.gg/zh/wiki/Terraria_Wiki",
-				avatar: "https://terraria.wiki.gg/zh/images/4/4a/Site-favicon.ico"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c92591ef7.png"
 			},
 			{
 				name: "战双帕弥什 Wiki",
 				link: "https://wiki.biligame.com/zspms/%E9%A6%96%E9%A1%B5",
-				avatar: "https://static.hdslb.com/images/favicon.ico"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c9259c72b.png"
 			},
 			{
 				name: "星露谷物语 Wiki",
 				link: "https://zh.stardewvalleywiki.com/Stardew_Valley_Wiki",
-				avatar: "https://zh.stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/favicon.png"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c925b79cf.png"
 			},
 			{
 				name: "原神 Wiki",
 				link: "https://bbs.mihoyo.com/ys/obc/?bbs_presentation_style=no_header",
-				avatar: "https://bbs.mihoyo.com/favicon.ico"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c9fc3262b.png"
 			},
 			{
 				name: "明日方舟 Wiki",
 				link: "https://prts.wiki/w/%E9%A6%96%E9%A1%B5",
-				avatar: "https://prts.wiki/favicon.ico"
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c92610cfe.png"
 			}
 		]
 	}
