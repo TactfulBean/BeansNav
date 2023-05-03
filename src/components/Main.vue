@@ -13,10 +13,19 @@ import LinkBox from "./LinkBox.vue";
 import Footer from "./Footer.vue";
 import { ref } from "vue";
 
+let isMobile = () => {
+	return navigator.userAgent.match(
+		/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+	);
+};
 const wallPaper = ref();
 
 const myImage = new Image();
-myImage.src = "https://www.todaybing.com/api/today/cn?size=hd";
+if (isMobile()) {
+	myImage.src = "https://www.todaybing.com/api/today/cn?size=mhd";
+} else {
+	myImage.src = "https://www.todaybing.com/api/today/cn?size=hd";
+}
 myImage.addEventListener("load", (event: any) => {
 	wallPaper.value.style.backgroundImage = `url(${event.target.src})`;
 	wallPaper.value.style.opacity = 1;
