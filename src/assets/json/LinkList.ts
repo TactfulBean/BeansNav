@@ -50,6 +50,11 @@ let menuList = reactive([
 				avatar: "https://gpt.tactfulbean.top/favicon.ico"
 			},
 			{
+				name: "谷歌学术镜像",
+				link: "https://ac.scmor.com/",
+				avatar: "https://upyun.tactfulbean.top/2023/05/6451c925a35ea.png"
+			},
+			{
 				name: "Emoji表情大全",
 				link: "https://emojixd.com/",
 				avatar: "https://emojixd.com/favicon.ico"
@@ -80,9 +85,19 @@ let menuList = reactive([
 		name: "技术学习",
 		child: [
 			{
-				name: "谷歌学术镜像",
-				link: "https://ac.scmor.com/",
-				avatar: "https://upyun.tactfulbean.top/2023/05/6451c925a35ea.png"
+				name: "Vue3",
+				link: "https://cn.vuejs.org/",
+				avatar: "https://cloud.tactfulbean.top/f/Amfa/vue.svg"
+			},
+			{
+				name: "Vite",
+				link: "https://cn.vitejs.dev/",
+				avatar: "https://cloud.tactfulbean.top/f/jJTj/vitejs.svg"
+			},
+			{
+				name: "Ant Design",
+				link: "https://ant-design.antgroup.com/index-cn",
+				avatar: "https://cloud.tactfulbean.top/f/kaCN/ant-design.svg"
 			},
 			{
 				name: "Element Plus",
@@ -100,34 +115,24 @@ let menuList = reactive([
 				avatar: "https://echarts.apache.org/zh/images/favicon.png?_v_=20200710_1"
 			},
 			{
-				name: "ArcGIS API",
-				link: "https://developers.arcgis.com/",
-				avatar: "https://developers.arcgis.com/favicon-32x32.png?v=fa7158ccbf3dcca10ca42df7f742e378"
-			},
-			{
 				name: "OpenLayers",
 				link: "https://openlayers.org/",
-				avatar: "https://openlayers.org/theme/img/logo-light.svg"
+				avatar: "https://cloud.tactfulbean.top/f/e6Sb/openlayers.svg"
 			},
 			{
 				name: "JDK Download",
 				link: "https://www.oracle.com/java/technologies/java-se-glance.html",
-				avatar: "https://www.oracle.com/asset/web/favicons/favicon-32.png"
+				avatar: "https://cloud.tactfulbean.top/f/BVUa/Oracle%20Corporation%20Logo.svg"
 			},
 			{
 				name: "JSDelivr",
 				link: "https://www.jsdelivr.com/",
-				avatar: "https://www.jsdelivr.com/favicon.ico"
-			},
-			{
-				name: "Cloudflare",
-				link: "https://dash.cloudflare.com/",
-				avatar: "https://dash.cloudflare.com/favicon.ico"
+				avatar: "https://cloud.tactfulbean.top/f/VrId/jsdelivr.svg"
 			},
 			{
 				name: "Netlify",
 				link: "https://app.netlify.com/",
-				avatar: "https://app.netlify.com/favicon.ico"
+				avatar: "https://cloud.tactfulbean.top/f/nxsg/netlify.svg"
 			}
 		]
 	},
@@ -194,10 +199,16 @@ let menuList = reactive([
 				link: "https://bbs.mihoyo.com/ys/obc/?bbs_presentation_style=no_header",
 				avatar: "https://upyun.tactfulbean.top/2023/05/6451c9fc3262b.png"
 			},
+
 			{
 				name: "明日方舟 Wiki",
 				link: "https://prts.wiki/w/%E9%A6%96%E9%A1%B5",
 				avatar: "https://upyun.tactfulbean.top/2023/05/6451c92610cfe.png"
+			},
+			{
+				name: "饥荒 Wiki",
+				link: "https://dontstarve.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5",
+				avatar: "https://upyun.tactfulbean.top/2023/05/6454a09390e46.png"
 			}
 		]
 	}

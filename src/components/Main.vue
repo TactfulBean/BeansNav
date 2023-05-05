@@ -1,4 +1,10 @@
 <template>
+	<div id="header-link-box">
+		<a href="https://github.com/TactfulBean" class="header-link"><icon-font type="icon-github" style="color: #000000" /> Github</a>
+		<a href="https://blog.tactfulbean.top/" class="header-link"><icon-font type="icon-blog" style="color: #008b8b" /> Blog</a>
+		<a href="https://alist.tactfulbean.top/" class="header-link"><icon-font type="icon-yingpan" style="color: #1685a9" /> Alist</a>
+		<a href="https://cloud.tactfulbean.top/" class="header-link"><icon-font type="icon-Cloud" style="color: #44cef6" /> Cloud</a>
+	</div>
 	<Time></Time>
 	<SearchBox></SearchBox>
 	<LinkBox></LinkBox>
@@ -12,12 +18,16 @@ import SearchBox from "./SearchBox.vue";
 import LinkBox from "./LinkBox.vue";
 import Footer from "./Footer.vue";
 import { ref } from "vue";
+import { createFromIconfontCN } from "@ant-design/icons-vue";
 
 let isMobile = () => {
 	return navigator.userAgent.match(
 		/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
 	);
 };
+const IconFont = createFromIconfontCN({
+	scriptUrl: "//at.alicdn.com/t/c/font_3627162_9ydo67r5146.js"
+});
 const wallPaper = ref();
 
 const myImage = new Image();
@@ -32,6 +42,22 @@ myImage.addEventListener("load", (event: any) => {
 });
 </script>
 <style scoped lang="less">
+#header-link-box {
+	position: absolute;
+	top: 2px;
+	right: 0;
+	padding: 0 2%;
+	z-index: 999;
+}
+.header-link {
+	text-decoration: none;
+	color: #fff9;
+	cursor: pointer;
+	padding: 0 8px;
+}
+.header-link:hover {
+	color: #fff;
+}
 .app-bg-img {
 	display: block;
 	height: 100%;
