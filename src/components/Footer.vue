@@ -47,7 +47,7 @@ footer {
 }
 @media screen and (max-height: 576px) {
 	#footerBox {
-		animation: hide 0.5s;
+		animation: hide 0.3s;
 		opacity: 0;
 	}
 }

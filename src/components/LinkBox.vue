@@ -1,7 +1,7 @@
 <template>
 	<div id="carousel" @wheel="mouseWheel">
 		<a-tabs style="color: #fff" size="small" v-model:activeKey="activeKey">
-			<a-tab-pane v-for="(item, index) in menuList" :key="index" :tab="item.name" class="link-tab">
+			<a-tab-pane v-for="(item, index) in menuList" :key="index" :tab="item.name">
 				<div class="layout-col">
 					<div class="app-group-item" v-for="item2 in item.child">
 						<div>
@@ -89,9 +89,8 @@ const mouseWheel = (event: any) => {
 	#carousel {
 		top: 250px;
 		width: 90%;
-	}
-	.link-tab {
 		overflow: auto;
+		height: calc(100% - 300px);
 	}
 	.layout-col {
 		.app-group-item {
@@ -111,7 +110,7 @@ const mouseWheel = (event: any) => {
 }
 @media screen and (max-height: 576px) {
 	#carousel {
-		animation: hide 0.5s;
+		animation: hide 0.3s;
 		opacity: 0;
 	}
 }
