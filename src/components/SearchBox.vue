@@ -97,7 +97,7 @@ let searchText = () => {
 	window.baidu = {
 		sug: function (json: any): any {
 			items.value = json.s;
-			listHeight.value = items.value.length * 30 + 30 + "px";
+			listHeight.value = items.value.length * 26 + 26 + "px";
 		}
 	};
 	const script = document.createElement("script");
@@ -201,7 +201,7 @@ let search = (value: any) => {
 	transition: 0.15s;
 }
 #languageList li {
-	height: 30px;
+	height: 26px;
 	padding: 0 15px;
 	border-radius: 5px;
 	font-size: 14px;
