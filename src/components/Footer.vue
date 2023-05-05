@@ -45,4 +45,10 @@ footer {
 	cursor: default;
 	color: #fff7;
 }
+@media screen and (max-height: 576px) {
+	#footerBox {
+		animation: hide 0.5s;
+		opacity: 0;
+	}
+}
 </style>
