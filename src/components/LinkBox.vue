@@ -1,42 +1,44 @@
 <template>
 	<div id="carousel" @wheel="mouseWheel">
-		<a-carousel ref="linkCarousel">
-			<div class="layout-col layout-row" v-for="item in menuList">
-				<span style="width: 100%; color: #fff; display: block">{{ item.name }}</span>
-				<div class="app-group-item" v-for="item2 in item.child">
-					<div>
-						<a :href="item2.link">
-							<a-button>
-								<a-avatar
-									class="app-group-item-icon"
-									shape="square"
-									:src="item2.avatar"
-									:size="{ xs: 44, sm: 60, md: 60, ld: 60, xl: 60, xxl: 60, xxxl: 60 }"
-									>{{ item2.name }}</a-avatar
-								>
-							</a-button>
-						</a>
+		<a-tabs style="color: #fff" size="small" v-model:activeKey="activeKey">
+			<a-tab-pane v-for="(item, index) in menuList" :key="index" :tab="item.name">
+				<div class="layout-col">
+					<div class="app-group-item" v-for="item2 in item.child">
+						<div>
+							<a :href="item2.link">
+								<a-button>
+									<a-avatar
+										class="app-group-item-icon"
+										shape="square"
+										:src="item2.avatar"
+										:size="{ xs: 44, sm: 60, md: 60, ld: 60, xl: 60, xxl: 60, xxxl: 60 }"
+										>{{ item2.name }}</a-avatar
+									>
+								</a-button>
+							</a>
+						</div>
+						<span style="width: 70px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; color: #fff">{{
+							item2.name
+						}}</span>
 					</div>
-					<span style="width: 70px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; color: #fff">{{
-						item2.name
-					}}</span>
 				</div>
-			</div>
-		</a-carousel>
+			</a-tab-pane>
+		</a-tabs>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import { menuList } from "../assets/json/LinkList.ts";
-
-let linkCarousel = ref();
-
+let len = menuList.length;
+let activeKey = ref(0);
+//@ts-ignore
 const mouseWheel = (event: any) => {
-	if (event.deltaY > 0) {
-		linkCarousel.value.next();
-	} else {
-		linkCarousel.value.prev();
+	if (event.deltaY > 0 && activeKey.value < len - 1) {
+		activeKey.value += 1;
+	}
+	if (event.deltaY < 0 && activeKey.value > 0) {
+		activeKey.value -= 1;
 	}
 };
 </script>
@@ -45,19 +47,16 @@ const mouseWheel = (event: any) => {
 #carousel {
 	position: absolute;
 	z-index: 999;
-	top: 400px;
+	top: 425px;
 	left: 50%;
-	width: 70%;
+	width: 60%;
 	height: 320px;
 	transform: translateX(-50%);
 }
-.ant-carousel :deep(.slick-slide) {
-	height: 320px;
-}
 
+//链接样式
 .app-group-item {
 	padding: 10px 5px;
-
 	.ant-btn {
 		padding: 0 !important;
 		min-width: 64px;
@@ -68,34 +67,35 @@ const mouseWheel = (event: any) => {
 	.app-group-item-icon {
 		border-radius: 14px;
 	}
-}
-
-.layout-col {
-	.app-group-item {
-		text-align: center;
-		display: inline-block;
+	:hover {
+		scale: 1.05;
+		transition: 0.3s;
 	}
 }
 
-.layout-row {
+//容器行列设置
+.layout-col {
+	display: flex;
+	flex-flow: wrap;
 	.app-group-item {
-		width: calc(100% / 8);
+		flex: 0 0 12.5%;
+		text-align: center;
+		display: inline-block;
 	}
 }
 
 //max-width<576px
 @media screen and (max-width: 576px) {
 	#carousel {
-		top: 323px;
+		top: 350px;
 		width: 90%;
 	}
 
-	.layout-row {
+	.layout-col {
 		.app-group-item {
-			width: calc(100% / 4);
+			flex: 0 0 25%;
 		}
 	}
-
 	.app-group-item {
 		.ant-btn {
 			min-width: 48px;

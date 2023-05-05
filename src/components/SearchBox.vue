@@ -47,7 +47,7 @@ const isFocus = ref<boolean>(false);
 const isHover = ref<boolean>(false);
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: "//at.alicdn.com/t/c/font_3627162_97fzu7jybss.js"
+	scriptUrl: "//at.alicdn.com/t/c/font_3627162_9ydo67r5146.js"
 });
 
 let inputKey = (event: any) => {
