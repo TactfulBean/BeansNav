@@ -4,7 +4,7 @@
 			<span class="footer-span">© 2023</span>
 			<a href="https://github.com/TactfulBean" class="footer-link">TactfulBean</a>
 			<span class="footer-span"> 丨 </span>
-			<a href="https://github.com/TactfulBean/Homepage-Vite" class="footer-link">Version 3.1.0</a>
+			<a href="https://github.com/TactfulBean/Homepage-Vite" class="footer-link">Version 3.2.0</a>
 			<span class="footer-span"> 丨 </span>
 			<a href="https://beian.miit.gov.cn/" class="footer-link">冀ICP备-2023003086号</a>
 		</div>
