@@ -87,17 +87,17 @@ let menuList = reactive([
 			{
 				name: "Vue3",
 				link: "https://cn.vuejs.org/",
-				avatar: "https://cloud.tactfulbean.top/f/Amfa/vue.svg"
+				avatar: "https://cloud.tactfulbean.top/f/6xHw/vuejs.svg"
 			},
 			{
 				name: "Vite",
 				link: "https://cn.vitejs.dev/",
-				avatar: "https://cloud.tactfulbean.top/f/jJTj/vitejs.svg"
+				avatar: "https://cloud.tactfulbean.top/f/0EFB/vitejs.svg"
 			},
 			{
 				name: "Ant Design",
 				link: "https://ant-design.antgroup.com/index-cn",
-				avatar: "https://cloud.tactfulbean.top/f/kaCN/ant-design.svg"
+				avatar: "https://cloud.tactfulbean.top/f/owh9/ant-design-vue.svg"
 			},
 			{
 				name: "Element Plus",

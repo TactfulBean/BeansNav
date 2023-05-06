@@ -1,7 +1,7 @@
 <template>
 	<div class="search-box" :class="{ focus: isFocus }" @mouseover="isHover = true" @mouseleave="isHover = false">
 		<a-input
-			placeholder="搜索"
+			:placeholder="searchList[searchEngine - 1].title"
 			class="search-input"
 			v-model:value="text"
 			list="languageList"
@@ -11,15 +11,19 @@
 			ref="refInput"
 		>
 		</a-input>
-		<a-button shape="circle" id="search--btn-eng" @click="isFocus = true"> <icon-font type="icon-bing" style="color: #008b8b" /> </a-button>
-		<a-button
-			shape="circle"
-			id="search--btn-search"
-			@click="
-				search(text);
-				isFocus = true;
-			"
-		>
+		<a-dropdown>
+			<template #overlay>
+				<a-menu @mouseover="isHover = true" @mouseleave="isHover = false" @click="searchSelect">
+					<a-menu-item key="1"><icon-font :type="searchList[0].type" :style="{ color: searchList[0].color }"></icon-font> Bing</a-menu-item>
+					<a-menu-item key="2"><icon-font :type="searchList[1].type" :style="{ color: searchList[1].color }"></icon-font> Baidu</a-menu-item>
+				</a-menu>
+			</template>
+			<a-button shape="circle" id="search--btn-eng">
+				<icon-font :type="searchList[searchEngine - 1].type" :style="{ color: searchList[searchEngine - 1].color }" />
+			</a-button>
+		</a-dropdown>
+
+		<a-button shape="circle" id="search--btn-search" @click="search(text)">
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
 		<ul id="languageList" :style="{ height: listHeight }" v-if="isFocus">
@@ -33,8 +37,10 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, ref } from "vue";
+import { nextTick, ref, getCurrentInstance } from "vue";
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue";
+
+const Config = getCurrentInstance().appContext.config.globalProperties.$Config;
 
 nextTick(() => {
 	refInput.value.focus();
@@ -50,6 +56,7 @@ const IconFont = createFromIconfontCN({
 	scriptUrl: "//at.alicdn.com/t/c/font_3627162_9ydo67r5146.js"
 });
 
+// 判断按键类型
 let inputKey = (event: any) => {
 	switch (event.keyCode) {
 		case 38:
@@ -72,8 +79,11 @@ let inputKey = (event: any) => {
 		}
 	}
 };
+// 提示列表所选序号
 let select = 0;
+// 搜索提示列表
 const languageListLi = <any>document.getElementsByClassName("languageList-Li");
+// 提示列表选择键盘事件
 let selectText = (value: any) => {
 	select += value;
 	select = Math.max(select, 1);
@@ -85,8 +95,9 @@ let selectText = (value: any) => {
 		languageListLi[i].style.padding = i === select ? "0 20px" : "0 15px";
 	}
 };
-
+// 生成的提示列表高度
 let listHeight = <any>ref(0);
+// 搜索提示
 let searchText = () => {
 	if (!text.value) {
 		listHeight.value = 0;
@@ -104,10 +115,37 @@ let searchText = () => {
 	script.src = sugurl;
 	document.head.appendChild(script);
 };
+
+let searchList = [
+	{
+		key: 1,
+		title: "必应搜索",
+		type: "icon-bing",
+		color: "#008b8b",
+		href: "https://cn.bing.com/search?q=",
+		translate: "https://fanyi.baidu.com/translate?#zh/en/"
+	},
+	{
+		key: 2,
+		title: "百度搜索",
+		type: "icon-baidu",
+		color: "#2932E1",
+		href: "https://www.baidu.com/s?wd=",
+		translate: "https://fanyi.baidu.com/translate?#zh/en/"
+	}
+];
+// 所选搜索引擎
+let searchEngine = ref(Config.getSearchEngine());
+// 查找对应KEY的对象
+let searchSelect = (e) => {
+	searchEngine.value = e.key;
+	Config.setSearchEngine(searchEngine.value);
+};
+// 搜索事件
 let search = (value: any) => {
 	text.value = value;
 	if (value.trim() !== "") {
-		window.location.href = `https://cn.bing.com/search?q=${value}`;
+		window.location.href = searchList[searchEngine.value - 1].href + value;
 	}
 };
 </script>
@@ -153,6 +191,9 @@ let search = (value: any) => {
 	.search-input {
 		color: #000;
 	}
+	.search-input::placeholder {
+		color: #0009;
+	}
 	#search--btn-eng {
 		opacity: 1;
 	}
@@ -169,6 +210,9 @@ let search = (value: any) => {
 	color: inherit;
 	padding: 0 45px;
 	border-radius: 30px;
+}
+.search-input::placeholder {
+	color: #fffd;
 }
 //搜索引擎选择按钮
 #search--btn-eng {

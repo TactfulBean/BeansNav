@@ -4,4 +4,10 @@ import "./assets/css/global.less";
 
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+import Config from "./config/Config.ts";
+
+const app = createApp(App);
+
+app.config.globalProperties.$Config = Config;
+
+app.mount("#app");
