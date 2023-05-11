@@ -53,7 +53,7 @@ const isFocus = ref<boolean>(false);
 const isHover = ref<boolean>(false);
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: "//at.alicdn.com/t/c/font_3627162_9ydo67r5146.js"
+	scriptUrl: Config.IconFontURL
 });
 
 // 判断按键类型
