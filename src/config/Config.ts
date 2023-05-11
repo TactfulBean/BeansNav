@@ -1,6 +1,7 @@
 interface config {
 	searchEngine: number;
 }
+const IconFontURL = "//at.alicdn.com/t/c/font_3627162_l3jq3oly52r.js";
 // 默认设置
 const defaultConfig: config = {
 	searchEngine: 1
@@ -17,6 +18,7 @@ const setSearchEngine = (value) => {
 };
 
 export default {
+	IconFontURL,
 	getSearchEngine,
 	setSearchEngine
 };

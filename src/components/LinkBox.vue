@@ -28,13 +28,28 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { menuList } from "../assets/json/LinkList.ts";
-let len = menuList.length;
+import { getCurrentInstance, onMounted, ref } from "vue";
+const axios = getCurrentInstance().appContext.config.globalProperties.$Axios;
+
+onMounted(() => {
+	getLinkList();
+});
+
+let menuList = ref();
+let len = ref();
+
+// 获取链接列表
+let getLinkList = () => {
+	axios.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json").then((res) => {
+		menuList.value = res.data;
+		len.value = res.data.length;
+	});
+};
+
 let activeKey = ref(0);
 //@ts-ignore
 const mouseWheel = (event: any) => {
-	if (event.deltaY > 0 && activeKey.value < len - 1) {
+	if (event.deltaY > 0 && activeKey.value < len.value - 1) {
 		activeKey.value += 1;
 	}
 	if (event.deltaY < 0 && activeKey.value > 0) {
