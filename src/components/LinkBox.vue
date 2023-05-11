@@ -39,11 +39,14 @@ let menuList = ref();
 let len = ref();
 
 // 获取链接列表
-let getLinkList = () => {
-	axios.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json").then((res) => {
-		menuList.value = res.data;
-		len.value = res.data.length;
-	});
+const getLinkList = async () => {
+	try {
+		const response = await axios.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json");
+		menuList.value = response.data;
+		len.value = response.data.length;
+	} catch (error) {
+		console.error(error);
+	}
 };
 
 let activeKey = ref(0);

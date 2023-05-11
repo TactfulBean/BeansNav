@@ -1,10 +1,27 @@
 <template>
 	<div id="header-link-box">
-		<a href="https://github.com/TactfulBean" class="header-link"><icon-font class="icon" type="icon-github" style="color: #000000" /> Github</a>
-		<a href="https://blog.tactfulbean.top/" class="header-link"><icon-font class="icon" type="icon-blog" style="color: #008b8b" /> Blog</a>
-		<a href="https://alist.tactfulbean.top/" class="header-link"><icon-font class="icon" type="icon-yingpan" style="color: #1685a9" /> Alist</a>
-		<a href="https://cloud.tactfulbean.top/" class="header-link"><icon-font class="icon" type="icon-Cloud" style="color: #44cef6" /> Cloud</a>
-		<a href="https://lsky.tactfulbean.top/" class="header-link"><icon-font class="icon" type="icon-picture-filling" /> Lsky</a>
+		<a-dropdown>
+			<template #overlay>
+				<a-menu id="menu">
+					<a-menu-item class="menu-item">
+						<a href="https://github.com/TactfulBean"><icon-font type="icon-github" style="color: #000000" /><span> Github</span></a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://blog.tactfulbean.top/"><icon-font type="icon-blog" style="color: #008b8b" /><span> Blog</span> </a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://alist.tactfulbean.top/"><icon-font type="icon-yingpan" style="color: #1685a9" /><span> Alist</span> </a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://cloud.tactfulbean.top/"><icon-font type="icon-Cloud" style="color: #4b5cc4" /><span> Cloud</span> </a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://lsky.tactfulbean.top/"><icon-font type="icon-picture-filling" /><span> Lsky</span> </a>
+					</a-menu-item>
+				</a-menu>
+			</template>
+			<a-button ghost id="menu-btn"> 更多 </a-button>
+		</a-dropdown>
 	</div>
 </template>
 <script setup lang="ts">
@@ -22,17 +39,27 @@ const IconFont = createFromIconfontCN({
 	position: absolute;
 	top: 2px;
 	right: 0;
-	padding: 0 2%;
-	z-index: 999;
+	padding: 0.5% 1%;
+	z-index: 1000;
 }
-.header-link {
-	text-decoration: none;
-	color: #fffc;
-	cursor: pointer;
-	padding: 0 8px;
+#menu {
+	border-radius: 5px;
+	border: 1px solid #40a9ff;
+	background: #fff0;
+	backdrop-filter: blur(10px) saturate(1.5);
 }
-.header-link:hover {
-	color: #fff;
-	transition: 0.3s;
+#menu-btn {
+	border-radius: 5px;
+	backdrop-filter: blur(10px) saturate(1.5);
+}
+.menu-item {
+	span {
+		color: #fff;
+	}
+}
+.menu-item:hover {
+	span {
+		color: #000;
+	}
 }
 </style>
