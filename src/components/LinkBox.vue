@@ -128,8 +128,7 @@ const mouseWheel = (event: any) => {
 }
 @media screen and (max-height: 576px) {
 	#carousel {
-		animation: hide 0.3s;
-		opacity: 0;
+		display: none;
 	}
 }
 </style>
