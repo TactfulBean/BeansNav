@@ -11,10 +11,12 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AAvatar: typeof import('ant-design-vue/es')['Avatar']
     AButton: typeof import('ant-design-vue/es')['Button']
+    ADrawer: typeof import('ant-design-vue/es')['Drawer']
     ADropdown: typeof import('ant-design-vue/es')['Dropdown']
     AInput: typeof import('ant-design-vue/es')['Input']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
+    ASwitch: typeof import('ant-design-vue/es')['Switch']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
     Footer: typeof import('./src/components/Footer.vue')['default']
