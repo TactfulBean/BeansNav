@@ -13,18 +13,14 @@ import Time from "./Time.vue";
 import SearchBox from "./SearchBox.vue";
 import LinkBox from "./LinkBox.vue";
 import Footer from "./Footer.vue";
-import { ref } from "vue";
+import { ref, getCurrentInstance } from "vue";
 
-let isMobile = () => {
-	return navigator.userAgent.match(
-		/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-	);
-};
+const Config = getCurrentInstance().appContext.config.globalProperties.$Config;
 
 const wallPaper = ref();
 
 const myImage = new Image();
-if (isMobile()) {
+if (Config.isMobile()) {
 	myImage.src = "https://www.todaybing.com/api/today/cn?size=mhd";
 } else {
 	myImage.src = "https://www.todaybing.com/api/today/cn?size=hd";

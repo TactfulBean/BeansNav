@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     LinkBox: typeof import('./src/components/LinkBox.vue')['default']
     Main: typeof import('./src/components/Main.vue')['default']
     SearchBox: typeof import('./src/components/SearchBox.vue')['default']
+    Setting: typeof import('./src/components/Setting.vue')['default']
     Time: typeof import('./src/components/Time.vue')['default']
   }
 }
