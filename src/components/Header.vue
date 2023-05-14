@@ -22,27 +22,19 @@
 			</template>
 			<a-button ghost id="menu-btn" size="small" style="margin: 0 5px"><icon-font type="icon-more" />更 多</a-button>
 		</a-dropdown>
-		<a-button ghost id="menu-btn" size="small" @click="drawerOpen"><icon-font type="icon-configure" style="color: #fff" />设 置</a-button>
-		<a-drawer v-model:visible="visible" maskStyle="background: rgba(0, 0, 0, 0.2)">
-			施工中......
-			<a-switch />
-		</a-drawer>
+		<Setting></Setting>
 	</div>
 </template>
 <script setup lang="ts">
 import { createFromIconfontCN } from "@ant-design/icons-vue";
-import { getCurrentInstance, ref } from "vue";
+import { getCurrentInstance } from "vue";
+import Setting from "./Setting.vue";
 
 const Config = getCurrentInstance().appContext.config.globalProperties.$Config;
 
 const IconFont = createFromIconfontCN({
 	scriptUrl: Config.IconFontURL
 });
-
-let visible = ref(false);
-let drawerOpen = () => {
-	visible.value = true;
-};
 </script>
 <style scoped lang="less">
 #header-link-box {
