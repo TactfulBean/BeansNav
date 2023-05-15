@@ -29,12 +29,14 @@ let getWallPaperType = () => {
 export default defineStore("Config", {
 	state: () => {
 		return {
+			// 移动端判断
 			isMobile: isMobile(),
+			// Iconfont图标地址
 			IconFontURL: "//at.alicdn.com/t/c/font_3627162_abh6jt8b3s9.js",
 			// 搜索引擎
-			searchEngine: getSearchEngine(),
+			searchEngine: <number>getSearchEngine(),
 			// 壁纸类型
-			wallPaperType: getWallPaperType()
+			wallPaperType: <number>getWallPaperType()
 		};
 	}
 });
