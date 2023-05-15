@@ -65,7 +65,7 @@ const mouseWheel = (event: any) => {
 #carousel {
 	position: absolute;
 	z-index: 999;
-	top: 425px;
+	top: 45%;
 	left: 50%;
 	width: 60%;
 	height: 320px;
