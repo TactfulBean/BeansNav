@@ -39,8 +39,10 @@
 <script setup lang="ts">
 import { nextTick, ref, getCurrentInstance } from "vue";
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue";
+import Config from "../store/Config.ts";
 
-const Config = getCurrentInstance().appContext.config.globalProperties.$Config;
+const LocalConfig = getCurrentInstance().appContext.config.globalProperties.$Config;
+const ConfigStore = Config();
 
 nextTick(() => {
 	refInput.value.focus();
@@ -53,7 +55,7 @@ const isFocus = ref<boolean>(false);
 const isHover = ref<boolean>(false);
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: Config.IconFontURL
+	scriptUrl: ConfigStore.IconFontURL
 });
 
 // 判断按键类型
@@ -135,11 +137,14 @@ let searchList = [
 	}
 ];
 // 所选搜索引擎
-let searchEngine = ref(Config.getSearchEngine());
+let searchEngine = ref(ConfigStore.searchEngine);
 // 查找对应KEY的对象
 let searchSelect = (e) => {
 	searchEngine.value = e.key;
-	Config.setSearchEngine(searchEngine.value);
+	ConfigStore.$patch({
+		searchEngine: searchEngine.value
+	});
+	LocalConfig.setSearchEngine(searchEngine.value);
 };
 // 搜索事件
 let search = (value: any) => {

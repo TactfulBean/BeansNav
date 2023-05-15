@@ -27,13 +27,12 @@
 </template>
 <script setup lang="ts">
 import { createFromIconfontCN } from "@ant-design/icons-vue";
-import { getCurrentInstance } from "vue";
 import Setting from "./Setting.vue";
-
-const Config = getCurrentInstance().appContext.config.globalProperties.$Config;
+import Config from "../store/Config.ts";
+const ConfigStore = Config();
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: Config.IconFontURL
+	scriptUrl: ConfigStore.IconFontURL
 });
 </script>
 <style scoped lang="less">
