@@ -1,9 +1,10 @@
 <template>
-	<Header></Header>
+	<Header> </Header>
 	<Time></Time>
 	<SearchBox></SearchBox>
 	<LinkBox></LinkBox>
-	<div class="app-bg-img" style="background-image: url(https://www.todaybing.com/api/today/cn?size=hd)" ref="wallPaper"></div>
+	<div class="app-bg-img" v-if="wallPaperType == 1" ref="wallPaper"></div>
+	<video autoplay="true" loop="true" muted="true" v-if="wallPaperType == 2" class="app-bg-video" :src="wallPaperSrc"></video>
 	<div class="app-cover"></div>
 	<Footer></Footer>
 </template>
@@ -13,18 +14,30 @@ import Time from "./Time.vue";
 import SearchBox from "./SearchBox.vue";
 import LinkBox from "./LinkBox.vue";
 import Footer from "./Footer.vue";
-import { ref, getCurrentInstance } from "vue";
+import { ref, watch } from "vue";
+import Config from "../store/Config.ts";
+const ConfigStore = Config();
 
-const Config = getCurrentInstance().appContext.config.globalProperties.$Config;
-
+// 获取当前壁纸类型
+const wallPaperType = ref(ConfigStore.wallPaperType);
+// 监听设置变化
+watch(
+	() => ConfigStore.wallPaperType,
+	(newValue) => {
+		wallPaperType.value = newValue;
+	}
+);
+// 视频壁纸SRC
+const wallPaperSrc = ref("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/57.mp4");
+// 图片壁纸
 const wallPaper = ref();
-
 const myImage = new Image();
-if (Config.isMobile()) {
+if (ConfigStore.isMobile) {
 	myImage.src = "https://www.todaybing.com/api/today/cn?size=mhd";
 } else {
 	myImage.src = "https://www.todaybing.com/api/today/cn?size=hd";
 }
+// 图片壁纸加载后进行再显示
 myImage.addEventListener("load", (event: any) => {
 	wallPaper.value.style.backgroundImage = `url(${event.target.src})`;
 	wallPaper.value.style.opacity = 1;
@@ -41,6 +54,11 @@ myImage.addEventListener("load", (event: any) => {
 	background-size: cover;
 	background-repeat: no-repeat;
 	opacity: 0;
+}
+.app-bg-video {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 .app-cover {
 	z-index: 1;
