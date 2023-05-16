@@ -47,6 +47,7 @@ const ConfigStore = Config();
 nextTick(() => {
 	refInput.value.focus();
 });
+
 // 输入框
 const refInput = ref();
 let text = ref("");
@@ -57,7 +58,9 @@ const isHover = ref<boolean>(false);
 const IconFont = createFromIconfontCN({
 	scriptUrl: ConfigStore.IconFontURL
 });
-
+document.getElementById("app-body").addEventListener("keyup", () => {
+	refInput.value.focus();
+});
 // 判断按键类型
 let inputKey = (event: any) => {
 	switch (event.keyCode) {

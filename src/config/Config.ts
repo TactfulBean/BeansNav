@@ -6,7 +6,17 @@ const setSearchEngine = (value) => {
 const setWallPaperType = (value) => {
 	localStorage.setItem("wallPaperType", value);
 };
+// 壁纸日期
+const setWallPaperDate = (value) => {
+	localStorage.setItem("wallPaperDate", value);
+};
+// 壁纸URL
+const setWallPaperSrc = (value) => {
+	localStorage.setItem("wallPaperSrc", value);
+};
 export default {
 	setSearchEngine,
-	setWallPaperType
+	setWallPaperType,
+	setWallPaperDate,
+	setWallPaperSrc
 };
