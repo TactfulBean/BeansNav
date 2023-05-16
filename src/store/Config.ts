@@ -14,6 +14,23 @@ let isMobile = () => {
 		/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
 	);
 };
+let getDate = () => {
+	let date = new Date();
+	let year = date.getFullYear().toString();
+	let mon = date.getMonth() + 1;
+	let month = mon < 10 ? "0" + mon : mon;
+	let day = date.getDate().toString();
+	return year + month + day;
+};
+let getWallPaperDate = () => {
+	if (localStorage.getItem("wallPaperDate")) {
+		return localStorage.getItem("wallPaperDate");
+	}
+	return null;
+};
+let getWallPaperSrc = () => {
+	return localStorage.getItem("wallPaperSrc");
+};
 let getSearchEngine = () => {
 	if (localStorage.getItem("searchEngine")) {
 		return localStorage.getItem("searchEngine");
@@ -31,6 +48,12 @@ export default defineStore("Config", {
 		return {
 			// 移动端判断
 			isMobile: isMobile(),
+			// 获取日期
+			getDate: getDate(),
+			// 获取本地存储壁纸的日期
+			getWallPaperDate: getWallPaperDate(),
+
+			getWallPaperSrc: getWallPaperSrc(),
 			// Iconfont图标地址
 			IconFontURL: "//at.alicdn.com/t/c/font_3627162_abh6jt8b3s9.js",
 			// 搜索引擎
