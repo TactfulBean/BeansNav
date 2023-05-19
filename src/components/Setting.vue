@@ -1,8 +1,10 @@
 <template>
 	<a-button ghost id="menu-btn" size="small" @click="drawerOpen"><icon-font type="icon-configure" style="color: #fff" />设 置</a-button>
-	<a-drawer id="setting" v-model:visible="visible" maskStyle="background: rgba(0, 0, 0, 0.2)" :width="width">
+	<a-drawer id="setting" v-model:visible="visible" maskStyle="background: rgba(0, 0, 0, 0.2)" :width="width" bodyStyle="padding:10px">
 		<span>施工中......</span>
-		<div><span>动态壁纸：</span> <a-switch v-model:checked="wallPaperType" @change="changeWallPaperType" /></div>
+		<div id="setting-box">
+			<div><span>动态壁纸：</span> <a-switch v-model:checked="wallPaperType" @change="changeWallPaperType" /></div>
+		</div>
 	</a-drawer>
 </template>
 <script setup lang="ts">
@@ -55,6 +57,18 @@ const IconFont = createFromIconfontCN({
 	border-radius: 5px;
 	box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
 	backdrop-filter: blur(10px) saturate(1.5);
+}
+
+#setting-box {
+	border-radius: 15px;
+	padding: 10px;
+	background: #ececec;
+	border: 1px solid #dadada;
+	transition: 0.3s;
+}
+#setting-box:hover {
+	border: 1px solid #40a9ff;
+	transition: 0.3s;
 }
 //max-width<576px
 @media screen and (max-width: 576px) {
