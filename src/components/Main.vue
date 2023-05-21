@@ -47,7 +47,7 @@ if (date === wallPaperDate) {
 } else {
 	axios.get("https://bing.biturl.top").then((res) => {
 		LocalConfig.setWallPaperSrc(res.data.url);
-		LocalConfig.setWallPaperDate(date);
+		LocalConfig.setWallPaperDate(res.data.end_date);
 		wallImage.src = res.data.url;
 	});
 }
