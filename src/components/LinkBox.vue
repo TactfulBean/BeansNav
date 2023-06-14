@@ -11,7 +11,7 @@
 										class="app-group-item-icon"
 										shape="square"
 										:src="item2.avatar"
-										:size="{ xs: 44, sm: 56, md: 56, ld: 56, xl: 56, xxl: 56, xxxl: 56 }"
+										:size="{ xs: 44, sm: 56, md: 56, lg: 56, xl: 56, xxl: 56, xxxl: 56 }"
 										>{{ item2.name }}</a-avatar
 									>
 								</a-button>
