@@ -23,6 +23,8 @@
 			<a-button ghost id="menu-btn" size="small" style="margin: 0 5px"><icon-font type="icon-more" />更 多</a-button>
 		</a-dropdown>
 		<Setting></Setting>
+<!--		<a-badge dot><a-button id="menu-btn" size="small" ghost style="margin: 0 5px"><icon-font type="icon-gonggao" />公 告</a-button></a-badge>-->
+
 	</div>
 </template>
 <script setup lang="ts">
