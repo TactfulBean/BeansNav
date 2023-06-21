@@ -27,6 +27,7 @@
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
 		<ul id="languageList" :style="{ height: listHeight }" v-if="isFocus">
+<!--			<li style="padding: 0 20px" class="languageList-Li"><icon-font type="icon-fanyi" /> 翻译:{{text}}</li>-->
 			<li style="padding: 0 20px" class="languageList-Li"></li>
 			<li v-for="item in items" class="languageList-Li" @click="search(item)">
 				<search-outlined style="color: #1e90ff" />
@@ -84,13 +85,14 @@ let inputKey = (event: any) => {
 		}
 	}
 };
-// 提示列表所选序号
+// 提示列表所选序号 初始值为0
 let select = 0;
 // 搜索提示列表
 const languageListLi = <any>document.getElementsByClassName("languageList-Li");
 // 提示列表选择键盘事件
 let selectText = (value: any) => {
 	select += value;
+	// 限制所选序号数值大小
 	select = Math.max(select, 1);
 	select = Math.min(select, items.value.length);
 	text.value = items.value[select - 1];

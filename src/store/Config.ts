@@ -55,7 +55,7 @@ export default defineStore("Config", {
 
 			getWallPaperSrc: getWallPaperSrc(),
 			// Iconfont图标地址
-			IconFontURL: "//at.alicdn.com/t/c/font_3627162_abh6jt8b3s9.js",
+			IconFontURL: "//at.alicdn.com/t/c/font_3627162_zg6nxmjid9n.js",
 			// 搜索引擎
 			searchEngine: <number>getSearchEngine(),
 			// 壁纸类型
