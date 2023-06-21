@@ -11,7 +11,10 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AAvatar: typeof import('ant-design-vue/es')['Avatar']
     ABadge: typeof import('ant-design-vue/es')['Badge']
+    ABadgeRibbon: typeof import('ant-design-vue/es')['BadgeRibbon']
     AButton: typeof import('ant-design-vue/es')['Button']
+    ACollapse: typeof import('ant-design-vue/es')['Collapse']
+    ACollapsePanel: typeof import('ant-design-vue/es')['CollapsePanel']
     ADrawer: typeof import('ant-design-vue/es')['Drawer']
     ADropdown: typeof import('ant-design-vue/es')['Dropdown']
     AInput: typeof import('ant-design-vue/es')['Input']
@@ -20,6 +23,7 @@ declare module '@vue/runtime-core' {
     ASwitch: typeof import('ant-design-vue/es')['Switch']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
+    ATag: typeof import('ant-design-vue/es')['Tag']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
     LinkBox: typeof import('./src/components/LinkBox.vue')['default']
@@ -27,5 +31,6 @@ declare module '@vue/runtime-core' {
     SearchBox: typeof import('./src/components/SearchBox.vue')['default']
     Setting: typeof import('./src/components/Setting.vue')['default']
     Time: typeof import('./src/components/Time.vue')['default']
+    UpDateLog: typeof import('./src/components/upDateLog.vue')['default']
   }
 }
