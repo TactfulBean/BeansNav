@@ -3,14 +3,17 @@
 		<a-button id="menu-btn" size="small" ghost style="margin: 0 5px" @click="drawerOpen"><icon-font type="icon-gonggao" />日 志</a-button>
 	</a-badge>
 	<a-drawer v-model:visible="visible" maskStyle="background: rgba(0, 0, 0, 0.2)" :width="width" bodyStyle="padding:10px">
-		<span>施工中......</span>
+		<div id="setting-box" style="background-color: #ffffff; text-align: center"><span>更新日志</span></div>
 		<div id="setting-box">
 			<a-collapse v-model:activeKey="activeKey" accordion>
 				<a-collapse-panel v-for="(item, index) in dateLog" :key="index + 1" :header="item.header">
 					<p v-for="item2 in item.tags">
-						<a-tag :color="item2.color">{{ item2.info }}</a-tag
-						>{{ item2.text }}
+						<a-tag :color="item2.color">{{ item2.info }}</a-tag>
+						{{ item2.text }}
 					</p>
+					<template #extra>
+						<a-tag :color="item.color">{{ item.info }}</a-tag>
+					</template>
 				</a-collapse-panel>
 			</a-collapse>
 		</div>
@@ -66,8 +69,13 @@ let drawerOpen = () => {
 #setting-box {
 	border-radius: 15px;
 	padding: 10px;
-	background: #ececec;
+	margin: 10px 0;
+	background: #f3f3f3;
 	border: 1px solid #dadada;
+	transition: 0.3s;
+}
+#setting-box:hover {
+	border: 1px solid #40a9ff;
 	transition: 0.3s;
 }
 </style>
