@@ -70,12 +70,8 @@ let drawerOpen = () => {
 	border-radius: 15px;
 	padding: 10px;
 	margin: 10px 0;
-	background: #f3f3f3;
+	background: #ffffff;
 	border: 1px solid #dadada;
-	transition: 0.3s;
-}
-#setting-box:hover {
-	border: 1px solid #40a9ff;
 	transition: 0.3s;
 }
 </style>
