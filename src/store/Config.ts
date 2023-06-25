@@ -1,48 +1,56 @@
-import { defineStore } from "pinia";
+import { defineStore } from "pinia"
 
 interface config {
-	searchEngine: number;
-	wallPaperType: number;
+	searchEngine: number
+	wallPaperType: number
 }
 // 默认设置
 const defaultConfig: config = {
 	searchEngine: 1,
 	wallPaperType: 1
-};
+}
 let isMobile = () => {
 	return navigator.userAgent.match(
 		/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-	);
-};
+	)
+}
 let getDate = () => {
-	let date = new Date();
-	let year = date.getFullYear().toString();
-	let mon = date.getMonth() + 1;
-	let month = mon < 10 ? "0" + mon : mon;
-	let day = date.getDate().toString();
-	return year + month + day;
-};
+	let date = new Date()
+	let year = date.getFullYear().toString()
+	let mon = date.getMonth() + 1
+	let month = mon < 10 ? "0" + mon : mon
+	let day = date.getDate().toString()
+	return year + month + day
+}
 let getWallPaperDate = () => {
 	if (localStorage.getItem("wallPaperDate")) {
-		return localStorage.getItem("wallPaperDate");
+		return localStorage.getItem("wallPaperDate")
 	}
-	return null;
-};
+	return null
+}
 let getWallPaperSrc = () => {
-	return localStorage.getItem("wallPaperSrc");
-};
+	return localStorage.getItem("wallPaperSrc")
+}
 let getSearchEngine = () => {
 	if (localStorage.getItem("searchEngine")) {
-		return localStorage.getItem("searchEngine");
+		return localStorage.getItem("searchEngine")
 	}
-	return defaultConfig.searchEngine;
-};
+	return defaultConfig.searchEngine
+}
 let getWallPaperType = () => {
 	if (localStorage.getItem("wallPaperType")) {
-		return localStorage.getItem("wallPaperType");
+		return localStorage.getItem("wallPaperType")
 	}
-	return defaultConfig.searchEngine;
-};
+	return defaultConfig.searchEngine
+}
+
+// 获取当前日志版本号
+let getLogVersion = () => {
+	if (localStorage.getItem("logVersion")) {
+		return localStorage.getItem("logVersion")
+	}
+	return "1.0.0"
+}
 export default defineStore("Config", {
 	state: () => {
 		return {
@@ -59,7 +67,9 @@ export default defineStore("Config", {
 			// 搜索引擎
 			searchEngine: <number>getSearchEngine(),
 			// 壁纸类型
-			wallPaperType: <number>getWallPaperType()
-		};
+			wallPaperType: <number>getWallPaperType(),
+			// 日志版本号
+			logVersion: getLogVersion()
+		}
 	}
-});
+})
