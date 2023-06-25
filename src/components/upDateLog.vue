@@ -3,7 +3,6 @@
 		<a-button id="menu-btn" size="small" ghost style="margin: 0 5px" @click="drawerOpen"><icon-font type="icon-gonggao" />日 志</a-button>
 	</a-badge>
 	<a-drawer v-model:visible="visible" maskStyle="background: rgba(0, 0, 0, 0.2)" :width="width" bodyStyle="padding:10px">
-		<div id="setting-box" style="background-color: #ffffff; text-align: center"><span>更新日志</span></div>
 		<div id="setting-box">
 			<a-collapse v-model:activeKey="activeKey" accordion>
 				<a-collapse-panel v-for="(item, index) in dateLog" :key="index + 1" :header="item.header">
@@ -17,6 +16,9 @@
 				</a-collapse-panel>
 			</a-collapse>
 		</div>
+		<template #extra>
+			<div id="setting-title"><span>更新日志</span></div>
+		</template>
 	</a-drawer>
 </template>
 <script setup lang="ts">
@@ -73,5 +75,14 @@ let drawerOpen = () => {
 	background: #ffffff;
 	border: 1px solid #dadada;
 	transition: 0.3s;
+}
+
+#setting-title {
+	width: 150px;
+	text-align: center;
+	padding: 5px;
+	border-radius: 10px;
+	background-color: #108ee9;
+	color: #ffffff;
 }
 </style>
