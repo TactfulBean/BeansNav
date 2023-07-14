@@ -9,54 +9,54 @@
 	<Footer></Footer>
 </template>
 <script setup lang="ts">
-import Header from "./Header.vue";
-import Time from "./Time.vue";
-import SearchBox from "./SearchBox.vue";
-import LinkBox from "./LinkBox.vue";
-import Footer from "./Footer.vue";
-import { getCurrentInstance, ref, watch } from "vue";
-import Config from "../store/Config.ts";
-const ConfigStore = Config();
-const LocalConfig = getCurrentInstance().appContext.config.globalProperties.$Config;
+import Header from "./Header.vue"
+import Time from "./Time.vue"
+import SearchBox from "./SearchBox.vue"
+import LinkBox from "./LinkBox.vue"
+import Footer from "./Footer.vue"
+import { getCurrentInstance, ref, watch } from "vue"
+import Config from "../store/Config.ts"
+const ConfigStore = Config()
+const LocalConfig = getCurrentInstance().appContext.config.globalProperties.$Config
 
-const axios = getCurrentInstance().appContext.config.globalProperties.$Axios;
+const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
 // 获取当前壁纸类型
-const wallPaperType = ref(ConfigStore.wallPaperType);
+const wallPaperType = ref(ConfigStore.wallPaperType)
 // 监听设置变化
 watch(
 	() => ConfigStore.wallPaperType,
 	(newValue) => {
-		wallPaperType.value = newValue;
+		wallPaperType.value = newValue
 	}
-);
+)
 // 视频壁纸SRC
-const wallPaperSrc = ref("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/57.mp4");
+const wallPaperSrc = ref("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/VideoWallPaper/57.mp4")
 // 图片壁纸
-const wallPaper = ref();
-const wallImage = new Image();
+const wallPaper = ref()
+const wallImage = new Image()
 // if (ConfigStore.isMobile) {
 // 	wallImage.src = "https://www.todaybing.com/api/today/cn?size=mhd";
 // } else {
 // 	wallImage.src = "https://www.todaybing.com/api/today/cn?size=hd";
 // }
 
-let date = ConfigStore.getDate;
-let wallPaperDate = ConfigStore.getWallPaperDate;
+let date = ConfigStore.getDate
+let wallPaperDate = ConfigStore.getWallPaperDate
 if (date === wallPaperDate) {
-	wallImage.src = ConfigStore.getWallPaperSrc;
+	wallImage.src = ConfigStore.getWallPaperSrc
 } else {
 	axios.get("https://bing.biturl.top").then((res) => {
-		LocalConfig.setWallPaperSrc(res.data.url);
-		LocalConfig.setWallPaperDate(res.data.end_date);
-		wallImage.src = res.data.url;
-	});
+		LocalConfig.setWallPaperSrc(res.data.url)
+		LocalConfig.setWallPaperDate(res.data.end_date)
+		wallImage.src = res.data.url
+	})
 }
 
 // 图片壁纸加载后进行再显示
 wallImage.addEventListener("load", (event: any) => {
-	wallPaper.value.style.backgroundImage = `url(${event.target.src})`;
-	wallPaper.value.style.opacity = 1;
-});
+	wallPaper.value.style.backgroundImage = `url(${event.target.src})`
+	wallPaper.value.style.opacity = 1
+})
 </script>
 <style scoped lang="less">
 .app-bg-img {
