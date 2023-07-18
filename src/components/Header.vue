@@ -30,11 +30,11 @@
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import Setting from "./Setting.vue"
 import UpDateLog from "./upDateLog.vue"
-import Config from "../store/Config.ts"
-const ConfigStore = Config()
+import { useSettingStore } from "../store/Config.ts"
+const settingStore = useSettingStore()
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: ConfigStore.IconFontURL
+	scriptUrl: settingStore.IconFontURL
 })
 </script>
 <style scoped lang="less">

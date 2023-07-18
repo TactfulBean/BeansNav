@@ -15,16 +15,17 @@ import SearchBox from "./SearchBox.vue"
 import LinkBox from "./LinkBox.vue"
 import Footer from "./Footer.vue"
 import { getCurrentInstance, ref, watch } from "vue"
-import Config from "../store/Config.ts"
-const ConfigStore = Config()
-const LocalConfig = getCurrentInstance().appContext.config.globalProperties.$Config
+import { setWallPaperSrc, setWallPaperDate } from "../config/Config.ts"
+
+import { useSettingStore } from "../store/Config.ts"
+const settingStore = useSettingStore()
 
 const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
 // 获取当前壁纸类型
-const wallPaperType = ref(ConfigStore.wallPaperType)
+const wallPaperType = ref(settingStore.wallPaperType)
 // 监听设置变化
 watch(
-	() => ConfigStore.wallPaperType,
+	() => settingStore.wallPaperType,
 	(newValue) => {
 		wallPaperType.value = newValue
 	}
@@ -40,14 +41,14 @@ const wallImage = new Image()
 // 	wallImage.src = "https://www.todaybing.com/api/today/cn?size=hd";
 // }
 
-let date = ConfigStore.getDate
-let wallPaperDate = ConfigStore.getWallPaperDate
+let date = settingStore.getDate
+let wallPaperDate = settingStore.getWallPaperDate
 if (date === wallPaperDate) {
-	wallImage.src = ConfigStore.getWallPaperSrc
+	wallImage.src = settingStore.getWallPaperSrc
 } else {
 	axios.get("https://bing.biturl.top").then((res) => {
-		LocalConfig.setWallPaperSrc(res.data.url)
-		LocalConfig.setWallPaperDate(res.data.end_date)
+		setWallPaperSrc(res.data.url)
+		setWallPaperDate(res.data.end_date)
 		wallImage.src = res.data.url
 	})
 }

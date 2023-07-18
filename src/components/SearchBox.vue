@@ -27,7 +27,7 @@
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
 		<ul id="languageList" :style="{ height: listHeight }" v-if="isFocus">
-<!--			<li style="padding: 0 20px" class="languageList-Li"><icon-font type="icon-fanyi" /> 翻译:{{text}}</li>-->
+			<!--			<li style="padding: 0 20px" class="languageList-Li"><icon-font type="icon-fanyi" /> 翻译:{{text}}</li>-->
 			<li style="padding: 0 20px" class="languageList-Li"></li>
 			<li v-for="item in items" class="languageList-Li" @click="search(item)">
 				<search-outlined style="color: #1e90ff" />
@@ -38,90 +38,89 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, ref, getCurrentInstance } from "vue";
-import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue";
-import Config from "../store/Config.ts";
-
-const LocalConfig = getCurrentInstance().appContext.config.globalProperties.$Config;
-const ConfigStore = Config();
+import { nextTick, ref } from "vue"
+import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue"
+import { setSearchEngine } from "../config/Config.ts"
+import { useSettingStore } from "../store/Config.ts"
+const settingStore = useSettingStore()
 
 nextTick(() => {
-	refInput.value.focus();
-});
+	refInput.value.focus()
+})
 
 // 输入框
-const refInput = ref();
-let text = ref("");
-let items = ref();
-const isFocus = ref<boolean>(false);
-const isHover = ref<boolean>(false);
+const refInput = ref()
+let text = ref("")
+let items = ref()
+const isFocus = ref<boolean>(false)
+const isHover = ref<boolean>(false)
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: ConfigStore.IconFontURL
-});
+	scriptUrl: settingStore.IconFontURL
+})
 document.getElementById("app-body").addEventListener("keyup", () => {
-	refInput.value.focus();
-});
+	refInput.value.focus()
+})
 // 判断按键类型
 let inputKey = (event: any) => {
 	switch (event.keyCode) {
 		case 38:
 			{
-				selectText(-1);
+				selectText(-1)
 			}
-			break;
+			break
 		case 40:
 			{
-				selectText(1);
+				selectText(1)
 			}
-			break;
+			break
 		case 13:
 			{
-				search(text.value);
+				search(text.value)
 			}
-			break;
+			break
 		default: {
-			searchText();
+			searchText()
 		}
 	}
-};
+}
 // 提示列表所选序号 初始值为0
-let select = 0;
+let select = 0
 // 搜索提示列表
-const languageListLi = <any>document.getElementsByClassName("languageList-Li");
+const languageListLi = <any>document.getElementsByClassName("languageList-Li")
 // 提示列表选择键盘事件
 let selectText = (value: any) => {
-	select += value;
+	select += value
 	// 限制所选序号数值大小
-	select = Math.max(select, 1);
-	select = Math.min(select, items.value.length);
-	text.value = items.value[select - 1];
+	select = Math.max(select, 1)
+	select = Math.min(select, items.value.length)
+	text.value = items.value[select - 1]
 	for (let i = 0; i < languageListLi.length; i++) {
-		languageListLi[i].style.backgroundColor = i === select ? "#afafaf" : "#ddd0";
-		languageListLi[i].style.letterSpacing = i === select ? "1px" : 0;
-		languageListLi[i].style.padding = i === select ? "0 20px" : "0 15px";
+		languageListLi[i].style.backgroundColor = i === select ? "#afafaf" : "#ddd0"
+		languageListLi[i].style.letterSpacing = i === select ? "1px" : 0
+		languageListLi[i].style.padding = i === select ? "0 20px" : "0 15px"
 	}
-};
+}
 // 生成的提示列表高度
-let listHeight = <any>ref(0);
+let listHeight = <any>ref(0)
 // 搜索提示
 let searchText = () => {
 	if (!text.value) {
-		listHeight.value = 0;
+		listHeight.value = 0
 	}
-	select = -1;
-	let sugurl = `https://suggestion.baidu.com/su?wd=${text.value}&cb=window.baidu.sug`;
+	select = -1
+	let sugurl = `https://suggestion.baidu.com/su?wd=${text.value}&cb=window.baidu.sug`
 	//@ts-ignore
 	window.baidu = {
 		sug: function (json: any): any {
-			items.value = json.s;
-			listHeight.value = items.value.length * 26 + 26 + "px";
+			items.value = json.s
+			listHeight.value = items.value.length * 26 + 26 + "px"
 		}
-	};
-	const script = document.createElement("script");
-	script.src = sugurl;
-	document.head.appendChild(script);
-};
+	}
+	const script = document.createElement("script")
+	script.src = sugurl
+	document.head.appendChild(script)
+}
 
 let searchList = [
 	{
@@ -140,24 +139,24 @@ let searchList = [
 		href: "https://www.baidu.com/s?wd=",
 		translate: "https://fanyi.baidu.com/translate?#zh/en/"
 	}
-];
+]
 // 所选搜索引擎
-let searchEngine = ref(ConfigStore.searchEngine);
+let searchEngine = ref(settingStore.searchEngine)
 // 查找对应KEY的对象
 let searchSelect = (e) => {
-	searchEngine.value = e.key;
-	ConfigStore.$patch({
+	searchEngine.value = e.key
+	settingStore.$patch({
 		searchEngine: searchEngine.value
-	});
-	LocalConfig.setSearchEngine(searchEngine.value);
-};
+	})
+	setSearchEngine(searchEngine.value)
+}
 // 搜索事件
 let search = (value: any) => {
-	text.value = value;
+	text.value = value
 	if (value.trim() !== "") {
-		window.location.href = searchList[searchEngine.value - 1].href + value;
+		window.location.href = searchList[searchEngine.value - 1].href + value
 	}
-};
+}
 </script>
 
 <style scoped lang="less">
