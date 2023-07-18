@@ -23,14 +23,15 @@
 </template>
 <script setup lang="ts">
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import Config from "../store/Config.ts"
 import { getCurrentInstance, onMounted, ref } from "vue"
-const ConfigStore = Config()
-const LocalConfig = getCurrentInstance().appContext.config.globalProperties.$Config
+import { setDateVersion } from "../config/Config.ts"
+import { useSettingStore } from "../store/Config.ts"
+const settingStore = useSettingStore()
+
 const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: ConfigStore.IconFontURL
+	scriptUrl: settingStore.IconFontURL
 })
 onMounted(() => {
 	getDateLog()
@@ -43,7 +44,7 @@ const getDateLog = async () => {
 	try {
 		const response = await axios.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/DateLog.json")
 		dateLog.value = response.data
-		isRead.value = ConfigStore.logVersion != dateLog.value[0].header
+		isRead.value = settingStore.logVersion != dateLog.value[0].header
 	} catch (error) {
 		console.error(error)
 	}
@@ -53,12 +54,12 @@ let activeKey = ref(1)
 let visible = ref(false)
 // 移动端设置页面大小
 let width = ref("378")
-if (ConfigStore.isMobile) {
+if (settingStore.isMobile) {
 	width.value = "80%"
 }
 let drawerOpen = () => {
 	visible.value = true
-	LocalConfig.setDateVersion(dateLog.value[0].header)
+	setDateVersion(dateLog.value[0].header)
 	isRead.value = false
 }
 </script>

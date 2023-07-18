@@ -10,19 +10,20 @@
 	</a-drawer>
 </template>
 <script setup lang="ts">
-import { getCurrentInstance, onMounted, ref } from "vue"
+import { onMounted, ref } from "vue"
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import Config from "../store/Config.ts"
+import { setWallPaperType } from "../config/Config.ts"
+import { useSettingStore } from "../store/Config.ts"
+const settingStore = useSettingStore()
+
 onMounted(() => {
-	if (ConfigStore.wallPaperType == 1) {
+	if (settingStore.wallPaperType == 1) {
 		wallPaperType.value = false
 	}
-	if (ConfigStore.wallPaperType == 2) {
+	if (settingStore.wallPaperType == 2) {
 		wallPaperType.value = true
 	}
 })
-const LocalConfig = getCurrentInstance().appContext.config.globalProperties.$Config
-const ConfigStore = Config()
 // 是否显示设置页面
 let visible = ref(false)
 
@@ -31,27 +32,27 @@ let wallPaperType = ref()
 let changeWallPaperType = (e) => {
 	console.log(e)
 	if (e) {
-		ConfigStore.$patch({
+		settingStore.$patch({
 			wallPaperType: 2
 		})
-		LocalConfig.setWallPaperType(2)
+		setWallPaperType(2)
 	} else {
-		ConfigStore.$patch({
+		settingStore.$patch({
 			wallPaperType: 1
 		})
-		LocalConfig.setWallPaperType(1)
+		setWallPaperType(1)
 	}
 }
 // 移动端设置页面大小
 let width = ref("378")
-if (ConfigStore.isMobile) {
+if (settingStore.isMobile) {
 	width.value = "80%"
 }
 let drawerOpen = () => {
 	visible.value = true
 }
 const IconFont = createFromIconfontCN({
-	scriptUrl: ConfigStore.IconFontURL
+	scriptUrl: settingStore.IconFontURL
 })
 </script>
 <style scoped lang="less">

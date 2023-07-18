@@ -3,11 +3,17 @@ import { defineStore } from "pinia"
 interface config {
 	searchEngine: number
 	wallPaperType: number
+	logVersion: string
+	wallPaperDate: null
+	wallPaperSrc: null
 }
 // 默认设置
 const defaultConfig: config = {
 	searchEngine: 1,
-	wallPaperType: 1
+	wallPaperType: 1,
+	logVersion: "1.0.0",
+	wallPaperDate: null,
+	wallPaperSrc: null
 }
 let isMobile = () => {
 	return navigator.userAgent.match(
@@ -15,43 +21,20 @@ let isMobile = () => {
 	)
 }
 let getDate = () => {
-	let date = new Date()
-	let year = date.getFullYear().toString()
-	let mon = date.getMonth() + 1
-	let month = mon < 10 ? "0" + mon : mon
-	let day = date.getDate().toString()
+	const date = new Date()
+	const year = date.getFullYear().toString()
+	const month = (date.getMonth() + 1).toString().padStart(2, "0")
+	const day = date.getDate().toString()
 	return year + month + day
 }
-let getWallPaperDate = () => {
-	if (localStorage.getItem("wallPaperDate")) {
-		return localStorage.getItem("wallPaperDate")
-	}
-	return null
-}
-let getWallPaperSrc = () => {
-	return localStorage.getItem("wallPaperSrc")
-}
-let getSearchEngine = () => {
-	if (localStorage.getItem("searchEngine")) {
-		return localStorage.getItem("searchEngine")
-	}
-	return defaultConfig.searchEngine
-}
-let getWallPaperType = () => {
-	if (localStorage.getItem("wallPaperType")) {
-		return localStorage.getItem("wallPaperType")
-	}
-	return defaultConfig.searchEngine
-}
 
-// 获取当前日志版本号
-let getLogVersion = () => {
-	if (localStorage.getItem("logVersion")) {
-		return localStorage.getItem("logVersion")
-	}
-	return "1.0.0"
-}
-export default defineStore("Config", {
+const getWallPaperDate = () => localStorage.getItem("wallPaperDate") || defaultConfig.wallPaperDate
+const getWallPaperSrc = () => localStorage.getItem("wallPaperSrc") || defaultConfig.wallPaperSrc
+const getSearchEngine = () => localStorage.getItem("searchEngine") || defaultConfig.searchEngine
+const getWallPaperType = () => localStorage.getItem("wallPaperType") || defaultConfig.wallPaperType
+const getLogVersion = () => localStorage.getItem("logVersion") || defaultConfig.logVersion
+
+export const useSettingStore = defineStore("settingStore", {
 	state: () => {
 		return {
 			// 移动端判断
@@ -71,5 +54,6 @@ export default defineStore("Config", {
 			// 日志版本号
 			logVersion: getLogVersion()
 		}
-	}
+	},
+	getters: {}
 })
