@@ -42,7 +42,7 @@ const wallPaperSrc = ref(
 );
 // 图片壁纸
 const wallPaper = ref();
-const wallImage = new Image();
+const wallImage: any = new Image();
 // if (ConfigStore.isMobile) {
 // 	wallImage.src = "https://www.todaybing.com/api/today/cn?size=mhd";
 // } else {
@@ -55,8 +55,8 @@ if (date === wallPaperDate) {
   wallImage.src = settingStore.wallPaperSrc;
 } else {
   axios.get("https://bing.biturl.top").then((res) => {
-    settingStore.setWallPaperSrc(res.data.url);
-    settingStore.setWallPaperDate(res.data.end_date);
+    settingStore.wallPaperSrc = res.data.url;
+    settingStore.wallPaperDate = res.data.end_date;
     wallImage.src = res.data.url;
   });
 }
