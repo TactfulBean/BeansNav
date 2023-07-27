@@ -19,7 +19,7 @@ updateTime()
 setInterval(updateTime, 1000)
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 //时间栏
 #time-container {
 	position: fixed;

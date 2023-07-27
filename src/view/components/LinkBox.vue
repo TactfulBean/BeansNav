@@ -62,7 +62,7 @@ const mouseWheel = (event: any) => {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 #carousel {
 	position: absolute;
 	z-index: 999;

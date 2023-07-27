@@ -14,4 +14,4 @@ import LinkBox from "./components/LinkBox.vue"
 import WallPaper from "./components/WallPaper.vue"
 import Footer from "./components/Footer.vue"
 </script>
-<style lang="less" scoped></style>
+<style scoped lang="scss"></style>
