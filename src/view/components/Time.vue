@@ -5,18 +5,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from "vue"
 
-const time = ref<string>("");
+const time = ref<string>("")
 const updateTime = () => {
-	const date = new Date();
-	const hours = date.getHours().toString().padStart(2, "0");
-	const minutes = date.getMinutes().toString().padStart(2, "0");
-	time.value = `${hours}:${minutes}`;
-};
+	const date = new Date()
+	const hours = date.getHours().toString().padStart(2, "0")
+	const minutes = date.getMinutes().toString().padStart(2, "0")
+	time.value = `${hours}:${minutes}`
+}
 
-updateTime();
-setInterval(updateTime, 1000);
+updateTime()
+setInterval(updateTime, 1000)
 </script>
 
 <style scoped lang="less">
