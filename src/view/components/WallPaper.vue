@@ -1,6 +1,6 @@
 <template>
-	<div class="app-bg-img" v-show="wallPaperType == 1" ref="wallPaper"></div>
-	<video autoplay="true" loop="true" v-if="wallPaperType == 2" class="app-bg-video" :src="wallPaperSrc"></video>
+	<div v-show="wallPaperType == 1" ref="wallPaper" class="app-bg-img"></div>
+	<video v-if="wallPaperType == 2" :src="wallPaperSrc" autoplay="true" class="app-bg-video" loop="true"></video>
 	<div class="app-cover"></div>
 </template>
 <script lang="ts" setup>
@@ -48,30 +48,25 @@ wallImage.addEventListener("load", (event: any) => {
 	wallPaper.value.style.opacity = 1
 })
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .app-bg-img {
+	@include full;
 	display: block;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
 	transition: 1s;
+	opacity: 0;
+	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	background-repeat: no-repeat;
-	opacity: 0;
+	object-fit: cover;
 }
 .app-bg-video {
-	height: 100%;
-	width: 100%;
+	@include full;
 	object-fit: cover;
 }
 .app-cover {
-	z-index: 1;
+	@include full;
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	z-index: 1;
 	background-color: rgba(0, 0, 0, 0.1);
 	background-image: radial-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%), radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.2) 166%),
 		linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 0% 75%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);

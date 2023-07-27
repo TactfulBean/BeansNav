@@ -1,8 +1,8 @@
 <template>
 	<a-badge :dot="isRead">
-		<a-button id="menu-btn" size="small" ghost style="margin: 0 5px" @click="drawerOpen"><icon-font type="icon-gonggao" />日 志</a-button>
+		<a-button id="menu-btn" ghost size="small" style="margin: 0 5px" @click="drawerOpen"><icon-font type="icon-gonggao" />日 志</a-button>
 	</a-badge>
-	<a-drawer v-model:visible="visible" maskStyle="background: rgba(0, 0, 0, 0.2)" :width="width" bodyStyle="padding:10px">
+	<a-drawer v-model:visible="visible" :width="width" bodyStyle="padding:10px" maskStyle="background: rgba(0, 0, 0, 0.2)">
 		<div id="setting-box">
 			<a-collapse v-model:activeKey="activeKey" accordion>
 				<a-collapse-panel v-for="(item, index) in dateLog" :key="index + 1" :header="item.header">
@@ -21,7 +21,7 @@
 		</template>
 	</a-drawer>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import { getCurrentInstance, onMounted, ref } from "vue"
 import { useSettingStore } from "../../store/Config.ts"
@@ -62,27 +62,27 @@ let drawerOpen = () => {
 	isRead.value = false
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 #menu-btn {
-	border-radius: 5px;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+	border-radius: $box-border-radius-5;
+	box-shadow: $box-shadow-5;
 	backdrop-filter: blur(10px) saturate(1.5);
 }
 #setting-box {
-	border-radius: 15px;
-	padding: 10px;
 	margin: 10px 0;
-	background: #ffffff;
-	border: 1px solid #dadada;
+	padding: 10px;
 	transition: 0.3s;
+	border: 1px solid #dadada;
+	border-radius: $box-border-radius-15;
+	background: #ffffff;
 }
 
 #setting-title {
 	width: 150px;
-	text-align: center;
 	padding: 5px;
-	border-radius: 10px;
-	background-color: #108ee9;
-	color: #ffffff;
+	text-align: center;
+	color: $text-color-light;
+	border-radius: $box-border-radius-10;
+	background-color: $theme-blue;
 }
 </style>

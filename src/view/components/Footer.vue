@@ -2,53 +2,51 @@
 	<footer>
 		<div id="footerBox">
 			<span class="footer-span">© 2023</span>
-			<a href="https://github.com/TactfulBean" class="footer-link">TactfulBean</a>
+			<a class="footer-link" href="https://github.com/TactfulBean">TactfulBean</a>
 			<span class="footer-span"> 丨 </span>
-			<a href="https://github.com/TactfulBean/Homepage-Vite" class="footer-link">Version 3.3.4</a>
+			<a class="footer-link" href="https://github.com/TactfulBean/Homepage-Vite">Version 3.3.4</a>
 			<span class="footer-span"> 丨 </span>
-			<a href="https://beian.miit.gov.cn/" class="footer-link">冀ICP备-2023003086号</a>
+			<a class="footer-link" href="https://beian.miit.gov.cn/">冀ICP备-2023003086号</a>
 		</div>
 	</footer>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 footer {
-	z-index: 999;
-	color: #fff;
-	position: fixed;
-	bottom: 10px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: fit-content;
+	@include center;
 	font-size: 12px;
-	text-align: center;
-	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-	white-space: nowrap;
+	position: fixed;
+	z-index: 999;
+	bottom: 10px;
 	display: inline-block;
+	width: fit-content;
+	text-align: center;
+	white-space: nowrap;
+	color: $text-color-light;
+	text-shadow: $text-shadow;
 }
 #footerBox {
 	padding: 3px 10px;
-	border-radius: 6px;
+	border-radius: $box-border-radius-5;
 	backdrop-filter: blur(10px);
 }
 .footer-link {
-	text-decoration: none;
-	color: #fff7;
 	cursor: pointer;
+	text-decoration: none;
+	color: $text-color-light-opacity;
 }
 .footer-link:hover {
-	color: #fff;
+	color: $text-color-light;
 }
 .footer-span {
 	cursor: default;
-	color: #fff7;
+	color: $text-color-light-opacity;
 }
 @media screen and (max-height: 576px) {
 	#footerBox {
-		animation: hide 0.3s;
-		opacity: 0;
+		@include animation-hide;
 	}
 }
 </style>
