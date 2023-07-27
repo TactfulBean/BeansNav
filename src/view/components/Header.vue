@@ -37,7 +37,7 @@ const IconFont = createFromIconfontCN({
 	scriptUrl: settingStore.IconFontURL
 })
 </script>
-<style scoped lang="less">
+<style scoped lang="scss">
 #header-link-box {
 	position: absolute;
 	top: 2px;

@@ -13,7 +13,7 @@
 
 <script setup lang="ts"></script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 footer {
 	z-index: 999;
 	color: #fff;

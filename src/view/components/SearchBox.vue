@@ -155,7 +155,7 @@ let search = (value: any) => {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 //搜索栏
 .search-box {
 	z-index: 1000;

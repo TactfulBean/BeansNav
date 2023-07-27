@@ -23,13 +23,5 @@ declare module '@vue/runtime-core' {
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
     ATag: typeof import('ant-design-vue/es')['Tag']
-    Footer: typeof import("./src/view/components/Footer.vue")["default"]
-    Header: typeof import("./src/view/components/Header.vue")["default"]
-    LinkBox: typeof import("./src/view/components/LinkBox.vue")["default"]
-    Main: typeof import("./src/view/index.vue")["default"]
-    SearchBox: typeof import("./src/view/components/SearchBox.vue")["default"]
-    Setting: typeof import("./src/view/components/Setting.vue")["default"]
-    Time: typeof import("./src/view/components/Time.vue")["default"]
-    UpDateLog: typeof import("./src/view/components/UpDateLog.vue")["default"]
   }
 }

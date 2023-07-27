@@ -62,7 +62,7 @@ let drawerOpen = () => {
 	isRead.value = false
 }
 </script>
-<style scoped lang="less">
+<style scoped lang="scss">
 #menu-btn {
 	border-radius: 5px;
 	box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;

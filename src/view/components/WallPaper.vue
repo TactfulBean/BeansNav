@@ -48,7 +48,7 @@ wallImage.addEventListener("load", (event: any) => {
 	wallPaper.value.style.opacity = 1
 })
 </script>
-<style lang="less" scoped>
+<style scoped lang="scss">
 .app-bg-img {
 	display: block;
 	height: 100%;

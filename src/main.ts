@@ -1,6 +1,6 @@
 import { createApp } from "vue"
 
-import "./assets/css/global.less"
+import "./assets/style/main.scss"
 
 import App from "./App.vue"
 
