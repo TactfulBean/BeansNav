@@ -4,7 +4,7 @@
 	</div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue"
 
 const time = ref<string>("")
@@ -19,31 +19,30 @@ updateTime()
 setInterval(updateTime, 1000)
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 //时间栏
 #time-container {
+	@include center;
 	position: fixed;
 	z-index: 999;
 	top: 115px;
-	left: 50%;
-	transform: translateX(-50%);
 	padding: 10px;
-	text-align: center;
 	transition: 0.3s;
+	text-align: center;
 }
 #time-text {
-	max-width: 300px;
-	color: #fff;
 	font-family: -apple-system, BlinkMacSystemFont;
-	font-weight: 400;
 	font-size: 42px;
+	font-weight: 400;
+	max-width: 300px;
+	transition: 0.3s;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	transition: 0.3s;
+	color: $text-color-light;
 }
 #time-text:hover {
-	scale: 1.2;
 	transition: 0.3s;
+	scale: 1.2;
 }
 //max-width<600px
 @media screen and (max-width: 576px) {

@@ -1,34 +1,34 @@
 <template>
-	<div class="search-box" :class="{ focus: isFocus }" @mouseover="isHover = true" @mouseleave="isHover = false">
+	<div :class="{ focus: isFocus }" class="search-box" @mouseleave="isHover = false" @mouseover="isHover = true">
 		<a-input
+			ref="refInput"
+			v-model:value="text"
 			:placeholder="searchList[searchEngine - 1].title"
 			class="search-input"
-			v-model:value="text"
 			list="languageList"
-			@focus="isFocus = true"
 			@blur="isHover ? (isFocus = true) : (isFocus = false)"
+			@focus="isFocus = true"
 			@keyup="inputKey"
-			ref="refInput"
 		>
 		</a-input>
 		<a-dropdown>
 			<template #overlay>
-				<a-menu @mouseover="isHover = true" @mouseleave="isHover = false" @click="searchSelect">
-					<a-menu-item key="1"><icon-font :type="searchList[0].type" :style="{ color: searchList[0].color }"></icon-font> Bing</a-menu-item>
-					<a-menu-item key="2"><icon-font :type="searchList[1].type" :style="{ color: searchList[1].color }"></icon-font> Baidu</a-menu-item>
+				<a-menu @click="searchSelect" @mouseleave="isHover = false" @mouseover="isHover = true">
+					<a-menu-item key="1"><icon-font :style="{ color: searchList[0].color }" :type="searchList[0].type"></icon-font> Bing</a-menu-item>
+					<a-menu-item key="2"><icon-font :style="{ color: searchList[1].color }" :type="searchList[1].type"></icon-font> Baidu</a-menu-item>
 				</a-menu>
 			</template>
-			<a-button shape="circle" id="search--btn-eng">
-				<icon-font :type="searchList[searchEngine - 1].type" :style="{ color: searchList[searchEngine - 1].color }" />
+			<a-button id="search--btn-eng" shape="circle">
+				<icon-font :style="{ color: searchList[searchEngine - 1].color }" :type="searchList[searchEngine - 1].type" />
 			</a-button>
 		</a-dropdown>
 
-		<a-button shape="circle" id="search--btn-search" @click="search(text)">
+		<a-button id="search--btn-search" shape="circle" @click="search(text)">
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
-		<ul id="languageList" :style="{ height: listHeight }" v-if="isFocus">
+		<ul v-if="isFocus" id="languageList" :style="{ height: listHeight }">
 			<!--			<li style="padding: 0 20px" class="languageList-Li"><icon-font type="icon-fanyi" /> 翻译:{{text}}</li>-->
-			<li style="padding: 0 20px" class="languageList-Li"></li>
+			<li class="languageList-Li" style="padding: 0 20px"></li>
 			<li v-for="item in items" class="languageList-Li" @click="search(item)">
 				<search-outlined style="color: #1e90ff" />
 				{{ item }}
@@ -37,7 +37,7 @@
 	</div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { nextTick, ref } from "vue"
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue"
 import { useSettingStore } from "../../store/Config.ts"
@@ -155,27 +155,26 @@ let search = (value: any) => {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 //搜索栏
 .search-box {
-	z-index: 1000;
-	width: 230px;
-	height: 43px;
-	max-width: 80%;
+	@include center;
 	position: absolute;
+	z-index: 1000;
 	top: 200px;
-	left: 50%;
-	transform: translateX(-50%);
-	box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
-	background-color: rgba(255, 255, 255, 0.25);
-	backdrop-filter: blur(10px) saturate(1.5);
-	//border: 1px solid #fff4;
-	border-radius: 30px;
+	width: 230px;
+	max-width: 80%;
+	height: 43px;
 	transition: 0.3s;
+	border-radius: 30px;
+	background-color: rgba(255, 255, 255, 0.25);
+	//border: 1px solid #fff4;
+	box-shadow: $box-shadow-10;
+	backdrop-filter: blur(10px) saturate(1.5);
 	.search-input {
 		text-align: center;
+		color: $text-color-light;
 		background-color: transparent;
-		color: #fff;
 	}
 	#search--btn-eng {
 		opacity: 0;
@@ -190,11 +189,11 @@ let search = (value: any) => {
 //获取焦点后
 .focus {
 	width: 530px;
-	opacity: 1;
 	transition: 0.3s;
+	opacity: 1;
 	background-color: rgba(255, 255, 255, 0.8);
 	.search-input {
-		color: #000;
+		color: $text-color-dark;
 	}
 	.search-input::placeholder {
 		color: #0009;
@@ -208,13 +207,13 @@ let search = (value: any) => {
 }
 //输入框
 .search-input {
-	outline: 0;
-	border: none;
 	width: 100%;
 	height: 100%;
-	color: inherit;
 	padding: 0 45px;
+	color: inherit;
+	border: none;
 	border-radius: 30px;
+	outline: 0;
 }
 .search-input::placeholder {
 	color: #fffd;
@@ -222,51 +221,50 @@ let search = (value: any) => {
 //搜索引擎选择按钮
 #search--btn-eng {
 	position: absolute;
-	left: 5px;
 	top: 5px;
+	left: 5px;
 }
 //搜索按钮
 #search--btn-search {
 	position: absolute;
-	right: 5px;
 	top: 5px;
+	right: 5px;
 }
 //搜索提示框
 #languageList {
-	height: 0;
-	overflow: hidden;
+	@include center;
 	position: absolute;
-	left: 50%;
 	z-index: 1000;
-	margin: 0;
-	padding: 0;
+	overflow: hidden;
 	width: 100%;
 	max-width: 620px;
+	height: 0;
+	margin: 5px 0 0 0;
+	padding: 0;
+	list-style: none;
+	transition: 0.15s;
 	border-radius: 15px;
 	background: hsla(0, 0%, 100%, 0.8);
-	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-	list-style: none;
-	transform: translate(-50%, 2%);
-	transition: 0.15s;
+	box-shadow: $box-shadow-5;
 }
 #languageList li {
-	height: 26px;
-	padding: 0 15px;
-	border-radius: 5px;
 	font-size: 14px;
 	line-height: 25px;
+	height: 26px;
+	padding: 0 15px;
 	cursor: pointer;
 	transition: 0.3s;
+	border-radius: $box-border-radius-5;
 }
 .listShow {
 	height: auto;
 	transition: 0.3s;
 }
 #languageList li:hover {
-	background-color: #afafaf;
 	padding: 0 20px;
-	letter-spacing: 1px;
 	transition: 0.3s;
+	letter-spacing: 1px;
+	background-color: #afafaf;
 }
 
 //max-width<576px

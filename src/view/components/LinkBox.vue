@@ -1,17 +1,17 @@
 <template>
 	<div id="carousel" @wheel="mouseWheel">
-		<a-tabs style="color: #fff" size="small" v-model:activeKey="activeKey">
+		<a-tabs v-model:activeKey="activeKey" size="small" style="color: #fff">
 			<a-tab-pane v-for="(item, index) in menuList" :key="index" :tab="item.name">
 				<div class="layout-col">
-					<div class="app-group-item" v-for="item2 in item.child">
+					<div v-for="item2 in item.child" class="app-group-item">
 						<div>
 							<a :href="item2.link">
 								<a-button>
 									<a-avatar
+										:size="{ xs: 44, sm: 56, md: 56, lg: 56, xl: 56, xxl: 56, xxxl: 56 }"
+										:src="item2.avatar"
 										class="app-group-item-icon"
 										shape="square"
-										:src="item2.avatar"
-										:size="{ xs: 44, sm: 56, md: 56, lg: 56, xl: 56, xxl: 56, xxxl: 56 }"
 									>
 										{{ item2.name }}
 									</a-avatar>
@@ -28,7 +28,7 @@
 	</div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { getCurrentInstance, onMounted, ref } from "vue"
 const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
 
@@ -62,33 +62,32 @@ const mouseWheel = (event: any) => {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 #carousel {
+	@include center;
 	position: absolute;
 	z-index: 999;
 	top: 45%;
-	left: 50%;
 	width: 60%;
 	height: 320px;
-	transform: translateX(-50%);
 }
 
 //链接样式
 .app-group-item {
 	padding: 10px 5px;
 	.ant-btn {
-		padding: 0 !important;
 		min-width: 60px;
 		min-height: 60px;
+		padding: 0 !important;
 		border-radius: 15px;
-		box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
+		box-shadow: $box-shadow-10;
 	}
 	.app-group-item-icon {
 		border-radius: 14px;
 	}
 	:hover {
-		scale: 1.05;
 		transition: 0.3s;
+		scale: 1.05;
 	}
 }
 
@@ -97,9 +96,9 @@ const mouseWheel = (event: any) => {
 	display: flex;
 	flex-flow: wrap;
 	.app-group-item {
+		display: inline-block;
 		flex: 0 0 10%;
 		text-align: center;
-		display: inline-block;
 	}
 }
 
@@ -107,8 +106,8 @@ const mouseWheel = (event: any) => {
 @media screen and (max-width: 576px) {
 	#carousel {
 		top: 250px;
-		width: 90%;
 		overflow: auto;
+		width: 90%;
 		height: calc(100% - 300px);
 	}
 	.layout-col {
