@@ -169,7 +169,7 @@ let searchEngine: any = ref(settingStore.searchEngine);
 // 查找对应KEY的对象
 let searchSelect = (e) => {
   searchEngine.value = e.key;
-  settingStore.setSearchEngine(e.key);
+  settingStore.searchEngine = e.key;
 };
 // 搜索事件
 let search = (value: any) => {

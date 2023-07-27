@@ -38,7 +38,7 @@ let visible = ref(false);
 let wallPaperType = ref(false);
 // 壁纸类型
 let changeWallPaperType = (e) => {
-  settingStore.setWallPaperType(e ? 2 : 1);
+  settingStore.wallPaperType = e ? 2 : 1;
 };
 
 // 移动端设置页面大小

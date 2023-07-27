@@ -76,7 +76,7 @@ if (settingStore.isMobile) {
 }
 let drawerOpen = () => {
   visible.value = true;
-  settingStore.setDateVersion(dateLog.value[0].header);
+  settingStore.logVersion = dateLog.value[0].header;
   isRead.value = false;
 };
 </script>

@@ -7,7 +7,7 @@
       >
       <span class="footer-span"> 丨 </span>
       <a href="https://github.com/TactfulBean/Homepage-Vite" class="footer-link"
-        >Version 3.3.3</a
+        >Version 3.3.4</a
       >
       <span class="footer-span"> 丨 </span>
       <a href="https://beian.miit.gov.cn/" class="footer-link"
