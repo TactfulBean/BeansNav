@@ -165,7 +165,7 @@ let searchList = [
   },
 ];
 // 所选搜索引擎
-let searchEngine = ref(settingStore.searchEngine);
+let searchEngine: any = ref(settingStore.searchEngine);
 // 查找对应KEY的对象
 let searchSelect = (e) => {
   searchEngine.value = e.key;
