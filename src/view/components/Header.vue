@@ -29,8 +29,8 @@
 <script setup lang="ts">
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import Setting from "./Setting.vue"
-import UpDateLog from "./upDateLog.vue"
-import { useSettingStore } from "../store/Config.ts"
+import UpDateLog from "./UpDateLog.vue"
+import { useSettingStore } from "../../store/Config.ts"
 const settingStore = useSettingStore()
 
 const IconFont = createFromIconfontCN({
