@@ -4,10 +4,17 @@ import jsonpAdapter from "axios-jsonp"
 const WEATHER_URL = import.meta.env.VITE_WEATHER
 const LINKBOX_URL = import.meta.env.VITE_LINKBOX
 const UPDATELOG_URL = import.meta.env.VITE_UPDATELOG
+const WALLPAPER = import.meta.env.VITE_WALLPAPER
 export const getWeather = () => {
 	return axios({
 		method: "GET",
 		url: WEATHER_URL
+	})
+}
+export const getWallPaper = () => {
+	return axios({
+		method: "GET",
+		url: WALLPAPER
 	})
 }
 export const getLinkBox = () => {

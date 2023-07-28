@@ -7,6 +7,7 @@
 import { getCurrentInstance, onMounted, ref, watch } from "vue"
 
 import { useSettingStore } from "@/stores/Config.ts"
+import { getWallPaper } from "@/api"
 const settingStore = useSettingStore()
 
 const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
@@ -39,10 +40,10 @@ const setWallPaper = (type) => {
 			if (getDate() === settingStore.wallPaperDate) {
 				wallImage.src = settingStore.wallPaperSrc
 			} else {
-				axios.get("https://bing.biturl.top").then((res) => {
-					settingStore.wallPaperSrc = res.data.url
-					settingStore.wallPaperDate = res.data.end_date
-					wallImage.src = res.data.url
+				getWallPaper().then((res) => {
+					settingStore.wallPaperSrc = res.url
+					settingStore.wallPaperDate = res.end_date
+					wallImage.src = res.url
 				})
 			}
 			break
