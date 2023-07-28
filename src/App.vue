@@ -2,7 +2,7 @@
 	<Main></Main>
 </template>
 <script lang="ts" setup>
-import Main from "@/view/index.vue"
+import Main from "@/views/index.vue"
 import { onMounted } from "vue"
 
 onMounted(() => {

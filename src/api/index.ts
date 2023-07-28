@@ -1,20 +1,23 @@
 import axios from "@/utils/request"
 
+const WEATHER_URL = import.meta.env.VITE_WEATHER
+const LINKBOX_URL = import.meta.env.VITE_LINKBOX
+const UPDATELOG_URL = import.meta.env.VITE_UPDATELOG
 export const getWeather = () => {
 	return axios({
 		method: "GET",
-		url: "https://api.oioweb.cn/api/weather/GetWeather"
+		url: WEATHER_URL
 	})
 }
 export const getLinkBox = () => {
 	return axios({
 		method: "GET",
-		url: "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json"
+		url: LINKBOX_URL
 	})
 }
 export const getUpdateLog = () => {
 	return axios({
 		method: "GET",
-		url: "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/DateLog.json"
+		url: UPDATELOG_URL
 	})
 }
