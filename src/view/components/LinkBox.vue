@@ -29,8 +29,8 @@
 </template>
 
 <script lang="ts" setup>
-import { getCurrentInstance, onMounted, ref } from "vue"
-const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
+import { onMounted, ref } from "vue"
+import { getLinkBox } from "@/api"
 
 onMounted(() => {
 	getLinkList()
@@ -40,14 +40,11 @@ let menuList = ref()
 let len = ref()
 
 // 获取链接列表
-const getLinkList = async () => {
-	try {
-		const response = await axios.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json")
-		menuList.value = response.data
-		len.value = response.data.length
-	} catch (error) {
-		console.error(error)
-	}
+const getLinkList = () => {
+	getLinkBox().then((res: any) => {
+		menuList.value = res
+		len.value = res.length
+	})
 }
 
 let activeKey = ref(0)
