@@ -85,7 +85,7 @@ const mouseWheel = (event: any) => {
 	.app-group-item-icon {
 		border-radius: 14px;
 	}
-	:hover {
+	&:hover {
 		transition: 0.3s;
 		scale: 1.05;
 	}

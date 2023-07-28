@@ -44,25 +44,25 @@ const IconFont = createFromIconfontCN({
 </script>
 <style lang="scss" scoped>
 #menu-btn {
-	border-radius: $box-border-radius-5;
+	@include box-border-radius(5px);
 	box-shadow: $box-shadow-5;
 	backdrop-filter: blur(10px) saturate(1.5);
 }
 
 #setting-box {
+	@include box-border-radius(15px);
 	margin: 10px 0;
 	padding: 10px;
 	transition: 0.3s;
 	border: 1px solid #dadada;
-	border-radius: $box-border-radius-15;
 	background: $text-color-light;
 }
 #setting-title {
+	@include box-border-radius(10px);
 	width: 150px;
 	padding: 5px;
 	text-align: center;
 	color: $text-color-light;
-	border-radius: $box-border-radius-10;
 	background-color: $theme-blue;
 }
 

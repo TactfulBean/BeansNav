@@ -28,17 +28,17 @@ footer {
 	text-shadow: $text-shadow;
 }
 #footerBox {
+	@include box-border-radius(5px);
 	padding: 3px 10px;
-	border-radius: $box-border-radius-5;
-	backdrop-filter: blur(10px);
+	backdrop-filter: $backdrop-filter;
 }
 .footer-link {
 	cursor: pointer;
 	text-decoration: none;
 	color: $text-color-light-opacity;
-}
-.footer-link:hover {
-	color: $text-color-light;
+	&:hover {
+		color: $text-color-light;
+	}
 }
 .footer-span {
 	cursor: default;

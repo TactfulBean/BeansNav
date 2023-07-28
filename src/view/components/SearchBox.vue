@@ -159,6 +159,7 @@ let search = (value: any) => {
 //搜索栏
 .search-box {
 	@include center;
+	@include box-border-radius(30px);
 	position: absolute;
 	z-index: 1000;
 	top: 200px;
@@ -166,25 +167,21 @@ let search = (value: any) => {
 	max-width: 80%;
 	height: 43px;
 	transition: 0.3s;
-	border-radius: 30px;
 	background-color: rgba(255, 255, 255, 0.25);
-	//border: 1px solid #fff4;
 	box-shadow: $box-shadow-10;
-	backdrop-filter: blur(10px) saturate(1.5);
+	backdrop-filter: $backdrop-filter;
 	.search-input {
 		text-align: center;
 		color: $text-color-light;
 		background-color: transparent;
 	}
-	#search--btn-eng {
-		opacity: 0;
-	}
+	#search--btn-eng,
 	#search--btn-search {
 		opacity: 0;
 	}
-}
-.search-box:hover {
-	width: 530px;
+	&:hover {
+		width: 530px;
+	}
 }
 //获取焦点后
 .focus {
@@ -194,40 +191,40 @@ let search = (value: any) => {
 	background-color: rgba(255, 255, 255, 0.8);
 	.search-input {
 		color: $text-color-dark;
+		&::placeholder {
+			color: #0009;
+		}
 	}
-	.search-input::placeholder {
-		color: #0009;
-	}
-	#search--btn-eng {
-		opacity: 1;
-	}
+	#search--btn-eng,
 	#search--btn-search {
 		opacity: 1;
 	}
 }
 //输入框
 .search-input {
-	width: 100%;
-	height: 100%;
+	@include full;
 	padding: 0 45px;
 	color: inherit;
 	border: none;
 	border-radius: 30px;
 	outline: 0;
+	&::placeholder {
+		color: #fffd;
+	}
 }
-.search-input::placeholder {
-	color: #fffd;
+
+%search--btn {
+	position: absolute;
+	top: 5px;
 }
 //搜索引擎选择按钮
 #search--btn-eng {
-	position: absolute;
-	top: 5px;
+	@extend %search--btn;
 	left: 5px;
 }
 //搜索按钮
 #search--btn-search {
-	position: absolute;
-	top: 5px;
+	@extend %search--btn;
 	right: 5px;
 }
 //搜索提示框
@@ -246,25 +243,25 @@ let search = (value: any) => {
 	border-radius: 15px;
 	background: hsla(0, 0%, 100%, 0.8);
 	box-shadow: $box-shadow-5;
-}
-#languageList li {
-	font-size: 14px;
-	line-height: 25px;
-	height: 26px;
-	padding: 0 15px;
-	cursor: pointer;
-	transition: 0.3s;
-	border-radius: $box-border-radius-5;
+	li {
+		@include box-border-radius(5px);
+		font-size: 14px;
+		line-height: 25px;
+		height: 26px;
+		padding: 0 15px;
+		cursor: pointer;
+		transition: 0.3s;
+		&:hover {
+			padding: 0 20px;
+			transition: 0.3s;
+			letter-spacing: 1px;
+			background-color: #afafaf;
+		}
+	}
 }
 .listShow {
 	height: auto;
 	transition: 0.3s;
-}
-#languageList li:hover {
-	padding: 0 20px;
-	transition: 0.3s;
-	letter-spacing: 1px;
-	background-color: #afafaf;
 }
 
 //max-width<576px

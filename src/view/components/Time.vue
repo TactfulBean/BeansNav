@@ -29,20 +29,20 @@ setInterval(updateTime, 1000)
 	padding: 10px;
 	transition: 0.3s;
 	text-align: center;
-}
-#time-text {
-	font-family: -apple-system, BlinkMacSystemFont;
-	font-size: 42px;
-	font-weight: 400;
-	max-width: 300px;
-	transition: 0.3s;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	color: $text-color-light;
-}
-#time-text:hover {
-	transition: 0.3s;
-	scale: 1.2;
+	#time-text {
+		font-family: -apple-system, BlinkMacSystemFont;
+		font-size: 42px;
+		font-weight: 400;
+		max-width: 300px;
+		transition: 0.3s;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: $text-color-light;
+		&:hover {
+			transition: 0.3s;
+			scale: 1.2;
+		}
+	}
 }
 //max-width<600px
 @media screen and (max-width: 576px) {
