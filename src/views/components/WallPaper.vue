@@ -4,13 +4,11 @@
 	<div class="app-cover"></div>
 </template>
 <script lang="ts" setup>
-import { getCurrentInstance, onMounted, ref, watch } from "vue"
+import { onMounted, ref, watch } from "vue"
 
 import { useSettingStore } from "@/stores/Config.ts"
 import { getWallPaper } from "@/api"
 const settingStore = useSettingStore()
-
-const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
 
 onMounted(() => {
 	wallPaperType.value = settingStore.wallPaperType
@@ -40,7 +38,7 @@ const setWallPaper = (type) => {
 			if (getDate() === settingStore.wallPaperDate) {
 				wallImage.src = settingStore.wallPaperSrc
 			} else {
-				getWallPaper().then((res) => {
+				getWallPaper().then((res: any) => {
 					settingStore.wallPaperSrc = res.url
 					settingStore.wallPaperDate = res.end_date
 					wallImage.src = res.url
