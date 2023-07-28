@@ -41,6 +41,7 @@
 import { nextTick, ref } from "vue"
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue"
 import { useSettingStore } from "@/stores/Config.ts"
+import { getSearchSuggestions } from "@/api"
 const settingStore = useSettingStore()
 
 nextTick(() => {
@@ -104,21 +105,12 @@ let selectText = (value: any) => {
 let listHeight = <any>ref(0)
 // 搜索提示
 let searchText = () => {
-	if (!text.value) {
-		listHeight.value = 0
-	}
+	if (!text.value) listHeight.value = 0
 	select = -1
-	let sugurl = `https://suggestion.baidu.com/su?wd=${text.value}&cb=window.baidu.sug`
-	//@ts-ignore
-	window.baidu = {
-		sug: function (json: any): any {
-			items.value = json.s
-			listHeight.value = items.value.length * 26 + 26 + "px"
-		}
-	}
-	const script = document.createElement("script")
-	script.src = sugurl
-	document.head.appendChild(script)
+	getSearchSuggestions(text.value).then((res: any) => {
+		items.value = res
+		listHeight.value = items.value.length * 26 + 26 + "px"
+	})
 }
 
 let searchList = [
