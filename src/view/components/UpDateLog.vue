@@ -24,7 +24,7 @@
 <script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import { getCurrentInstance, onMounted, ref } from "vue"
-import { useSettingStore } from "../../store/Config.ts"
+import { useSettingStore } from "@/store/Config.ts"
 const settingStore = useSettingStore()
 
 const axios = getCurrentInstance().appContext.config.globalProperties.$Axios

@@ -26,23 +26,23 @@ footer {
 	white-space: nowrap;
 	color: $text-color-light;
 	text-shadow: $text-shadow;
-}
-#footerBox {
-	@include box-border-radius(5px);
-	padding: 3px 10px;
-	backdrop-filter: $backdrop-filter;
-}
-.footer-link {
-	cursor: pointer;
-	text-decoration: none;
-	color: $text-color-light-opacity;
-	&:hover {
-		color: $text-color-light;
+	#footerBox {
+		@include box-border-radius(5px);
+		padding: 3px 10px;
+		backdrop-filter: $backdrop-filter;
+		.footer-link {
+			cursor: pointer;
+			text-decoration: none;
+			color: $text-color-light-opacity;
+			&:hover {
+				color: $text-color-light;
+			}
+		}
+		.footer-span {
+			cursor: default;
+			color: $text-color-light-opacity;
+		}
 	}
-}
-.footer-span {
-	cursor: default;
-	color: $text-color-light-opacity;
 }
 @media screen and (max-height: 576px) {
 	#footerBox {
