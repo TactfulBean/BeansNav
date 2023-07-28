@@ -23,11 +23,10 @@
 </template>
 <script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import { getCurrentInstance, onMounted, ref } from "vue"
+import { onMounted, ref } from "vue"
 import { useSettingStore } from "@/store/Config.ts"
+import { getUpdateLog } from "@/api"
 const settingStore = useSettingStore()
-
-const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
 
 const IconFont = createFromIconfontCN({
 	scriptUrl: settingStore.IconFontURL
@@ -40,13 +39,10 @@ let dateLog = ref()
 let isRead = ref(false)
 
 const getDateLog = async () => {
-	try {
-		const response = await axios.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/DateLog.json")
-		dateLog.value = response.data
+	getUpdateLog().then((res: any) => {
+		dateLog.value = res
 		isRead.value = settingStore.logVersion != dateLog.value[0].header
-	} catch (error) {
-		console.error(error)
-	}
+	})
 }
 
 let activeKey = ref(1)
