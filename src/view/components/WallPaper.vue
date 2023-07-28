@@ -30,9 +30,15 @@ const wallImage: any = new Image()
 // 	wallImage.src = "https://www.todaybing.com/api/today/cn?size=hd";
 // }
 
-let date = settingStore.date
-let wallPaperDate = settingStore.wallPaperDate
-if (date === wallPaperDate) {
+let getDate = () => {
+	const date = new Date()
+	const year = date.getFullYear().toString()
+	const month = (date.getMonth() + 1).toString().padStart(2, "0")
+	const day = date.getDate().toString()
+	return year + month + day
+}
+
+if (getDate() === settingStore.wallPaperDate) {
 	wallImage.src = settingStore.wallPaperSrc
 } else {
 	axios.get("https://bing.biturl.top").then((res) => {
