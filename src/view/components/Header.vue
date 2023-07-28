@@ -46,23 +46,19 @@ const IconFont = createFromIconfontCN({
 	padding: 0.5% 1%;
 }
 #menu {
-	border: 1px solid $theme-blue;
-	border-radius: $box-border-radius-5;
+	@include box-border($theme-blue);
+	@include box-border-radius(5px);
 	background: #fff0;
-	backdrop-filter: blur(10px) saturate(1.5);
+	backdrop-filter: $backdrop-filter;
 }
 #menu-btn {
-	border-radius: $box-border-radius-5;
+	@include box-border-radius(5px);
 	box-shadow: $box-shadow-5;
-	backdrop-filter: blur(10px) saturate(1.5);
+	backdrop-filter: $backdrop-filter;
 }
-.menu-item {
-	span {
-		color: $text-color-light;
-	}
-}
-.menu-item:hover {
-	span {
+.menu-item span {
+	color: $text-color-light;
+	&:hover {
 		color: $text-color-dark;
 	}
 }
