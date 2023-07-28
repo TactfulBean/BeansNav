@@ -70,35 +70,30 @@ const mouseWheel = (event: any) => {
 	top: 45%;
 	width: 60%;
 	height: 320px;
-}
-
-//链接样式
-.app-group-item {
-	padding: 10px 5px;
-	.ant-btn {
-		min-width: 60px;
-		min-height: 60px;
-		padding: 0 !important;
-		border-radius: 15px;
-		box-shadow: $box-shadow-10;
-	}
-	.app-group-item-icon {
-		border-radius: 14px;
-	}
-	&:hover {
-		transition: 0.3s;
-		scale: 1.05;
-	}
-}
-
-//容器行列设置
-.layout-col {
-	display: flex;
-	flex-flow: wrap;
-	.app-group-item {
-		display: inline-block;
-		flex: 0 0 10%;
-		text-align: center;
+	.layout-col {
+		display: flex;
+		flex-flow: wrap;
+		.app-group-item {
+			display: inline-block;
+			flex: 0 0 10%;
+			padding: 10px 5px;
+			text-align: center;
+			$radius: 15px;
+			.ant-btn {
+				min-width: 60px;
+				min-height: 60px;
+				padding: 0 !important;
+				@include box-border-radius($radius);
+				box-shadow: $box-shadow-10;
+			}
+			.app-group-item-icon {
+				@include box-border-radius($radius - 1px);
+			}
+			&:hover {
+				transition: 0.3s;
+				scale: 1.05;
+			}
+		}
 	}
 }
 
@@ -109,20 +104,19 @@ const mouseWheel = (event: any) => {
 		overflow: auto;
 		width: 90%;
 		height: calc(100% - 300px);
-	}
-	.layout-col {
-		.app-group-item {
-			flex: 0 0 25%;
-		}
-	}
-	.app-group-item {
-		.ant-btn {
-			min-width: 48px;
-			min-height: 48px;
-			border-radius: 10px;
-		}
-		.app-group-item-icon {
-			border-radius: 9px;
+		.layout-col {
+			.app-group-item {
+				flex: 0 0 25%;
+				$radius: 10px;
+				.ant-btn {
+					min-width: 48px;
+					min-height: 48px;
+					@include box-border-radius($radius);
+				}
+				.app-group-item-icon {
+					@include box-border-radius($radius - 1px);
+				}
+			}
 		}
 	}
 }
