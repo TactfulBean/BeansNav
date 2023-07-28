@@ -28,9 +28,9 @@
 </template>
 <script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import Setting from "./Setting.vue"
-import UpDateLog from "./UpDateLog.vue"
-import { useSettingStore } from "../../store/Config.ts"
+import Setting from "@/view/components/Setting.vue"
+import UpDateLog from "@/view/components/UpDateLog.vue"
+import { useSettingStore } from "@/store/Config.ts"
 const settingStore = useSettingStore()
 
 const IconFont = createFromIconfontCN({
@@ -50,16 +50,20 @@ const IconFont = createFromIconfontCN({
 	@include box-border-radius(5px);
 	background: #fff0;
 	backdrop-filter: $backdrop-filter;
+	.menu-item {
+		span {
+			color: $text-color-light;
+		}
+		&:hover {
+			span {
+				color: $text-color-dark;
+			}
+		}
+	}
 }
 #menu-btn {
 	@include box-border-radius(5px);
 	box-shadow: $box-shadow-5;
 	backdrop-filter: $backdrop-filter;
-}
-.menu-item span {
-	color: $text-color-light;
-	&:hover {
-		color: $text-color-dark;
-	}
 }
 </style>

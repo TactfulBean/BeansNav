@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue"
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import { useSettingStore } from "../../store/Config.ts"
+import { useSettingStore } from "@/store/Config.ts"
 const settingStore = useSettingStore()
 
 onMounted(() => {

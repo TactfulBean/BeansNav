@@ -1,8 +1,8 @@
 import { createApp } from "vue"
 
-import "./assets/style/main.scss"
+import "@/assets/style/main.scss"
 
-import App from "./App.vue"
+import App from "@/App.vue"
 
 import axios from "axios"
 

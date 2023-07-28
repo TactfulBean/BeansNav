@@ -7,11 +7,11 @@
 	<Footer></Footer>
 </template>
 <script lang="ts" setup>
-import Header from "./components/Header.vue"
-import Time from "./components/Time.vue"
-import SearchBox from "./components/SearchBox.vue"
-import LinkBox from "./components/LinkBox.vue"
-import WallPaper from "./components/WallPaper.vue"
-import Footer from "./components/Footer.vue"
+import Header from "@/view/components/Header.vue"
+import Time from "@/view/components/Time.vue"
+import SearchBox from "@/view/components/SearchBox.vue"
+import LinkBox from "@/view/components/LinkBox.vue"
+import WallPaper from "@/view/components/WallPaper.vue"
+import Footer from "@/view/components/Footer.vue"
 </script>
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

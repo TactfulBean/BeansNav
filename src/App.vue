@@ -1,8 +1,8 @@
 <template>
 	<Main></Main>
 </template>
-<script setup lang="ts">
-import Main from "./view/index.vue"
+<script lang="ts" setup>
+import Main from "@/view/index.vue"
 import { onMounted } from "vue"
 
 onMounted(() => {
@@ -19,4 +19,4 @@ onMounted(() => {
 	)
 })
 </script>
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>
