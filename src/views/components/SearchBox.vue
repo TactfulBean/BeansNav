@@ -40,7 +40,7 @@
 <script lang="ts" setup>
 import { nextTick, ref } from "vue"
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue"
-import { useSettingStore } from "@/store/Config.ts"
+import { useSettingStore } from "@/stores/Config.ts"
 const settingStore = useSettingStore()
 
 nextTick(() => {

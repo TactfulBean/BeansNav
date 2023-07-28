@@ -6,7 +6,7 @@
 <script lang="ts" setup>
 import { getCurrentInstance, onMounted, ref, watch } from "vue"
 
-import { useSettingStore } from "@/store/Config.ts"
+import { useSettingStore } from "@/stores/Config.ts"
 const settingStore = useSettingStore()
 
 const axios = getCurrentInstance().appContext.config.globalProperties.$Axios
