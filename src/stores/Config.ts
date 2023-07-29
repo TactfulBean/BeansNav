@@ -4,8 +4,8 @@ interface config {
 	searchEngine: number
 	wallPaperType: number
 	logVersion: string
-	wallPaperDate: null
-	wallPaperSrc: null
+	wallPaperDate: any
+	wallPaperSrc: any
 }
 // 默认设置
 const defaultConfig: config = {
