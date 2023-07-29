@@ -39,9 +39,9 @@ const setWallPaper = (type) => {
 				wallImage.src = settingStore.wallPaperSrc
 			} else {
 				getWallPaper().then((res: any) => {
-					settingStore.wallPaperSrc = res.url
-					settingStore.wallPaperDate = res.end_date
-					wallImage.src = res.url
+					settingStore.wallPaperSrc = res.result[0].url
+					settingStore.wallPaperDate = getDate()
+					wallImage.src = res.result[0].url
 				})
 			}
 			break
