@@ -1,22 +1,19 @@
 <template>
-	<div v-if="wallPaperType == 1" ref="wallPaper" class="app-bg-img"></div>
-	<video v-if="wallPaperType == 2" :src="wallPaperSrc" autoplay="true" class="app-bg-video" loop="true"></video>
+	<div v-if="settingStore.wallPaperType == 1" ref="wallPaper" class="app-bg-img"></div>
+	<video v-if="settingStore.wallPaperType == 2" :src="wallPaperSrc" autoplay="true" muted="true" class="app-bg-video" loop="true"></video>
 	<div class="app-cover"></div>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, watch } from "vue"
-
+import { getDate } from "@/utils"
 import { useSettingStore } from "@/stores/Config.ts"
 import { getWallPaper } from "@/api"
 const settingStore = useSettingStore()
 
 onMounted(() => {
-	wallPaperType.value = settingStore.wallPaperType
 	setWallPaper(settingStore.wallPaperType)
 })
 
-// 获取当前壁纸类型
-const wallPaperType = ref()
 // 视频壁纸SRC
 const wallPaperSrc = ref()
 // 图片壁纸
@@ -27,7 +24,6 @@ const wallImage: any = new Image()
 watch(
 	() => settingStore.wallPaperType,
 	(newValue) => {
-		wallPaperType.value = newValue
 		setWallPaper(newValue)
 	}
 )
@@ -51,14 +47,6 @@ const setWallPaper = (type) => {
 			break
 		}
 	}
-}
-
-let getDate = () => {
-	const date = new Date()
-	const year = date.getFullYear().toString()
-	const month = (date.getMonth() + 1).toString().padStart(2, "0")
-	const day = date.getDate().toString()
-	return year + month + day
 }
 
 // 图片壁纸加载后进行再显示

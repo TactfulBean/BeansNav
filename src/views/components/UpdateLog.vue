@@ -24,12 +24,13 @@
 <script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import { onMounted, ref } from "vue"
+import { isMobile } from "@/utils"
 import { useSettingStore } from "@/stores/Config.ts"
 import { getUpdateLog } from "@/api"
 const settingStore = useSettingStore()
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: settingStore.IconFontURL
+	scriptUrl: import.meta.env.VITE_ICONFONT
 })
 onMounted(() => {
 	getDateLog()
@@ -49,7 +50,7 @@ let activeKey = ref(1)
 let visible = ref(false)
 // 移动端设置页面大小
 let width = ref("378")
-if (settingStore.isMobile) {
+if (isMobile()) {
 	width.value = "80%"
 }
 let drawerOpen = () => {

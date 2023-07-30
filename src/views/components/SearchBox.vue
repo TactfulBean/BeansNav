@@ -3,7 +3,7 @@
 		<a-input
 			ref="refInput"
 			v-model:value="text"
-			:placeholder="searchList[searchEngine - 1].title"
+			:placeholder="searchList[settingStore.searchEngine - 1].title"
 			class="search-input"
 			list="languageList"
 			@blur="isHover ? (isFocus = true) : (isFocus = false)"
@@ -19,7 +19,7 @@
 				</a-menu>
 			</template>
 			<a-button id="search--btn-eng" shape="circle">
-				<icon-font :style="{ color: searchList[searchEngine - 1].color }" :type="searchList[searchEngine - 1].type" />
+				<icon-font :style="{ color: searchList[settingStore.searchEngine - 1].color }" :type="searchList[settingStore.searchEngine - 1].type" />
 			</a-button>
 		</a-dropdown>
 
@@ -56,7 +56,7 @@ const isFocus = ref<boolean>(false)
 const isHover = ref<boolean>(false)
 
 const IconFont = createFromIconfontCN({
-	scriptUrl: settingStore.IconFontURL
+	scriptUrl: import.meta.env.VITE_ICONFONT
 })
 document.getElementById("app-body").addEventListener("keyup", () => {
 	refInput.value.focus()
@@ -131,18 +131,16 @@ let searchList = [
 		translate: "https://fanyi.baidu.com/translate?#zh/en/"
 	}
 ]
-// 所选搜索引擎
-let searchEngine: any = ref(settingStore.searchEngine)
+
 // 查找对应KEY的对象
 let searchSelect = (e) => {
-	searchEngine.value = e.key
 	settingStore.searchEngine = e.key
 }
 // 搜索事件
 let search = (value: any) => {
 	text.value = value
 	if (value.trim() !== "") {
-		window.location.href = searchList[searchEngine.value - 1].href + value
+		window.location.href = searchList[settingStore.searchEngine - 1].href + value
 	}
 }
 </script>

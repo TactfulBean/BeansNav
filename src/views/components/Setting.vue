@@ -4,7 +4,7 @@
 		<div id="setting-box">
 			<div>
 				<span>动态壁纸：</span>
-				<a-switch v-model:checked="wallPaperType" @change="changeWallPaperType" />
+				<a-switch :checked="settingStore.wallPaperType == 2" @change="changeWallPaperType" />
 			</div>
 		</div>
 		<template #extra>
@@ -13,18 +13,15 @@
 	</a-drawer>
 </template>
 <script lang="ts" setup>
-import { onMounted, ref } from "vue"
+import { ref } from "vue"
 import { createFromIconfontCN } from "@ant-design/icons-vue"
+import { isMobile } from "@/utils"
 import { useSettingStore } from "@/stores/Config.ts"
 const settingStore = useSettingStore()
 
-onMounted(() => {
-	wallPaperType.value = settingStore.wallPaperType == 2
-})
 // 是否显示设置页面
 let visible = ref(false)
 
-let wallPaperType = ref(false)
 // 壁纸类型
 let changeWallPaperType = (e) => {
 	settingStore.wallPaperType = e ? 2 : 1
@@ -32,14 +29,14 @@ let changeWallPaperType = (e) => {
 
 // 移动端设置页面大小
 let width = ref("378")
-if (settingStore.isMobile) {
+if (isMobile()) {
 	width.value = "80%"
 }
 let drawerOpen = () => {
 	visible.value = true
 }
 const IconFont = createFromIconfontCN({
-	scriptUrl: settingStore.IconFontURL
+	scriptUrl: import.meta.env.VITE_ICONFONT
 })
 </script>
 <style lang="scss" scoped>
