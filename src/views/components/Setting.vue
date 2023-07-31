@@ -15,7 +15,6 @@
 <script lang="ts" setup>
 import { ref } from "vue"
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import { isMobile } from "@/utils"
 import { useSettingStore } from "@/stores/Config.ts"
 const settingStore = useSettingStore()
 
@@ -29,7 +28,7 @@ let changeWallPaperType = (e) => {
 
 // 移动端设置页面大小
 let width = ref("378")
-if (isMobile()) {
+if (window.innerWidth < 576) {
 	width.value = "80%"
 }
 let drawerOpen = () => {
@@ -61,9 +60,5 @@ const IconFont = createFromIconfontCN({
 	text-align: center;
 	color: $text-color-light;
 	background-color: $theme-blue;
-}
-
-//max-width<576px
-@media screen and (max-width: 576px) {
 }
 </style>

@@ -24,7 +24,6 @@
 <script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import { onMounted, ref } from "vue"
-import { isMobile } from "@/utils"
 import { useSettingStore } from "@/stores/Config.ts"
 import { getUpdateLog } from "@/api"
 const settingStore = useSettingStore()
@@ -48,9 +47,9 @@ const getDateLog = async () => {
 
 let activeKey = ref(1)
 let visible = ref(false)
-// 移动端设置页面大小
+// 移动端设置页面大小  <576
 let width = ref("378")
-if (isMobile()) {
+if (window.innerWidth < 576) {
 	width.value = "80%"
 }
 let drawerOpen = () => {
