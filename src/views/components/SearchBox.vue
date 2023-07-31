@@ -28,7 +28,7 @@
 		</a-button>
 		<ul v-if="isFocus" id="languageList" :style="{ height: listHeight }">
 			<!--			<li style="padding: 0 20px" class="languageList-Li"><icon-font type="icon-fanyi" /> 翻译:{{text}}</li>-->
-			<li class="languageList-Li" style="padding: 0 20px"></li>
+			<li class="languageList-Li" style="padding: 0 20px"><icon-font :type="searchList[1].type"></icon-font> <b>以下结果来自百度搜索建议</b></li>
 			<li v-for="item in items" class="languageList-Li" @click="search(item)">
 				<search-outlined style="color: #1e90ff" />
 				{{ item }}
