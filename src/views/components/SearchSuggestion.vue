@@ -53,7 +53,7 @@ let searchText = () => {
 
 const emits = defineEmits<{
 	(event: "search", item: any): void
-	(event: "changeText", id: string): void
+	(event: "changeText", text: string): void
 }>()
 
 defineExpose({
