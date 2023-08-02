@@ -9,5 +9,7 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate"
 
 const app = createApp(App)
 
+app.config.warnHandler = () => null
+
 app.use(createPinia().use(piniaPluginPersistedstate))
 app.mount("#app")
