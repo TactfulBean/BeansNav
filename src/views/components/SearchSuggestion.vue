@@ -1,7 +1,7 @@
 <template>
 	<ul id="languageList" :style="{ height: listHeight }">
-		<li class="languageList-Li" style="padding: 0 20px"><icon-font :type="searchList[1].type"></icon-font> <b>以下结果来自百度搜索建议</b></li>
-		<li v-for="item in items" class="languageList-Li" @click="emits('search', item)">
+		<li class="languageList-Li" style="padding: 0 20px; color: #818181"><icon-font type="icon-baidu"></icon-font> 以下结果来自百度搜索建议</li>
+		<li v-for="(item, index) in items" class="languageList-Li" @click="emits('search', item)" @mouseover="mouseSelect(index)">
 			<search-outlined style="color: #1e90ff" />
 			{{ item }}
 		</li>
@@ -9,9 +9,8 @@
 </template>
 <script lang="ts" setup>
 import { getSearchSuggestions } from "@/api"
-import searchList from "@/assets/json/searchEngine.json"
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue"
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 
 const IconFont = createFromIconfontCN({
 	scriptUrl: import.meta.env.VITE_ICONFONT
@@ -20,6 +19,10 @@ const IconFont = createFromIconfontCN({
 const props = defineProps<{
 	text: string
 }>()
+
+onMounted(() => {
+	searchText()
+})
 
 let items = ref()
 // 提示列表所选序号 初始值为0
@@ -51,6 +54,11 @@ let searchText = () => {
 	})
 }
 
+let mouseSelect = (index) => {
+	select = index + 1
+	selectText(0)
+}
+
 const emits = defineEmits<{
 	search: [item: any]
 	changeText: [text: string]
@@ -78,7 +86,7 @@ defineExpose({
 	border-radius: 15px;
 	background: hsla(0, 0%, 100%, 0.8);
 	box-shadow: $box-shadow-5;
-	li {
+	.languageList-Li {
 		@include box-border-radius(5px);
 		font-size: 14px;
 		line-height: 25px;
@@ -86,12 +94,6 @@ defineExpose({
 		padding: 0 15px;
 		cursor: pointer;
 		transition: 0.3s;
-		&:hover {
-			padding: 0 20px;
-			transition: 0.3s;
-			letter-spacing: 1px;
-			background-color: #afafaf;
-		}
 	}
 }
 </style>

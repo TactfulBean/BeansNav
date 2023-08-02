@@ -128,7 +128,7 @@ let search = (value: any) => {
 //获取焦点后
 .focus {
 	width: 530px;
-	transition: 0.3s;
+	transition: 0.4s;
 	opacity: 1;
 	background-color: rgba(255, 255, 255, 0.8);
 	.search-input {
