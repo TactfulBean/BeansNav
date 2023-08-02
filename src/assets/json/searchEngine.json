@@ -1,0 +1,16 @@
+[
+	{
+		"key": 1,
+		"title": "必应搜索",
+		"type": "icon-bing",
+		"color": "#008b8b",
+		"href": "https://cn.bing.com/search?q="
+	},
+	{
+		"key": 2,
+		"title": "百度搜索",
+		"type": "icon-baidu",
+		"color": "#2932E1",
+		"href": "https://www.baidu.com/s?wd="
+	}
+]

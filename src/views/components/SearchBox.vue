@@ -14,8 +14,9 @@
 		<a-dropdown>
 			<template #overlay>
 				<a-menu @click="searchSelect" @mouseleave="isHover = false" @mouseover="isHover = true">
-					<a-menu-item key="1"><icon-font :style="{ color: searchList[0].color }" :type="searchList[0].type"></icon-font> Bing</a-menu-item>
-					<a-menu-item key="2"><icon-font :style="{ color: searchList[1].color }" :type="searchList[1].type"></icon-font> Baidu</a-menu-item>
+					<a-menu-item v-for="item in searchList" :key="item.key">
+						<icon-font :style="{ color: item.color }" :type="item.type"></icon-font> {{ item.title }}
+					</a-menu-item>
 				</a-menu>
 			</template>
 			<a-button id="search--btn-eng" shape="circle">
@@ -27,7 +28,6 @@
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
 		<ul v-if="isFocus" id="languageList" :style="{ height: listHeight }">
-			<!--			<li style="padding: 0 20px" class="languageList-Li"><icon-font type="icon-fanyi" /> 翻译:{{text}}</li>-->
 			<li class="languageList-Li" style="padding: 0 20px"><icon-font :type="searchList[1].type"></icon-font> <b>以下结果来自百度搜索建议</b></li>
 			<li v-for="item in items" class="languageList-Li" @click="search(item)">
 				<search-outlined style="color: #1e90ff" />
@@ -41,6 +41,7 @@
 import { nextTick, ref } from "vue"
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue"
 import { useSettingStore } from "@/stores/Config.ts"
+import searchList from "@/assets/json/searchEngine.json"
 import { getSearchSuggestions } from "@/api"
 const settingStore = useSettingStore()
 
@@ -112,25 +113,6 @@ let searchText = () => {
 		listHeight.value = items.value.length * 26 + 26 + "px"
 	})
 }
-
-let searchList = [
-	{
-		key: 1,
-		title: "必应搜索",
-		type: "icon-bing",
-		color: "#008b8b",
-		href: "https://cn.bing.com/search?q=",
-		translate: "https://fanyi.baidu.com/translate?#zh/en/"
-	},
-	{
-		key: 2,
-		title: "百度搜索",
-		type: "icon-baidu",
-		color: "#2932E1",
-		href: "https://www.baidu.com/s?wd=",
-		translate: "https://fanyi.baidu.com/translate?#zh/en/"
-	}
-]
 
 // 查找对应KEY的对象
 let searchSelect = (e) => {
