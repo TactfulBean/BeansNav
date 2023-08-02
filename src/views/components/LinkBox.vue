@@ -1,6 +1,6 @@
 <template>
 	<div id="carousel" @wheel="mouseWheel">
-		<a-tabs v-model:activeKey="activeKey" size="small" style="color: #fff">
+		<a-tabs v-model:activeKey="activeKey" :animated="true" size="small" style="color: #fff">
 			<a-tab-pane v-for="(item, index) in menuList" :key="index" :tab="item.name">
 				<div class="layout-col">
 					<div v-for="item2 in item.child" class="app-group-item">
