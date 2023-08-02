@@ -27,7 +27,7 @@
 		<a-button id="search--btn-search" shape="circle" @click="search(text)">
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
-		<ul v-if="isFocus" id="languageList" ref="searchSuggestionBox" :style="{ height: listHeight }">
+		<ul v-if="isFocus" id="languageList" :style="{ height: listHeight }">
 			<li class="languageList-Li" style="padding: 0 20px"><icon-font :type="searchList[1].type"></icon-font> <b>以下结果来自百度搜索建议</b></li>
 			<li v-for="item in items" class="languageList-Li" @click="search(item)">
 				<search-outlined style="color: #1e90ff" />
@@ -86,26 +86,28 @@ let inputKey = (event: any) => {
 	}
 }
 // 提示列表所选序号 初始值为0
-const select: any = ref(0)
+let select = 0
 // 搜索提示列表
-const searchSuggestionBox = ref()
+const languageListLi = <any>document.getElementsByClassName("languageList-Li")
 // 提示列表选择键盘事件
-const selectText = (value: any) => {
-	const searchSuggestions = searchSuggestionBox.value.querySelectorAll(".languageList-Li")
-	searchSuggestions.forEach((item) => item.classList.toggle("focus", false))
-	select.value += value
+let selectText = (value: any) => {
+	select += value
 	// 限制所选序号数值大小
-	select.value = Math.max(select.value, 1)
-	select.value = Math.min(select.value, items.value.length)
+	select = Math.max(select, 1)
+	select = Math.min(select, items.value.length)
 	text.value = items.value[select - 1]
-	searchSuggestions[select].classList.toggle("focus", true)
+	for (let i = 0; i < languageListLi.length; i++) {
+		languageListLi[i].style.backgroundColor = i === select ? "#afafaf" : "#ddd0"
+		languageListLi[i].style.letterSpacing = i === select ? "1px" : 0
+		languageListLi[i].style.padding = i === select ? "0 20px" : "0 15px"
+	}
 }
 // 生成的提示列表高度
 let listHeight = <any>ref(0)
 // 搜索提示
 let searchText = () => {
 	if (!text.value) listHeight.value = 0
-	select.value = -1
+	select = -1
 	getSearchSuggestions(text.value).then((res: any) => {
 		items.value = res
 		listHeight.value = items.value.length * 26 + 26 + "px"
@@ -213,7 +215,7 @@ let search = (value: any) => {
 	border-radius: 15px;
 	background: hsla(0, 0%, 100%, 0.8);
 	box-shadow: $box-shadow-5;
-	.languageList-Li {
+	li {
 		@include box-border-radius(5px);
 		font-size: 14px;
 		line-height: 25px;
@@ -221,7 +223,6 @@ let search = (value: any) => {
 		padding: 0 15px;
 		cursor: pointer;
 		transition: 0.3s;
-		&.focus,
 		&:hover {
 			padding: 0 20px;
 			transition: 0.3s;
@@ -230,6 +231,11 @@ let search = (value: any) => {
 		}
 	}
 }
+.listShow {
+	height: auto;
+	transition: 0.3s;
+}
+
 //max-width<576px
 @media screen and (max-width: 576px) {
 	.search-box {
