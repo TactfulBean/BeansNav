@@ -1,7 +1,7 @@
 <template>
 	<ul id="languageList" :style="{ height: listHeight }">
 		<li class="languageList-Li" style="padding: 0 20px"><icon-font :type="searchList[1].type"></icon-font> <b>以下结果来自百度搜索建议</b></li>
-		<li v-for="item in items" class="languageList-Li" @click="search(item)">
+		<li v-for="item in items" class="languageList-Li" @click="emits('search', item)">
 			<search-outlined style="color: #1e90ff" />
 			{{ item }}
 		</li>
@@ -17,9 +17,10 @@ const IconFont = createFromIconfontCN({
 	scriptUrl: import.meta.env.VITE_ICONFONT
 })
 
-const props = defineProps({
-	text: {}
-})
+const props = defineProps<{
+	text: string
+}>()
+
 let items = ref()
 // 提示列表所选序号 初始值为0
 let select = 0
@@ -31,7 +32,7 @@ let selectText = (value: any) => {
 	// 限制所选序号数值大小
 	select = Math.max(select, 1)
 	select = Math.min(select, items.value.length)
-	changeText(items.value[select - 1])
+	emits("changeText", items.value[select - 1])
 	for (let i = 0; i < languageListLi.length; i++) {
 		languageListLi[i].style.backgroundColor = i === select ? "#afafaf" : "#ddd0"
 		languageListLi[i].style.letterSpacing = i === select ? "1px" : 0
@@ -50,14 +51,10 @@ let searchText = () => {
 	})
 }
 
-const emits = defineEmits(["search", "changeText"])
-
-const search = (item) => {
-	emits("search", item)
-}
-const changeText = (value) => {
-	emits("changeText", value)
-}
+const emits = defineEmits<{
+	(event: "search", item: any): void
+	(event: "changeText", id: string): void
+}>()
 
 defineExpose({
 	selectText,
