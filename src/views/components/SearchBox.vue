@@ -86,7 +86,7 @@ let inputKey = (event: any) => {
 	}
 }
 // 提示列表所选序号 初始值为0
-const select = ref(0)
+const select: any = ref(0)
 // 搜索提示列表
 const searchSuggestionBox = ref()
 // 提示列表选择键盘事件
@@ -230,11 +230,6 @@ let search = (value: any) => {
 		}
 	}
 }
-.listShow {
-	height: auto;
-	transition: 0.3s;
-}
-
 //max-width<576px
 @media screen and (max-width: 576px) {
 	.search-box {
