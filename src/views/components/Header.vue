@@ -3,11 +3,20 @@
 		<a-dropdown>
 			<template #overlay>
 				<a-menu id="menu">
-					<a-menu-item v-for="item in headerMenu" class="menu-item">
-						<a :href="item.href">
-							<icon-font :style="{ color: item.color }" :type="item.type" />
-							<span> {{ item.name }}</span>
-						</a>
+					<a-menu-item class="menu-item">
+						<a href="https://github.com/TactfulBean"><icon-font style="color: #000000" type="icon-github" /><span> Github</span></a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://blog.tactfulbean.top/"><icon-font style="color: #008b8b" type="icon-blog" /><span> Blog</span> </a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://alist.tactfulbean.top/"><icon-font style="color: #1685a9" type="icon-yingpan" /><span> Alist</span> </a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://cloud.tactfulbean.top/"><icon-font style="color: #4b5cc4" type="icon-Cloud" /><span> Cloud</span> </a>
+					</a-menu-item>
+					<a-menu-item class="menu-item">
+						<a href="https://lsky.tactfulbean.top/"><icon-font type="icon-picture-filling" /><span> Lsky</span> </a>
 					</a-menu-item>
 				</a-menu>
 			</template>
@@ -21,7 +30,6 @@
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import Setting from "@/views/components/Setting.vue"
 import UpDateLog from "@/views/components/UpdateLog.vue"
-import headerMenu from "@/assets/json/headerMenu.json"
 
 const IconFont = createFromIconfontCN({
 	scriptUrl: import.meta.env.VITE_ICONFONT
