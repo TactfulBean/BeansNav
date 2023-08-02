@@ -27,13 +27,7 @@
 		<a-button id="search--btn-search" shape="circle" @click="search(text)">
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
-		<ul v-if="isFocus" id="languageList" :style="{ height: listHeight }">
-			<li class="languageList-Li" style="padding: 0 20px"><icon-font :type="searchList[1].type"></icon-font> <b>以下结果来自百度搜索建议</b></li>
-			<li v-for="item in items" class="languageList-Li" @click="search(item)">
-				<search-outlined style="color: #1e90ff" />
-				{{ item }}
-			</li>
-		</ul>
+		<SearchSuggestion v-if="isFocus" ref="searchSuggestion" :text="text" @changeText="changeText" @search="search"></SearchSuggestion>
 	</div>
 </template>
 
@@ -41,8 +35,8 @@
 import { nextTick, ref } from "vue"
 import { createFromIconfontCN, SearchOutlined } from "@ant-design/icons-vue"
 import { useSettingStore } from "@/stores/Config.ts"
+import SearchSuggestion from "@/views/components/SearchSuggestion.vue"
 import searchList from "@/assets/json/searchEngine.json"
-import { getSearchSuggestions } from "@/api"
 const settingStore = useSettingStore()
 
 nextTick(() => {
@@ -51,8 +45,9 @@ nextTick(() => {
 
 // 输入框
 const refInput = ref()
+// 搜索建议
+const searchSuggestion = ref()
 let text = ref("")
-let items = ref()
 const isFocus = ref<boolean>(false)
 const isHover = ref<boolean>(false)
 
@@ -67,12 +62,12 @@ let inputKey = (event: any) => {
 	switch (event.keyCode) {
 		case 38:
 			{
-				selectText(-1)
+				searchSuggestion.value.selectText(-1)
 			}
 			break
 		case 40:
 			{
-				selectText(1)
+				searchSuggestion.value.selectText(1)
 			}
 			break
 		case 13:
@@ -81,42 +76,17 @@ let inputKey = (event: any) => {
 			}
 			break
 		default: {
-			searchText()
+			searchSuggestion.value.searchText()
 		}
 	}
-}
-// 提示列表所选序号 初始值为0
-let select = 0
-// 搜索提示列表
-const languageListLi = <any>document.getElementsByClassName("languageList-Li")
-// 提示列表选择键盘事件
-let selectText = (value: any) => {
-	select += value
-	// 限制所选序号数值大小
-	select = Math.max(select, 1)
-	select = Math.min(select, items.value.length)
-	text.value = items.value[select - 1]
-	for (let i = 0; i < languageListLi.length; i++) {
-		languageListLi[i].style.backgroundColor = i === select ? "#afafaf" : "#ddd0"
-		languageListLi[i].style.letterSpacing = i === select ? "1px" : 0
-		languageListLi[i].style.padding = i === select ? "0 20px" : "0 15px"
-	}
-}
-// 生成的提示列表高度
-let listHeight = <any>ref(0)
-// 搜索提示
-let searchText = () => {
-	if (!text.value) listHeight.value = 0
-	select = -1
-	getSearchSuggestions(text.value).then((res: any) => {
-		items.value = res
-		listHeight.value = items.value.length * 26 + 26 + "px"
-	})
 }
 
 // 查找对应KEY的对象
 let searchSelect = (e) => {
 	settingStore.searchEngine = e.key
+}
+let changeText = (value) => {
+	text.value = value
 }
 // 搜索事件
 let search = (value: any) => {
@@ -198,42 +168,6 @@ let search = (value: any) => {
 #search--btn-search {
 	@extend %search--btn;
 	right: 5px;
-}
-//搜索提示框
-#languageList {
-	@include center;
-	position: absolute;
-	z-index: 1000;
-	overflow: hidden;
-	width: 100%;
-	max-width: 620px;
-	height: 0;
-	margin: 5px 0 0 0;
-	padding: 0;
-	list-style: none;
-	transition: 0.15s;
-	border-radius: 15px;
-	background: hsla(0, 0%, 100%, 0.8);
-	box-shadow: $box-shadow-5;
-	li {
-		@include box-border-radius(5px);
-		font-size: 14px;
-		line-height: 25px;
-		height: 26px;
-		padding: 0 15px;
-		cursor: pointer;
-		transition: 0.3s;
-		&:hover {
-			padding: 0 20px;
-			transition: 0.3s;
-			letter-spacing: 1px;
-			background-color: #afafaf;
-		}
-	}
-}
-.listShow {
-	height: auto;
-	transition: 0.3s;
 }
 
 //max-width<576px
