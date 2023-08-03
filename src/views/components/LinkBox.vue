@@ -1,6 +1,6 @@
 <template>
 	<div id="carousel" @wheel="mouseWheel">
-		<a-tabs v-model:activeKey="activeKey" :animated="true" size="small" style="color: #fff">
+		<a-tabs v-model:activeKey="settingStore.linkBoxActiveKey" :animated="true" size="small" style="color: #fff">
 			<a-tab-pane v-for="(item, index) in menuList" :key="index" :tab="item.name">
 				<div class="layout-col">
 					<div v-for="item2 in item.child" class="app-group-item">
@@ -29,8 +29,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useSettingStore } from "@/stores/Config.ts"
 import { onMounted, ref } from "vue"
 import { getLinkBox } from "@/api"
+const settingStore = useSettingStore()
 
 onMounted(() => {
 	getLinkList()
@@ -47,14 +49,13 @@ const getLinkList = () => {
 	})
 }
 
-let activeKey = ref(0)
 //@ts-ignore
 const mouseWheel = (event: any) => {
-	if (event.deltaY > 0 && activeKey.value < len.value - 1) {
-		activeKey.value += 1
+	if (event.deltaY > 0 && settingStore.linkBoxActiveKey < len.value - 1) {
+		settingStore.linkBoxActiveKey += 1
 	}
-	if (event.deltaY < 0 && activeKey.value > 0) {
-		activeKey.value -= 1
+	if (event.deltaY < 0 && settingStore.linkBoxActiveKey > 0) {
+		settingStore.linkBoxActiveKey -= 1
 	}
 }
 </script>

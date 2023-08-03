@@ -35,7 +35,7 @@ let selectText = (value: any) => {
 	// 限制所选序号数值大小
 	select = Math.max(select, 1)
 	select = Math.min(select, items.value.length)
-	emits("changeText", items.value[select - 1])
+	if (value !== 0) emits("changeText", items.value[select - 1])
 	for (let i = 0; i < languageListLi.length; i++) {
 		languageListLi[i].style.backgroundColor = i === select ? "#afafaf" : "#ddd0"
 		languageListLi[i].style.letterSpacing = i === select ? "1px" : 0

@@ -6,6 +6,7 @@ interface config {
 	logVersion: string
 	wallPaperDate: any
 	wallPaperSrc: any
+	linkBoxActiveKey: number
 }
 // 默认设置
 const defaultConfig: config = {
@@ -13,7 +14,8 @@ const defaultConfig: config = {
 	wallPaperType: 1,
 	logVersion: "1.0.0",
 	wallPaperDate: null,
-	wallPaperSrc: null
+	wallPaperSrc: null,
+	linkBoxActiveKey: 0
 }
 
 export const useSettingStore = defineStore("settingStore", {
@@ -27,7 +29,9 @@ export const useSettingStore = defineStore("settingStore", {
 		// 壁纸类型
 		wallPaperType: defaultConfig.wallPaperType,
 		// 日志版本号
-		logVersion: defaultConfig.logVersion
+		logVersion: defaultConfig.logVersion,
+
+		linkBoxActiveKey: defaultConfig.linkBoxActiveKey
 	}),
 	persist: true
 })
