@@ -1,7 +1,7 @@
 # Bean's Nav
 ## 项目构建中......
 
-![预览](https://upyun.tactfulbean.top/2023/07/64c70e6b0d5f1.jpg)
+![预览](https://upyun.tactfulbean.top/2023/08/64cb0e891f93e.png)
 
 `npm install`
 
