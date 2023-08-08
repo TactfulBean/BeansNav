@@ -1,6 +1,8 @@
 <template>
 	<ul id="languageList" :style="{ height: listHeight }">
-		<li class="languageList-Li" style="padding: 0 20px; color: #818181"><icon-font type="icon-baidu"></icon-font> 以下结果来自百度搜索建议</li>
+		<li class="languageList-Li" style="padding: 0 20px; color: #818181">
+			<icon-font style="color: #565656" type="icon-baidu"></icon-font> 以下结果来自百度搜索建议
+		</li>
 		<li v-for="(item, index) in items" class="languageList-Li" @click="emits('search', item)" @mouseover="mouseSelect(index)">
 			<search-outlined style="color: #1e90ff" />
 			{{ item }}

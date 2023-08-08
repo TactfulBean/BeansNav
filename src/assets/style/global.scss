@@ -22,9 +22,20 @@ $backdrop-filter: blur(10px) saturate(1.5);
 	animation: hide 0.3s;
 	opacity: 0;
 }
+@mixin animation-heart {
+	animation: heart 1s ease-in-out infinite;
+}
 @mixin box-border($color) {
 	border: 1px solid $color;
 }
 @mixin box-border-radius($radius) {
 	border-radius: $radius;
+}
+@keyframes heart {
+	0% {
+		opacity: 0.1;
+	}
+	100% {
+		opacity: 1;
+	}
 }

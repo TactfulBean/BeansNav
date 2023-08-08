@@ -6,7 +6,7 @@
 					<a-menu-item v-for="item in headerMenu" class="menu-item">
 						<a :href="item.href">
 							<icon-font :style="{ color: item.color }" :type="item.type" />
-							<span> {{ item.name }}</span>
+							<span>&nbsp;{{ item.name }}</span>
 						</a>
 					</a-menu-item>
 				</a-menu>

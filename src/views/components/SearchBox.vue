@@ -173,7 +173,7 @@ let search = (value: any) => {
 //max-width<576px
 @media screen and (max-width: 576px) {
 	.search-box {
-		top: 113px;
+		top: 153px;
 		width: 80%;
 	}
 }
