@@ -27,7 +27,7 @@
 		<a-button id="search--btn-search" shape="circle" @click="search(text)">
 			<search-outlined style="color: #1e90ff" />
 		</a-button>
-		<SearchSuggestion v-if="isFocus" ref="searchSuggestion" :text="text" @changeText="changeText" @search="search"></SearchSuggestion>
+		<SearchSuggestion v-if="isFocus" ref="searchSuggestions" :text="text" @changeText="changeText" @search="search"></SearchSuggestion>
 	</div>
 </template>
 
@@ -46,7 +46,7 @@ nextTick(() => {
 // 输入框
 const refInput = ref()
 // 搜索建议
-const searchSuggestion = ref()
+const searchSuggestions = ref()
 let text = ref("")
 const isFocus = ref<boolean>(false)
 const isHover = ref<boolean>(false)
@@ -62,12 +62,12 @@ let inputKey = (event: any) => {
 	switch (event.keyCode) {
 		case 38:
 			{
-				searchSuggestion.value.selectText(-1)
+				searchSuggestions.value.selectText(-1)
 			}
 			break
 		case 40:
 			{
-				searchSuggestion.value.selectText(1)
+				searchSuggestions.value.selectText(1)
 			}
 			break
 		case 13:
@@ -76,16 +76,16 @@ let inputKey = (event: any) => {
 			}
 			break
 		default: {
-			searchSuggestion.value.searchText()
+			searchSuggestions.value.searchText()
 		}
 	}
 }
 
 // 查找对应KEY的对象
-let searchSelect = (e) => {
+let searchSelect = (e: any) => {
 	settingStore.searchEngine = e.key
 }
-let changeText = (value) => {
+let changeText = (value: any) => {
 	text.value = value
 }
 // 搜索事件
@@ -104,7 +104,7 @@ let search = (value: any) => {
 	@include box-border-radius(30px);
 	position: absolute;
 	z-index: 1000;
-	top: 200px;
+	top: 220px;
 	width: 230px;
 	max-width: 80%;
 	height: 43px;
@@ -173,7 +173,7 @@ let search = (value: any) => {
 //max-width<576px
 @media screen and (max-width: 576px) {
 	.search-box {
-		top: 153px;
+		top: 173px;
 		width: 80%;
 	}
 }

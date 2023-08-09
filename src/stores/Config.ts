@@ -7,6 +7,12 @@ interface config {
 	wallPaperDate: any
 	wallPaperSrc: any
 	linkBoxActiveKey: number
+	time: number
+	weather: {
+		city: string
+		temp: string
+		state: string
+	}
 }
 // 默认设置
 const defaultConfig: config = {
@@ -15,7 +21,13 @@ const defaultConfig: config = {
 	logVersion: "1.0.0",
 	wallPaperDate: null,
 	wallPaperSrc: null,
-	linkBoxActiveKey: 0
+	linkBoxActiveKey: 0,
+	time: 0,
+	weather: {
+		city: "--",
+		temp: "--",
+		state: "--"
+	}
 }
 
 export const useSettingStore = defineStore("settingStore", {
@@ -31,7 +43,10 @@ export const useSettingStore = defineStore("settingStore", {
 		// 日志版本号
 		logVersion: defaultConfig.logVersion,
 
-		linkBoxActiveKey: defaultConfig.linkBoxActiveKey
+		linkBoxActiveKey: defaultConfig.linkBoxActiveKey,
+
+		time: defaultConfig.time,
+		weather: defaultConfig.weather
 	}),
 	persist: true
 })
