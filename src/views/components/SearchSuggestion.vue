@@ -32,7 +32,7 @@ let select = 0
 // 搜索提示列表
 const languageListLi = <any>document.getElementsByClassName("languageList-Li")
 // 提示列表选择键盘事件
-let selectText = (value: any) => {
+let selectText = (value: number) => {
 	select += value
 	// 限制所选序号数值大小
 	select = Math.max(select, 1)
@@ -45,18 +45,18 @@ let selectText = (value: any) => {
 	}
 }
 // 生成的提示列表高度
-let listHeight = <any>ref(0)
+let listHeight = ref()
 // 搜索提示
 let searchText = () => {
 	if (!props.text) listHeight.value = 0
 	select = -1
 	getSearchSuggestions(props.text).then((res: any) => {
-		items.value = res
+		items.value = res.data.s
 		listHeight.value = items.value.length * 26 + 26 + "px"
 	})
 }
 
-let mouseSelect = (index) => {
+let mouseSelect = (index: number) => {
 	select = index + 1
 	selectText(0)
 }

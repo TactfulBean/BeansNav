@@ -38,9 +38,9 @@ onMounted(() => {
 let dateLog = ref()
 let isRead = ref(false)
 
-const getDateLog = async () => {
-	getUpdateLog().then((res: any) => {
-		dateLog.value = res
+const getDateLog = () => {
+	getUpdateLog().then((res) => {
+		dateLog.value = res.data
 		isRead.value = settingStore.logVersion != dateLog.value[0].header
 	})
 }

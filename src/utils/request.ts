@@ -1,33 +1,49 @@
 import axios from "axios"
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios"
 
-// 全局配置
-axios.defaults.timeout = 30000
+type Result<T> = {
+	code: number
+	message: string
+	result: T
+}
 
-// 请求拦截
-axios.interceptors.request.use(
-	(request) => {
-		return request
-	},
-	(error) => {
-		console.error("请求失败，请稍后重试")
-		return Promise.reject(error)
+export class Request {
+	instance: AxiosInstance
+	baseConfig: AxiosRequestConfig = { timeout: 60000 }
+	constructor(config: AxiosRequestConfig) {
+		this.instance = axios.create(Object.assign(this.baseConfig, config))
+		this.instance.interceptors.request.use(
+			(request) => {
+				return request
+			},
+			(error: any) => {
+				return Promise.reject(error)
+			}
+		)
+		this.instance.interceptors.response.use(
+			(response: AxiosResponse) => {
+				return response
+			},
+			(error: any) => {
+				return Promise.reject(error.response)
+			}
+		)
 	}
-)
-
-// 响应拦截
-axios.interceptors.response.use(
-	(response) => {
-		return response.data
-	},
-	(error) => {
-		if (error.response) {
-			const data = error.response?.data
-			console.error("请求失败，请稍后重试：" + data)
-		} else {
-			console.error("请求失败，请稍后重试:" + error)
-		}
-		return Promise.reject(error)
+	// 定义请求方法
+	public request(config: AxiosRequestConfig): Promise<AxiosResponse> {
+		return this.instance.request(config)
 	}
-)
-
-export default axios
+	public get<T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+		return this.instance.get(url, config)
+	}
+	public post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+		return this.instance.post(url, data, config)
+	}
+	public put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+		return this.instance.put(url, data, config)
+	}
+	public delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+		return this.instance.delete(url, config)
+	}
+}
+export default new Request({})

@@ -34,10 +34,10 @@ onMounted(() => {
 	// 获取一次天气信息间隔十分钟
 	if (date.getTime() - settingStore.time > 10 * 1000) {
 		settingStore.time = date.getTime()
-		getWeather().then((res: any) => {
-			settingStore.weather.city = res.result.city.name
-			settingStore.weather.temp = res.result.condition.temp
-			settingStore.weather.state = res.result.condition.condition
+		getWeather().then((res) => {
+			settingStore.weather.city = res.data.result.city.name
+			settingStore.weather.temp = res.data.result.condition.temp
+			settingStore.weather.state = res.data.result.condition.condition
 		})
 	}
 })
