@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc && vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"prettier": "npx prettier . --write"
 	},
 	"dependencies": {
 		"@ant-design/icons-vue": "^6.1.0",
@@ -21,6 +22,7 @@
 	"devDependencies": {
 		"@types/node": "^20.4.8",
 		"@vitejs/plugin-vue": "^4.2.3",
+		"prettier": "^3.0.1",
 		"sass-loader": "^13.3.2",
 		"typescript": "^5.1.6",
 		"unplugin-vue-components": "^0.25.1",

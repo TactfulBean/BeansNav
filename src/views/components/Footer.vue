@@ -2,7 +2,7 @@
 	<footer>
 		<div id="footerBox">
 			<span class="footer-span">© 2023</span>
-			<a class="footer-link" href="https://github.com/TactfulBean">TactfulBean</a>
+			<a class="footer-link" href="https://github.com/TactfulBean"> TactfulBean</a>
 			<span class="footer-span"> 丨 </span>
 			<a class="footer-link" href="https://github.com/TactfulBean/Homepage-Vite">Version {{ VERSION }}</a>
 			<span class="footer-span"> 丨 </span>
