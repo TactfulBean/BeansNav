@@ -29,9 +29,10 @@
 </template>
 
 <script lang="ts" setup>
+import { getLinkBox } from "@/api"
 import { useSettingStore } from "@/stores/Config.ts"
 import { onMounted, ref } from "vue"
-import { getLinkBox } from "@/api"
+
 const settingStore = useSettingStore()
 
 onMounted(() => {
@@ -43,9 +44,9 @@ let len = ref()
 
 // 获取链接列表
 const getLinkList = () => {
-	getLinkBox().then((res: any) => {
-		menuList.value = res
-		len.value = res.length
+	getLinkBox().then((res) => {
+		menuList.value = res.data
+		len.value = menuList.value.length
 	})
 }
 

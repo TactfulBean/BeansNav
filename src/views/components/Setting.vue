@@ -22,7 +22,7 @@ const settingStore = useSettingStore()
 let visible = ref(false)
 
 // 壁纸类型
-let changeWallPaperType = (e) => {
+let changeWallPaperType = (e: number) => {
 	settingStore.wallPaperType = e ? 2 : 1
 }
 

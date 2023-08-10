@@ -28,16 +28,16 @@ watch(
 	}
 )
 
-const setWallPaper = (type) => {
+const setWallPaper = (type: number) => {
 	switch (type) {
 		case 1: {
 			if (getDate() === settingStore.wallPaperDate) {
 				wallImage.src = settingStore.wallPaperSrc
 			} else {
-				getWallPaper().then((res: any) => {
-					settingStore.wallPaperSrc = res.result[0].url
+				getWallPaper().then((res) => {
+					settingStore.wallPaperSrc = res.data.result[0].url
 					settingStore.wallPaperDate = getDate()
-					wallImage.src = res.result[0].url
+					wallImage.src = res.data.result[0].url
 				})
 			}
 			break
