@@ -1,3 +1,7 @@
+import { LinkBox } from "@/type/LinkBox"
+import { Changelog } from "@/type/Changelog"
+import { Wallpaper } from "@/type/Wallpaper"
+import { Weather } from "@/type/Weather"
 import Request from "@/utils/request.ts"
 import jsonpAdapter from "axios-jsonp"
 
@@ -6,45 +10,16 @@ const LINKBOX_URL = import.meta.env.VITE_LINKBOX
 const UPDATELOG_URL = import.meta.env.VITE_UPDATELOG
 const WALLPAPER = import.meta.env.VITE_WALLPAPER
 export const getWeather = () => {
-	return Request.get(WEATHER_URL)
-}
-interface WallPaper {
-	code: number
-	result: {
-		copyright: string
-		copyrightlink: string
-		date: string
-		title: string
-		url: string
-	}[]
-	msg: string
+	return Request.get<Weather>(WEATHER_URL)
 }
 export const getWallPaper = () => {
-	return Request.get<WallPaper>(WALLPAPER)
-}
-interface LinkBox {
-	name: string
-	child: {
-		name: string
-		link: string
-		avatar: string
-	}[]
+	return Request.get<Wallpaper>(WALLPAPER)
 }
 export const getLinkBox = () => {
-	return Request.get<LinkBox[]>(LINKBOX_URL)
+	return Request.get<LinkBox>(LINKBOX_URL)
 }
-interface UpdateLog {
-	header: string
-	color: string
-	info: string
-	tags: {
-		color: string
-		info: string
-		text: string
-	}[]
-}
-export const getUpdateLog = () => {
-	return Request.get<UpdateLog[]>(UPDATELOG_URL)
+export const getChangelog = () => {
+	return Request.get<Changelog>(UPDATELOG_URL)
 }
 export const getSearchSuggestions = async (keyWord: string) => {
 	// @ts-ignore

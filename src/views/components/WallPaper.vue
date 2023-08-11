@@ -18,7 +18,7 @@ onMounted(() => {
 const wallPaperSrc = ref()
 // 图片壁纸
 const wallPaper = ref()
-const wallImage: any = new Image()
+const wallImage = new Image()
 
 // 监听设置变化
 watch(

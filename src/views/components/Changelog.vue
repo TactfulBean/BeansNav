@@ -25,21 +25,21 @@
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import { onMounted, ref } from "vue"
 import { useSettingStore } from "@/stores/Config.ts"
-import { getUpdateLog } from "@/api"
+import { getChangelog } from "@/api"
 const settingStore = useSettingStore()
 
 const IconFont = createFromIconfontCN({
 	scriptUrl: import.meta.env.VITE_ICONFONT
 })
 onMounted(() => {
-	getDateLog()
+	getLog()
 })
 
 let dateLog = ref()
 let isRead = ref(false)
 
-const getDateLog = () => {
-	getUpdateLog().then((res) => {
+const getLog = () => {
+	getChangelog().then((res) => {
 		dateLog.value = res.data
 		isRead.value = settingStore.logVersion != dateLog.value[0].header
 	})

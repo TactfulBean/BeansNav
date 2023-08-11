@@ -14,13 +14,13 @@
 			<a-button id="menu-btn" ghost size="small" style="margin: 0 5px"><icon-font type="icon-more" />更 多</a-button>
 		</a-dropdown>
 		<Setting></Setting>
-		<UpDateLog></UpDateLog>
+		<Changelog></Changelog>
 	</div>
 </template>
 <script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
 import Setting from "@/views/components/Setting.vue"
-import UpDateLog from "@/views/components/UpdateLog.vue"
+import Changelog from "@/views/components/Changelog.vue"
 import headerMenu from "@/assets/json/headerMenu.json"
 
 const IconFont = createFromIconfontCN({

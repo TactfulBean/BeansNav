@@ -23,7 +23,7 @@ const updateTime = () => {
 	min.value = date.getMinutes().toString().padStart(2, "0")
 }
 
-const toCnDate = (date: any) => {
+const toCnDate = (date: Date) => {
 	return date.toLocaleString("zh-u-ca-chinese", { dateStyle: "full" })
 }
 

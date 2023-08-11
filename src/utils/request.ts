@@ -1,10 +1,10 @@
-import axios from "axios"
+import axios, { InternalAxiosRequestConfig } from "axios"
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios"
 
-type Result<T> = {
+interface Default {
 	code: number
-	message: string
-	result: T
+	result: any
+	msg: string
 }
 
 export class Request {
@@ -13,7 +13,7 @@ export class Request {
 	constructor(config: AxiosRequestConfig) {
 		this.instance = axios.create(Object.assign(this.baseConfig, config))
 		this.instance.interceptors.request.use(
-			(request) => {
+			(request: InternalAxiosRequestConfig) => {
 				return request
 			},
 			(error: any) => {
@@ -33,16 +33,16 @@ export class Request {
 	public request(config: AxiosRequestConfig): Promise<AxiosResponse> {
 		return this.instance.request(config)
 	}
-	public get<T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+	public get<T = Default>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.get(url, config)
 	}
-	public post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+	public post<T = Default>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.post(url, data, config)
 	}
-	public put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+	public put<T = Default>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.put(url, data, config)
 	}
-	public delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+	public delete<T = Default>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.delete(url, config)
 	}
 }
