@@ -25,7 +25,7 @@ export class Request {
 				return response
 			},
 			(error: any) => {
-				let msg = ""
+				let msg: string
 				switch (error.response.status) {
 					case 400:
 						msg = "请求错误(400)"
