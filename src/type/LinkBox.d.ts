@@ -4,13 +4,13 @@ export interface LinkBox {
 	msg: string
 }
 
-interface Child {
+export interface Child {
 	name: string
 	link: string
 	avatar: string
 }
 
-interface Result {
+export interface Result {
 	name: string
 	child: Child[]
 }

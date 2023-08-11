@@ -3,7 +3,7 @@ export interface Wallpaper {
 	result: Result[]
 	msg: string
 }
-interface Result {
+export interface Result {
 	copyright: string
 	copyrightlink: string
 	title: string

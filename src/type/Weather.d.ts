@@ -4,7 +4,7 @@ export interface Weather {
 	msg: string
 }
 
-interface City {
+export interface City {
 	cityId: number
 	counname: string
 	ianatimezone: string
@@ -14,7 +14,7 @@ interface City {
 	timezone: string
 }
 
-interface Condition {
+export interface Condition {
 	condition: string
 	conditionId: string
 	humidity: string
@@ -34,7 +34,7 @@ interface Condition {
 	windSpeed: string
 }
 
-interface Forecast {
+export interface Forecast {
 	conditionDay: string
 	conditionIdDay: string
 	conditionIdNight: string
@@ -62,7 +62,7 @@ interface Forecast {
 	windSpeedNight: string
 }
 
-interface Result {
+export interface Result {
 	city: City
 	condition: Condition
 	forecast: Forecast[]

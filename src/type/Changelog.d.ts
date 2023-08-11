@@ -3,13 +3,14 @@ export interface Changelog {
 	result: Result[]
 	msg: string
 }
-interface Tags {
+
+export interface Tags {
 	color: string
 	info: string
 	text: string
 }
 
-interface Result {
+export interface Result {
 	header: string
 	color: string
 	info: string
