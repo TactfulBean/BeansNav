@@ -8,8 +8,18 @@
 							<a :href="item2.link">
 								<a-button>
 									<a-avatar
+										v-if="item2.avatar != ''"
 										:size="{ xs: 44, sm: 56, md: 56, lg: 56, xl: 56, xxl: 56, xxxl: 56 }"
 										:src="item2.avatar"
+										class="app-group-item-icon"
+										shape="square"
+									>
+										{{ item2.name }}
+									</a-avatar>
+									<a-avatar
+										v-else
+										:size="{ xs: 44, sm: 56, md: 56, lg: 56, xl: 56, xxl: 56, xxxl: 56 }"
+										:style="{ backgroundColor: `#40a9ff` }"
 										class="app-group-item-icon"
 										shape="square"
 									>
