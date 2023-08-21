@@ -19,7 +19,7 @@
 </template>
 <script lang="ts" setup>
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import Setting from "@/views/components/Setting.vue"
+import Setting from "@/views/components/Setting/Setting.vue"
 import Changelog from "@/views/components/Changelog.vue"
 import headerMenu from "@/assets/json/headerMenu.json"
 

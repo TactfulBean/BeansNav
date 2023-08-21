@@ -2,10 +2,7 @@
 	<a-button id="menu-btn" ghost size="small" @click="drawerOpen"><icon-font type="icon-configure" />设 置</a-button>
 	<a-drawer id="setting" v-model:visible="visible" :width="width" bodyStyle="padding:10px" maskStyle="background: rgba(0, 0, 0, 0.2)">
 		<div id="setting-box">
-			<div>
-				<span>动态壁纸：</span>
-				<a-switch :checked="settingStore.wallPaperType == 2" @change="changeWallPaperType" />
-			</div>
+			<WallPaperType></WallPaperType>
 		</div>
 		<template #extra>
 			<div id="setting-title"><span>设置</span></div>
@@ -15,16 +12,10 @@
 <script lang="ts" setup>
 import { ref } from "vue"
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import { useSettingStore } from "@/stores/Config.ts"
-const settingStore = useSettingStore()
+import WallPaperType from "@/views/components/Setting/components/WallPaperType.vue"
 
 // 是否显示设置页面
 let visible = ref(false)
-
-// 壁纸类型
-let changeWallPaperType = (e: number) => {
-	settingStore.wallPaperType = e ? 2 : 1
-}
 
 // 移动端设置页面大小
 let width = ref("378")
