@@ -1,9 +1,9 @@
-export interface Wallpaper {
+export type Wallpaper = {
 	code: number
 	result: Result[]
 	msg: string
 }
-export interface Result {
+type Result = {
 	copyright: string
 	copyrightlink: string
 	title: string

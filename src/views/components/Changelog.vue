@@ -5,7 +5,7 @@
 	<a-drawer v-model:visible="visible" :width="width" bodyStyle="padding:10px" maskStyle="background: rgba(0, 0, 0, 0.2)">
 		<div id="setting-box">
 			<a-collapse v-model:activeKey="activeKey" accordion>
-				<a-collapse-panel v-for="(item, index) in dateLog" :key="index + 1" :header="item.header">
+				<a-collapse-panel v-if="dateLog" v-for="(item, index) in dateLog.result" :key="index + 1" :header="item.header">
 					<p v-for="item2 in item.tags">
 						<a-tag :color="item2.color">{{ item2.info }}</a-tag>
 						{{ item2.text }}
@@ -22,8 +22,9 @@
 	</a-drawer>
 </template>
 <script lang="ts" setup>
+import { Changelog } from "@/type/Changelog"
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import { onMounted, ref } from "vue"
+import { onMounted, Ref, ref } from "vue"
 import { useSettingStore } from "@/stores/Config.ts"
 import { getChangelog } from "@/api"
 const settingStore = useSettingStore()
@@ -35,13 +36,13 @@ onMounted(() => {
 	getLog()
 })
 
-let dateLog = ref()
+let dateLog: Ref<Changelog> = ref()
 let isRead = ref(false)
 
 const getLog = () => {
 	getChangelog().then((res) => {
 		dateLog.value = res.data
-		isRead.value = settingStore.logVersion != dateLog.value[0].header
+		isRead.value = settingStore.logVersion != dateLog.value.result[0].header
 	})
 }
 
@@ -54,7 +55,7 @@ if (window.innerWidth < 576) {
 }
 let drawerOpen = () => {
 	visible.value = true
-	settingStore.logVersion = dateLog.value[0].header
+	settingStore.logVersion = dateLog.value.result[0].header
 	isRead.value = false
 }
 </script>

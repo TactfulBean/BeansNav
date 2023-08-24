@@ -1,16 +1,16 @@
-export interface Changelog {
+export type Changelog = {
 	code: number
 	result: Result[]
 	msg: string
 }
 
-export interface Tags {
+type Tags = {
 	color: string
 	info: string
 	text: string
 }
 
-export interface Result {
+type Result = {
 	header: string
 	color: string
 	info: string
