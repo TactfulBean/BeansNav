@@ -22,8 +22,9 @@
 	</a-drawer>
 </template>
 <script lang="ts" setup>
+import { Changelog } from "@/type/Changelog"
 import { createFromIconfontCN } from "@ant-design/icons-vue"
-import { onMounted, ref } from "vue"
+import { onMounted, Ref, ref } from "vue"
 import { useSettingStore } from "@/stores/Config.ts"
 import { getChangelog } from "@/api"
 const settingStore = useSettingStore()
@@ -35,7 +36,7 @@ onMounted(() => {
 	getLog()
 })
 
-let dateLog = ref()
+let dateLog: Ref<Changelog[]> = ref()
 let isRead = ref(false)
 
 const getLog = () => {

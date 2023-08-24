@@ -1,11 +1,6 @@
 import axios, { InternalAxiosRequestConfig } from "axios"
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios"
 import { message } from "ant-design-vue"
-interface Default {
-	code: number
-	result: any
-	msg: string
-}
 
 export class Request {
 	instance: AxiosInstance
@@ -72,16 +67,16 @@ export class Request {
 	public request(config: AxiosRequestConfig): Promise<AxiosResponse> {
 		return this.instance.request(config)
 	}
-	public get<T = Default>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+	public get<T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.get(url, config)
 	}
-	public post<T = Default>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+	public post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.post(url, data, config)
 	}
-	public put<T = Default>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+	public put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.put(url, data, config)
 	}
-	public delete<T = Default>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+	public delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
 		return this.instance.delete(url, config)
 	}
 }

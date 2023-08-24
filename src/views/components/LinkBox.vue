@@ -41,7 +41,8 @@
 <script lang="ts" setup>
 import { getLinkBox } from "@/api"
 import { useSettingStore } from "@/stores/Config.ts"
-import { onMounted, ref } from "vue"
+import { LinkBox } from "@/type/LinkBox"
+import { onMounted, Ref, ref } from "vue"
 
 const settingStore = useSettingStore()
 
@@ -49,7 +50,7 @@ onMounted(() => {
 	getLinkList()
 })
 
-let menuList = ref()
+let menuList: Ref<LinkBox[]> = ref()
 let len = ref()
 
 // 获取链接列表

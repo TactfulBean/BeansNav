@@ -16,10 +16,10 @@ export const getWallPaper = () => {
 	return Request.get<Wallpaper>(WALLPAPER)
 }
 export const getLinkBox = () => {
-	return Request.get<LinkBox>(LINKBOX_URL)
+	return Request.get<LinkBox[]>(LINKBOX_URL)
 }
 export const getChangelog = () => {
-	return Request.get<Changelog>(UPDATELOG_URL)
+	return Request.get<Changelog[]>(UPDATELOG_URL)
 }
 export const getSearchSuggestions = async (keyWord: string) => {
 	// @ts-ignore
