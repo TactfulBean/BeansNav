@@ -1,10 +1,16 @@
-export type LinkBox = {
-	name: string
-	child: Child[]
+export interface LinkBox {
+	code: number
+	result: Result[]
+	msg: string
 }
 
-type Child = {
+export interface Child {
 	name: string
 	link: string
 	avatar: string
+}
+
+export interface Result {
+	name: string
+	child: Child[]
 }
