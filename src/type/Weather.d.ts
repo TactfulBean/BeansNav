@@ -5,39 +5,31 @@ export type Weather = {
 }
 
 type City = {
-	cityId: number
-	counname: string
-	ianatimezone: string
-	name: string
-	pname: string
-	secondaryname: string
-	timezone: string
+	country: string
+	economize: string
+	city_name: string
 }
 
 type Condition = {
 	condition: string
-	conditionId: string
 	humidity: string
-	icon: string
 	pressure: string
-	realFeel: string
 	sunRise: string
 	sunSet: string
+	realFeel: string
 	temp: string
 	tips: string
-	updatetime: string
-	uvi: string
-	vis: string
-	windDegrees: string
-	windDir: string
+	updateTime: string
 	windLevel: string
 	windSpeed: string
+	windDir: string
+	windDegrees: string
+	uvi: string
+	vis: string
 }
 
 type Forecast = {
 	conditionDay: string
-	conditionIdDay: string
-	conditionIdNight: string
 	conditionNight: string
 	humidity: string
 	moonphase: string

@@ -1,7 +1,7 @@
 <template>
 	<div id="time-container">
 		<div id="time-text">{{ hour }}<span id="time-text" class="dot">:</span>{{ min }}</div>
-		<div id="ctime-text">{{ date.getMonth() + "月" + date.getDay() + "日" + " " + ChineseTime.split("星")[0] }}</div>
+		<div id="ctime-text">{{ date.getMonth() + 1 + "月" + date.getDate() + "日" + " " + ChineseTime.split("星")[0] }}</div>
 		<div id="ctime-text">{{ settingStore.weather.city + " " + settingStore.weather.state + " " + settingStore.weather.temp }}℃</div>
 	</div>
 </template>
@@ -35,7 +35,7 @@ onMounted(() => {
 	if (date.getTime() - settingStore.time > 10 * 1000 * 60) {
 		settingStore.time = date.getTime()
 		getWeather().then((res) => {
-			settingStore.weather.city = res.data.result.city.name
+			settingStore.weather.city = res.data.result.city.city_name
 			settingStore.weather.temp = res.data.result.condition.temp
 			settingStore.weather.state = res.data.result.condition.condition
 		})
