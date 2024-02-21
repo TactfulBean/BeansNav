@@ -1,37 +1,37 @@
 [
-	{
-		"key": 1,
-		"title": "必应搜索",
-		"type": "icon-bing",
-		"color": "#008b8b",
-		"href": "https://cn.bing.com/search?q="
-	},
-	{
-		"key": 2,
-		"title": "百度搜索",
-		"type": "icon-baidu",
-		"color": "#2932E1",
-		"href": "https://www.baidu.com/s?wd="
-	},
-	{
-		"key": 3,
-		"title": "谷歌搜索",
-		"type": "icon-google1",
-		"color": "",
-		"href": "https://www.google.com/search?q="
-	},
-	{
-		"key": 4,
-		"title": "知乎搜索",
-		"type": "icon-zhihu-circle-fill",
-		"color": "",
-		"href": "https://www.zhihu.com/search?q="
-	},
-	{
-		"key": 5,
-		"title": "掘金搜索",
-		"type": "icon-juejin",
-		"color": "",
-		"href": "https://juejin.cn/search?query="
-	}
+  {
+    "key": 1,
+    "title": "必应搜索",
+    "type": "icon-bing",
+    "color": "#008b8b",
+    "href": "https://cn.bing.com/search?q="
+  },
+  {
+    "key": 2,
+    "title": "百度搜索",
+    "type": "icon-baidu",
+    "color": "#2932E1",
+    "href": "https://www.baidu.com/s?wd="
+  },
+  {
+    "key": 3,
+    "title": "谷歌搜索",
+    "type": "icon-google1",
+    "color": "",
+    "href": "https://www.google.com/search?q="
+  },
+  {
+    "key": 4,
+    "title": "知乎搜索",
+    "type": "icon-zhihu-circle-fill",
+    "color": "",
+    "href": "https://www.zhihu.com/search?q="
+  },
+  {
+    "key": 5,
+    "title": "掘金搜索",
+    "type": "icon-juejin",
+    "color": "",
+    "href": "https://juejin.cn/search?query="
+  }
 ]

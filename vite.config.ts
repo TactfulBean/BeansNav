@@ -7,25 +7,25 @@ import { resolve } from "path"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	resolve: {
-		alias: {
-			"@": resolve("./src")
-		}
-	},
-	css: {
-		preprocessorOptions: {
-			scss: {
-				additionalData: '@import "@/assets/style/global.scss";'
-			}
-		}
-	},
-	plugins: [
-		vue(),
-		Components({
-			resolvers: [AntDesignVueResolver()]
-		}),
-		viteCompression({
-			threshold: 0
-		})
-	]
+  resolve: {
+    alias: {
+      "@": resolve("./src")
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/assets/style/global.scss";'
+      }
+    }
+  },
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [AntDesignVueResolver()]
+    }),
+    viteCompression({
+      threshold: 0
+    })
+  ]
 })

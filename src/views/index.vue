@@ -1,10 +1,10 @@
 <template>
-	<Header></Header>
-	<Time></Time>
-	<SearchBox></SearchBox>
-	<LinkBox></LinkBox>
-	<WallPaper></WallPaper>
-	<Footer></Footer>
+  <Header></Header>
+  <Time></Time>
+  <SearchBox></SearchBox>
+  <LinkBox></LinkBox>
+  <WallPaper></WallPaper>
+  <Footer></Footer>
 </template>
 <script lang="ts" setup>
 import Header from "@/views/components/Header.vue"

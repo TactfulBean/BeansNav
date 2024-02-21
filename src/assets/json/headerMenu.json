@@ -1,26 +1,26 @@
 [
-	{
-		"name": "Github",
-		"href": "https://github.com/TactfulBean",
-		"type": "icon-github",
-		"color": "#000000"
-	},
-	{
-		"name": "Blog",
-		"href": "https://blog.tactfulbean.top/",
-		"type": "icon-blog",
-		"color": "#008b8b"
-	},
-	{
-		"name": "Alist",
-		"href": "https://alist.tactfulbean.top/",
-		"type": "icon-yingpan",
-		"color": "#1685a9"
-	},
-	{
-		"name": "Lsky",
-		"href": "https://lsky.tactfulbean.top/",
-		"type": "icon-picture-filling",
-		"color": "#d4237a"
-	}
+  {
+    "name": "Github",
+    "href": "https://github.com/TactfulBean",
+    "type": "icon-github",
+    "color": "#000000"
+  },
+  {
+    "name": "Blog",
+    "href": "https://blog.tactfulbean.top/",
+    "type": "icon-blog",
+    "color": "#008b8b"
+  },
+  {
+    "name": "Alist",
+    "href": "https://alist.tactfulbean.top/",
+    "type": "icon-yingpan",
+    "color": "#1685a9"
+  },
+  {
+    "name": "Lsky",
+    "href": "https://lsky.tactfulbean.top/",
+    "type": "icon-picture-filling",
+    "color": "#d4237a"
+  }
 ]
