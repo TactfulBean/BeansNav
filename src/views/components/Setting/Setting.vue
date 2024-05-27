@@ -1,6 +1,6 @@
 <template>
   <a-button id="menu-btn" ghost size="small" @click="drawerOpen"><icon-font type="icon-configure" />设 置</a-button>
-  <a-drawer id="setting" v-model:visible="visible" :width="width" bodyStyle="padding:10px" maskStyle="background: rgba(0, 0, 0, 0.2)">
+  <a-drawer id="setting" v-model:open="visible" :width="width" bodyStyle="padding:10px" maskStyle="background: rgba(0, 0, 0, 0.2)">
     <div id="setting-box">
       <WallPaperType></WallPaperType>
     </div>

@@ -2,10 +2,10 @@
   <a-badge :dot="isRead">
     <a-button id="menu-btn" ghost size="small" style="margin: 0 5px" @click="drawerOpen"><icon-font type="icon-gonggao" />日 志</a-button>
   </a-badge>
-  <a-drawer v-model:visible="visible" :width="width" bodyStyle="padding:10px" maskStyle="background: rgba(0, 0, 0, 0.2)">
+  <a-drawer v-model:open="visible" :width="width" bodyStyle="padding:10px" maskStyle="background: rgba(0, 0, 0, 0.2)">
     <div id="setting-box">
       <a-collapse v-model:activeKey="activeKey" accordion>
-        <a-collapse-panel v-if="dateLog" v-for="(item, index) in dateLog.result" :key="index + 1" :header="item.header">
+        <a-collapse-panel v-for="(item, index) in dateLog.result" v-if="dateLog" :key="index + 1" :header="item.header">
           <p v-for="item2 in item.tags">
             <a-tag :color="item2.color">{{ item2.info }}</a-tag>
             {{ item2.text }}

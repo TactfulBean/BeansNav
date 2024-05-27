@@ -1,6 +1,6 @@
 <template>
   <div v-if="settingStore.wallPaperType == 1" ref="wallPaper" class="app-bg-img"></div>
-  <video v-if="settingStore.wallPaperType == 2" :src="wallPaperSrc" autoplay="true" muted="true" class="app-bg-video" loop="true"></video>
+  <video v-if="settingStore.wallPaperType == 2" :src="wallPaperSrc" autoplay class="app-bg-video" loop muted></video>
   <div class="app-cover"></div>
 </template>
 <script lang="ts" setup>

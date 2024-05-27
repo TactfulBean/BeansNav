@@ -22,7 +22,11 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      resolvers: [AntDesignVueResolver()]
+      resolvers: [
+        AntDesignVueResolver({
+          importStyle: false
+        })
+      ]
     }),
     viteCompression({
       threshold: 0
