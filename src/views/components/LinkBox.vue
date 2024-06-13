@@ -1,25 +1,16 @@
 <template>
   <div id="carousel" @wheel="mouseWheel">
     <a-tabs v-model:activeKey="settingStore.linkBoxActiveKey" :animated="true" size="small" style="color: #fff">
-      <a-tab-pane v-if="menuList" v-for="(item, index) in menuList.result" :key="index" :tab="item.name">
+      <a-tab-pane v-for="(item, index) in menuList.result" v-if="menuList" :key="index" :tab="item.name">
         <div class="layout-col">
           <div v-for="item2 in item.child" class="app-group-item">
             <div>
               <a :href="item2.link">
                 <a-button>
                   <a-avatar
-                    v-if="item2.avatar != ''"
                     :size="{ xs: 44, sm: 56, md: 56, lg: 56, xl: 56, xxl: 56, xxxl: 56 }"
                     :src="item2.avatar"
-                    class="app-group-item-icon"
-                    shape="square"
-                  >
-                    {{ item2.name }}
-                  </a-avatar>
-                  <a-avatar
-                    v-else
-                    :size="{ xs: 44, sm: 56, md: 56, lg: 56, xl: 56, xxl: 56, xxxl: 56 }"
-                    :style="{ backgroundColor: `#40a9ff` }"
+                    :style="{ backgroundColor: item2.avatar == '' ? '#40a9ff' : '' }"
                     class="app-group-item-icon"
                     shape="square"
                   >
@@ -78,6 +69,7 @@ const mouseWheel = (event: any) => {
   position: absolute;
   z-index: 999;
   top: 45%;
+  overflow: hidden;
   width: 60%;
   height: 320px;
   .layout-col {
