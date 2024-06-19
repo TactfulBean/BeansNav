@@ -9,9 +9,10 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate"
 import "virtual:uno.css"
 import { createApp } from "vue"
 import App from "./App.vue"
-
+import { Message } from "@arco-design/web-vue"
 const app = createApp(App)
 
+Message._context = app._context
 app.config.warnHandler = () => null
 
 app.use(createPinia().use(piniaPluginPersistedstate))
