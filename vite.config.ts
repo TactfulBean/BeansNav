@@ -1,16 +1,17 @@
-import { defineConfig } from "vite"
+import { vitePluginForArco } from "@arco-plugins/vite-vue"
 import vue from "@vitejs/plugin-vue"
-import Components from "unplugin-vue-components/vite"
-import { AntDesignVueResolver } from "unplugin-vue-components/resolvers"
-import viteCompression from "vite-plugin-compression"
 import { resolve } from "path"
+import UnoCSS from "unocss/vite"
+import { defineConfig } from "vite"
+import viteCompression from "vite-plugin-compression"
 
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: {
       "@": resolve("./src")
-    }
+    },
+    extensions: [".js", ".json", ".ts"]
   },
   css: {
     preprocessorOptions: {
@@ -21,12 +22,9 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    Components({
-      resolvers: [
-        AntDesignVueResolver({
-          importStyle: false
-        })
-      ]
+    UnoCSS(),
+    vitePluginForArco({
+      style: "css"
     }),
     viteCompression({
       threshold: 0
