@@ -35,7 +35,7 @@ const setWallPaper = async () => {
       wallImage.src = newWallPaperSrc
     }
   } catch (error) {
-    Message.warning("壁纸加载失败")
+    Message.error("壁纸加载失败")
   }
 }
 </script>

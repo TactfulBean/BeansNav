@@ -21,6 +21,8 @@
   "devDependencies": {
     "@arco-design/web-vue": "^2.55.3",
     "@arco-plugins/vite-vue": "^1.4.5",
+    "@iconify-json/carbon": "^1.1.36",
+    "@iconify-json/mdi": "^1.1.66",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
     "prettier": "^3.3.2",

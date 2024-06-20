@@ -1,7 +1,7 @@
 <template>
-  <WallPaper></WallPaper>
+  <Home></Home>
 </template>
 <script lang="ts" setup>
-import WallPaper from "@/components/WallPaper.vue"
+import Home from "@/views/Home.vue"
 </script>
 <style lang="scss" scoped></style>

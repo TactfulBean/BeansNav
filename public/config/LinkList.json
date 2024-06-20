@@ -1,0 +1,357 @@
+[
+  {
+    "name": "常用网站",
+    "child": [
+      {
+        "name": "亿萌动漫",
+        "link": "https://www.acgyaojun.com/",
+        "avatar": ""
+      },
+      {
+        "name": "AnFuns",
+        "link": "https://www.anfuns.cc/",
+        "avatar": "https://upyun.tactfulbean.top/2023/07/64aff6d2416eb.png"
+      },
+      {
+        "name": "路漫漫",
+        "link": "https://www.lmm66.com",
+        "avatar": "https://www.lmm66.com/template/jable/statics/icon/favicon.ico"
+      },
+      {
+        "name": "蓝猫动漫",
+        "link": "http://lmfun.vip/",
+        "avatar": ""
+      },
+      {
+        "name": "宫下动漫",
+        "link": "https://gxdm01.org/",
+        "avatar": "https://upload-bbs.miyoushe.com/upload/2023/07/23/313221705/b396c924aa9e44c60a3288fba2b5a97b_7627928695128547015.jpg"
+      },
+      {
+        "name": "ZzzFun",
+        "link": "http://www.zzzfun.one/",
+        "avatar": ""
+      },
+      {
+        "name": "哔嘀影视",
+        "link": "https://www.bdys01.com/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd44ade04b.png"
+      },
+      {
+        "name": "Switch520",
+        "link": "https://www.gamer520.com",
+        "avatar": "https://sway.office.com/s/bRQwebfLdaNez2Nl/images/P31w2bg4VTaH9a"
+      },
+      {
+        "name": "磁力熊猫",
+        "link": "https://xiongmaodizhi.top/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd2ad5aed3.png"
+      },
+      {
+        "name": "哔哩哔哩",
+        "link": "https://www.bilibili.com/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61cd12f.png"
+      },
+      {
+        "name": "斗鱼",
+        "link": "https://www.douyu.com/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61c9cbe.png"
+      },
+      {
+        "name": "虎牙",
+        "link": "https://www.huya.com/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61b8281.png"
+      },
+      {
+        "name": "KOOK",
+        "link": "https://www.kookapp.cn/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61be1c9.png"
+      }
+    ]
+  },
+  {
+    "name": "常用工具",
+    "child": [
+      {
+        "name": "ChatGPT",
+        "link": "https://gpt.tactfulbean.top/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd650e0328.png"
+      },
+      {
+        "name": "在问",
+        "link": "https://www.zaiwen.top/#/chat/working-edition",
+        "avatar": "https://www.zaiwen.top/favicon.ico"
+      },
+      {
+        "name": "IT-Tools",
+        "link": "https://tool.tactfulbean.top/",
+        "avatar": "https://tool.tactfulbean.top/favicon.ico"
+      },
+      {
+        "name": "谷歌学术镜像",
+        "link": "https://ac.scmor.com/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c925a35ea.png"
+      },
+      {
+        "name": "JWT.io",
+        "link": "https://jwt.io/",
+        "avatar": "https://jwt.io/img/favicon/favicon-32x32.png"
+      },
+      {
+        "name": "Icones",
+        "link": "https://icones.js.org/",
+        "avatar": "https://icones.js.org/android-chrome-192x192.png"
+      },
+      {
+        "name": "Emoji表情大全",
+        "link": "https://emojixd.com/",
+        "avatar": "https://emojixd.com/favicon.ico"
+      },
+      {
+        "name": "JsonToAny",
+        "link": "https://xiets.gitee.io/json-to-any-web/",
+        "avatar": "https://xiets.gitee.io/json-to-any-web/logo.svg"
+      },
+      {
+        "name": "设计配色",
+        "link": "https://color.uisdc.com/",
+        "avatar": "https://www.uisdc.com/favicon.ico"
+      },
+      {
+        "name": "中国传统颜色",
+        "link": "https://colors.ichuantong.cn/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd616ec6ff.png"
+      },
+      {
+        "name": "聚合图床",
+        "link": "https://www.superbed.cn/",
+        "avatar": "https://www.superbed.cn/favicon.ico"
+      },
+      {
+        "name": "Convertio",
+        "link": "https://convertio.co/zh/",
+        "avatar": "https://convertio.co/favicon.ico"
+      },
+      {
+        "name": "Docsmall",
+        "link": "https://docsmall.com/",
+        "avatar": "https://docsmall.com/favicon.png"
+      },
+      {
+        "name": "公式识别",
+        "link": "https://simpletex.cn/ai/latex_ocr",
+        "avatar": "https://simpletex.cn/simpletex.ico"
+      },
+      {
+        "name": "蓝奏云",
+        "link": "https://up.woozooo.com/",
+        "avatar": "https://up.woozooo.com/favicon.ico"
+      },
+      {
+        "name": "Shields.io",
+        "link": "https://shields.io/badges/static-badge",
+        "avatar": "https://shields.io/img/favicon.ico"
+      },
+      {
+        "name": "Patorjk",
+        "link": "http://patorjk.com/",
+        "avatar": "http://patorjk.com/favicon.ico"
+      }
+    ]
+  },
+  {
+    "name": "技术学习",
+    "child": [
+      {
+        "name": "Github",
+        "link": "https://github.com/",
+        "avatar": "https://upyun.tactfulbean.top/2023/08/64cb02958c995.png"
+      },
+      {
+        "name": "稀土掘金",
+        "link": "https://juejin.cn/",
+        "avatar": "https://upyun.tactfulbean.top/2023/08/64cb02958e04d.png"
+      },
+      {
+        "name": "Vue3",
+        "link": "https://cn.vuejs.org/",
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/vuejs.svg"
+      },
+      {
+        "name": "Vite",
+        "link": "https://cn.vitejs.dev/",
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/vitejs.svg"
+      },
+      {
+        "name": "Pinia",
+        "link": "https://pinia.vuejs.org/zh/",
+        "avatar": "https://pinia.web3doc.top/logo.png"
+      },
+      {
+        "name": "VueUse",
+        "link": "http://www.vueusejs.com/",
+        "avatar": "http://www.vueusejs.com/favicon.svg"
+      },
+      {
+        "name": "Ant Design",
+        "link": "https://ant-design.antgroup.com/index-cn",
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/ant-design-vue.svg"
+      },
+      {
+        "name": "Element Plus",
+        "link": "https://element-plus.gitee.io/zh-CN/",
+        "avatar": "https://element-plus.gitee.io/images/element-plus-logo-small.svg"
+      },
+      {
+        "name": "Arco Design",
+        "link": "https://arco.design/",
+        "avatar": "https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico"
+      },
+      {
+        "name": "Naive UI",
+        "link": "https://www.naiveui.com/zh-CN/os-theme",
+        "avatar": "https://www.naiveui.com/assets/naivelogo-93278402.svg"
+      },
+      {
+        "name": "Tailwind CSS",
+        "link": "https://www.tailwindcss.cn/",
+        "avatar": "https://www.tailwindcss.cn/favicons/favicon.ico?v=3"
+      },
+      {
+        "name": "UnoCSS",
+        "link": "https://unocss.dev/",
+        "avatar": "https://unocss.dev/favicon.svg"
+      },
+      {
+        "name": "Iconfont",
+        "link": "https://www.iconfont.cn/",
+        "avatar": "https://img.alicdn.com/imgextra/i4/O1CN01Z5paLz1O0zuCC7osS_!!6000000001644-55-tps-83-82.svg"
+      },
+      {
+        "name": "Echarts",
+        "link": "https://echarts.apache.org/zh/index.html",
+        "avatar": "https://echarts.apache.org/zh/images/favicon.png?_v_=20200710_1"
+      },
+      {
+        "name": "OpenLayers",
+        "link": "https://openlayers.org/",
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/openlayers.svg"
+      },
+      {
+        "name": "MapBox",
+        "link": "https://docs.mapbox.com/",
+        "avatar": "https://static-assets.mapbox.com/branding/favicon/v1/favicon.ico?v=gAd4JjrGWl"
+      },
+      {
+        "name": "AntV",
+        "link": "https://antv.antgroup.com/",
+        "avatar": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7svFR6wkPMoAAAAAAAAAAAAADmJ7AQ/original"
+      },
+      {
+        "name": "JDK Download",
+        "link": "https://www.oracle.com/java/technologies/java-se-glance.html",
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/Oracle%20Corporation%20Logo.svg"
+      },
+      {
+        "name": "JSDelivr",
+        "link": "https://www.jsdelivr.com/",
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/jsdelivr.svg"
+      },
+      {
+        "name": "Netlify",
+        "link": "https://app.netlify.com/",
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/netlify.svg"
+      },
+      {
+        "name": "Three.js",
+        "link": "https://threejs.org/",
+        "avatar": "https://threejs.org/files/favicon.ico"
+      }
+    ]
+  },
+  {
+    "name": "趣味网站",
+    "child": [
+      {
+        "name": "Emoji合成",
+        "link": "https://tikolu.net/emojimix/",
+        "avatar": "https://tikolu.net/emojimix/icons/meowtle.png"
+      },
+      {
+        "name": "小霸王",
+        "link": "https://www.yikm.net/",
+        "avatar": "https://pic.imgdb.cn/item/63d20182face21e9ef3fdff2.png"
+      },
+      {
+        "name": "人生重开模拟器",
+        "link": "https://liferestart.syaro.io/public/index.html",
+        "avatar": "https://liferestart.syaro.io/favicon.ico"
+      },
+      {
+        "name": "鼠标在哪",
+        "link": "https://pointerpointer.com/",
+        "avatar": ""
+      },
+      {
+        "name": "扇巴掌",
+        "link": "https://www.slapkirk.com/",
+        "avatar": "https://www.slapkirk.com/android-icon-144x144.png"
+      },
+      {
+        "name": "猫国建设者",
+        "link": "https://likexia.gitee.io/cat-zh/#",
+        "avatar": "https://likexia.gitee.io/cat-zh/res/favicon.gif"
+      },
+      {
+        "name": "画物理线条",
+        "link": "https://www.xiwnn.com/huaxian/",
+        "avatar": "https://www.xiwnn.com/favicon.ico"
+      }
+    ]
+  },
+  {
+    "name": "WIKI",
+    "child": [
+      {
+        "name": "MC Wiki",
+        "link": "https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c925b564f.png"
+      },
+      {
+        "name": "MC百科",
+        "link": "https://www.mcmod.cn/",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c925b564f.png"
+      },
+      {
+        "name": "Terraria Wiki",
+        "link": "https://terraria.wiki.gg/zh/wiki/Terraria_Wiki",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c92591ef7.png"
+      },
+      {
+        "name": "战双帕弥什 Wiki",
+        "link": "https://wiki.biligame.com/zspms/%E9%A6%96%E9%A1%B5",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c9259c72b.png"
+      },
+      {
+        "name": "星露谷物语 Wiki",
+        "link": "https://zh.stardewvalleywiki.com/Stardew_Valley_Wiki",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c925b79cf.png"
+      },
+      {
+        "name": "原神 Wiki",
+        "link": "https://bbs.mihoyo.com/ys/obc/?bbs_presentation_style=no_header",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c9fc3262b.png"
+      },
+      {
+        "name": "明日方舟 Wiki",
+        "link": "https://prts.wiki/w/%E9%A6%96%E9%A1%B5",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c92610cfe.png"
+      },
+      {
+        "name": "饥荒 Wiki",
+        "link": "https://dontstarve.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5",
+        "avatar": "https://upyun.tactfulbean.top/2023/05/6454a09390e46.png"
+      }
+    ]
+  }
+]
