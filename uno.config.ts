@@ -15,7 +15,10 @@ export default defineConfig({
     ["shadow2_center", "shadow-[0_0_10px_rgba(0,0,0,0.1)]"],
     ["shadow3_center", "shadow-[0_0_20px_rgba(0,0,0,0.1)]"],
     // 页面组件
-    ["b-button", "m-5 duration-300 cursor-pointer flex-center bg-color_bg_4 hover:bg-color_fill_3 border border-color_border_2 shadow1"]
+    [
+      "b-button",
+      "m-5 duration-300 cursor-pointer flex-center color-color_text_2 bg-color_bg_4 hover:bg-color_fill_3 border border-color_border_2 shadow1"
+    ]
   ],
   rules: [
     [
@@ -37,6 +40,7 @@ export default defineConfig({
       color_bg_4: "var(--b-color-bg-4)",
       color_bg_5: "var(--b-color-bg-5)",
       color_bg_white: "var(--b-color-bg-white)",
+      color_bg_opacity: "var(--b-color-bg-opacity)",
       // 填充颜色
       color_fill_1: "var(--b-color-fill-1)",
       color_fill_2: "var(--b-color-fill-2)",

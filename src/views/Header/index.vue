@@ -1,5 +1,5 @@
 <template>
-  <div class="right-20 top-0 flex w-auto h-auto absolute z-50">
+  <div class="right-10 top-5 flex w-auto h-auto absolute z-50">
     <a-popover position="br">
       <div class="b-button w-80 h-28 rounded-xl">
         <div class="i-carbon:list"></div>

@@ -1,5 +1,6 @@
 // 自定义样式文件
 import "@/assets/style/main.scss"
+import "@/assets/style/animation.scss"
 // unocss
 import "@unocss/reset/tailwind.css"
 // Pinia

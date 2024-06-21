@@ -12,3 +12,26 @@ html {
 body {
   font-size: 16px;
 }
+
+// 自定义鼠标
+#cursor {
+  position: fixed;
+  z-index: 10086;
+  width: 18px;
+  height: 18px;
+  transition: 0.2s ease-in-out;
+  transition-property: background, opacity, transform;
+  pointer-events: none;
+  opacity: 0.25;
+  border-radius: 25px;
+  background: #fff;
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  &.active {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+}
