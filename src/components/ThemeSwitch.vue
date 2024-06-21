@@ -1,9 +1,9 @@
 <template>
-  <div class="absolute flex-col bottom-40 right-20 z-50">
-    <div class="b-button wh-30 text-20 rounded-20" @click="change($event)">
-      <div class="i-carbon:sun dark:i-carbon:moon hover:rotate-360 duration-1000"></div>
-    </div>
-  </div>
+  <!--  <div class="absolute flex-col bottom-40 right-20 z-50">-->
+  <!--    <div class="b-button wh-30 text-20 rounded-20" @click="change($event)">-->
+  <!--      <div class="i-carbon:sun dark:i-carbon:moon hover:rotate-360 duration-1000"></div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 </template>
 <script lang="ts" setup>
 import { useMainStore } from "@/stores/MainStore.ts"
