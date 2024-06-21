@@ -11,7 +11,7 @@ const getStyle = (el, attr) => {
   return false
 }
 
-export const cursorInit = () => {
+const cursorInit = () => {
   mainCursor = new Cursor()
   return mainCursor
 }
@@ -89,3 +89,5 @@ class Cursor {
     requestAnimationFrame(() => this.render())
   }
 }
+
+export default cursorInit
