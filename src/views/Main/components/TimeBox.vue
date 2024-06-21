@@ -32,17 +32,9 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .timeText {
-  font-family: -apple-system, BlinkMacSystemFont;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .dot {
   animation: heart 0.5s ease-in-out infinite alternate;
-}
-@keyframes heart {
-  0% {
-    opacity: 0.1;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 </style>
