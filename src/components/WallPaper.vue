@@ -1,5 +1,5 @@
 <template>
-  <div ref="wallPaper" class="bg-center bg-cover wh-full duration-1000 opacity-0 pointer-events-none"></div>
+  <div ref="wallPaper" class="bg-center bg-cover w-100vw h-100vh duration-1000 opacity-0 pointer-events-none"></div>
   <div class="grayBG absolute-0 wh-full z-1 bg-[#00000019] pointer-events-none"></div>
 </template>
 <script lang="ts" setup>

@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[isHover || isFocus ? 'w-530 ' : 'w-230 ']"
+    :class="[isHover || isFocus ? 'w-full max-w-530 ' : 'w-230 ']"
     class="flex-center items-start duration-300"
     @mouseleave="isHover = false"
     @mouseover="isHover = true"
