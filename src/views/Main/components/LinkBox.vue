@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div class="box duration-300 rounded-2xl w-full flex-1 flex-col gap-10 px-10 py-10">
-      <div class="h-30 w-full flex gap-10 whitespace-nowrap overflow-x-scroll overflow-y-hidden shadow-inner">
+      <div class="scrollBar h-30 w-full flex gap-10 whitespace-nowrap overflow-x-scroll overflow-y-hidden shadow-inner">
         <div v-for="(item, index) in LinkList" class="w-auto rounded-8 px-10 border flex-center text-[#eeeeee]" @click="page = index + 1">
           {{ item.name }}
         </div>
@@ -33,5 +33,12 @@ onMounted(() => {
     flex: 0;
     height: 0;
   }
+}
+.scrollBar {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 </style>
