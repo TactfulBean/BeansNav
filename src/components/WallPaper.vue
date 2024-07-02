@@ -1,14 +1,20 @@
 <template>
-  <div ref="wallPaper" class="bg-center bg-cover w-100vw h-100vh duration-1000 opacity-0 pointer-events-none"></div>
+  <div
+    ref="wallPaper"
+    :style="{ width: `${size?.width}` + 'px', height: `${size?.height}` + 'px' }"
+    class="bg-center bg-cover duration-1000 opacity-0 pointer-events-none"
+  ></div>
   <div class="grayBG absolute-0 wh-full z-1 bg-[#00000019] pointer-events-none"></div>
 </template>
 <script lang="ts" setup>
 import { getWallPaper } from "@/api"
 import { useWallPaperStore } from "@/stores/Config.ts"
+import { useMainStore } from "@/stores/MainStore.ts"
 import { getDate } from "@/utils"
 import { Message } from "@arco-design/web-vue"
 import { onMounted, ref } from "vue"
 
+const mainStore = useMainStore()
 const wallPaperStore = useWallPaperStore()
 const wallPaper = ref()
 const wallImage = new Image()
@@ -18,8 +24,10 @@ wallImage.onload = () => {
   wallPaper.value.style.opacity = 1
 }
 
+const size = ref()
 onMounted(async () => {
   await setWallPaper()
+  size.value = mainStore.getScreenSize()
 })
 
 const setWallPaper = async () => {
