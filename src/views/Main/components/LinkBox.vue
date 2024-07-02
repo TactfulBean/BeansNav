@@ -37,6 +37,8 @@ onMounted(() => {
 .scrollBar {
   ::-webkit-scrollbar {
     display: none;
+    width: 0;
+    height: 0;
   }
   scrollbar-width: none;
   -ms-overflow-style: none;
