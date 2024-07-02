@@ -2,7 +2,7 @@
   <div
     ref="wallPaper"
     :style="{ width: `${size?.width}` + 'px', height: `${size?.height}` + 'px' }"
-    class="bg-center bg-cover duration-1000 opacity-0 pointer-events-none"
+    class="bg-center bg-cover duration-1000 opacity-0 pointer-events-none overflow-hidden"
   ></div>
   <div class="grayBG absolute-0 wh-full z-1 bg-[#00000019] pointer-events-none"></div>
 </template>
