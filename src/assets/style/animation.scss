@@ -16,3 +16,19 @@
     opacity: 1;
   }
 }
+@keyframes rightAm {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 3px;
+  }
+}
+@keyframes leftAm {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 3px;
+  }
+}
