@@ -5,7 +5,7 @@
         <transition name="fade">
           <div v-if="!arrivedState.left" class="leftArrow absolute left-0 text-20 w-20 text-[#dddddd] i-carbon:chevron-left"></div>
         </transition>
-        <div ref="scrollRef" class="scrollBar box duration-300 h-30 flex gap-10 whitespace-nowrap overflow-x-scroll overflow-y-hidden shadow-inner">
+        <div ref="scrollRef" class="scrollBar duration-300 h-30 flex gap-10 whitespace-nowrap overflow-x-scroll overflow-y-hidden shadow-inner">
           <div v-for="(item, index) in LinkList" class="w-auto rounded-8 px-10 border flex-center text-[#dddddd]" @click="page = index + 1">
             {{ item.name }}
           </div>
@@ -40,7 +40,10 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 @media screen and (max-height: 576px) {
-  .box {
+  .box,
+  .scrollBar,
+  .leftArrow,
+  .rightArrow {
     flex: 0;
     height: 0;
   }
