@@ -23,5 +23,5 @@ export const getChangelog = () => {
 }
 export const getSearchSuggestions = async (keyWord: string) => {
   // @ts-ignore
-  return Request.get(`https://suggestion.baidu.com/su?wd=${keyWord}&cb=json`, { adapter: jsonpAdapter, callbackParamName: "cb" })
+  return Request.get(`https://suggestion.baidu.com/su?wd=${keyWord}`, { adapter: jsonpAdapter, callbackParamName: "cb" })
 }
