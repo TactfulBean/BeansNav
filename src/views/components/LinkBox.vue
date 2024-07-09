@@ -73,11 +73,10 @@ const mouseWheel = (event: any) => {
   width: 60%;
   height: 320px;
   .layout-col {
-    display: flex;
-    flex-flow: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     .app-group-item {
       display: inline-block;
-      flex: 0 0 10%;
       padding: 10px 5px;
       text-align: center;
       $radius: 15px;
@@ -107,8 +106,8 @@ const mouseWheel = (event: any) => {
     width: 90%;
     height: calc(100% - 300px);
     .layout-col {
+      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
       .app-group-item {
-        flex: 0 0 25%;
         $radius: 10px;
         .ant-btn {
           min-width: 48px;
