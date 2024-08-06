@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute bottom-10 flex-center text-12 w-full text-[--b-color-text-3] z-50">
+  <div class="footer absolute bottom-10 flex-center text-12 w-full text-[--b-color-text-3] z-50">
     <div class="cursor-default">© 2024</div>
     <a class="mx-3 duration-300 hover:text-[--b-color-text-2]" href="https://github.com/TactfulBean">TactfulBean</a>
     <div class="cursor-default">|</div>
@@ -7,4 +7,10 @@
   </div>
 </template>
 <script lang="ts" setup></script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media screen and (max-height: 576px) {
+  .footer{
+    display: none;
+  }
+}
+</style>
