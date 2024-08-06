@@ -32,6 +32,7 @@
         v-model:Show="isFocus"
         :class="[isHover || isFocus ? 'w-full' : 'w-230 ']"
         class="absolute top-50"
+        @search="search"
       ></SearchSuggestion>
     </transition>
   </div>

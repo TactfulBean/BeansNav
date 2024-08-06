@@ -9,6 +9,7 @@
       :class="[selectIndex == index ? 'bg-[#9f9f9fff] tracking-1' : '']"
       :data-index="index"
       class="duration-300 h-26 px-15 cursor-pointer flex items-center gap-10"
+      @click="clickToSearch(item)"
       @mouseover="selectIndex = index"
     >
       <div class="i-carbon:search color-[#2080f0] text-18"></div>
@@ -46,6 +47,15 @@ const changeSelect = (variation: 1 | -1) => {
   selectIndex.value = newIndex
   KeyWord.value = result.value[selectIndex.value]
 }
+
+const clickToSearch = (text:string) => {
+  KeyWord.value=text
+  emits('search')
+}
+
+const emits=defineEmits<{
+  search:[]
+}>()
 
 defineExpose({
   changeSelect,
