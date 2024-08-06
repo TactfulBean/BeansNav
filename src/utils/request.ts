@@ -1,6 +1,6 @@
-import axios, { InternalAxiosRequestConfig } from "axios"
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios"
-import { message } from "ant-design-vue"
+import axios, { InternalAxiosRequestConfig } from "axios"
+
 interface Default {
   code: number
   result: any
@@ -63,7 +63,7 @@ export class Request {
           default:
             msg = `连接出错(${error.response.status})!`
         }
-        message.error(msg).then(() => {})
+        console.log(msg)
         return Promise.reject(error.response)
       }
     )

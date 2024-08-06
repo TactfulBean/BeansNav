@@ -1,12 +1,15 @@
-import { createApp } from "vue"
-
+// 自定义样式文件
 import "@/assets/style/main.scss"
-
-import App from "@/App.vue"
-
+import "@/assets/style/animation.scss"
+// unocss
+import "@unocss/reset/tailwind.css"
+// Pinia
 import { createPinia } from "pinia"
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate"
 
+import "virtual:uno.css"
+import { createApp } from "vue"
+import App from "./App.vue"
 const app = createApp(App)
 
 app.config.warnHandler = () => null

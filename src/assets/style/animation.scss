@@ -1,0 +1,34 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+@keyframes heart {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rightAm {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 3px;
+  }
+}
+@keyframes leftAm {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 3px;
+  }
+}

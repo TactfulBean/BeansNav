@@ -1,0 +1,78 @@
+.light {
+  // 背景色
+  --b-color-bg-1: #ffffff;
+  --b-color-bg-2: #ffffff;
+  --b-color-bg-3: #ffffff;
+  --b-color-bg-4: #ffffff;
+  --b-color-bg-5: #ffffff;
+  --b-color-bg-white: #ffffff;
+  --b-color-bg-opacity: #ffffff19;
+  // 字体颜色
+  --b-color-text-1: #1d2129;
+  --b-color-text-2: #4e5969;
+  --b-color-text-3: #86909c;
+  --b-color-text-4: #c9cdd4;
+  // 填充颜色
+  --b-color-fill-1: #f7f8fa;
+  --b-color-fill-2: #f2f3f5;
+  --b-color-fill-3: #e5e6eb;
+  --b-color-fill-4: #c9cdd4;
+  // 边框
+  --b-color-border-1: #f2f3f5;
+  --b-color-border-2: #e5e6eb;
+  --b-color-border-3: #c9cdd4;
+  --b-color-border-4: #86909c;
+}
+.dark {
+  // 背景色
+  --b-color-bg-1: #17171a;
+  --b-color-bg-2: #232324;
+  --b-color-bg-3: #2a2a2b;
+  --b-color-bg-4: #313132;
+  --b-color-bg-5: #373739;
+  --b-color-bg-white: #f6f6f6;
+  --b-color-bg-opacity: #17171a19;
+  // 字体颜色
+  --b-color-text-1: #ffffffe5;
+  --b-color-text-2: #ffffffb2;
+  --b-color-text-3: #ffffff7f;
+  --b-color-text-4: #ffffff4c;
+  // 填充颜色
+  --b-color-fill-1: #17171a;
+  --b-color-fill-2: #2e2e30;
+  --b-color-fill-3: #484849;
+  --b-color-fill-4: #5f5f60;
+  // 边框
+  --b-color-border-1: #2e2e30;
+  --b-color-border-2: #484849;
+  --b-color-border-3: #5f5f60;
+  --b-color-border-4: #919192;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 1;
+}
+.dark::view-transition-new(root) {
+  z-index: 999;
+}
+
+::view-transition-old(root) {
+  z-index: 999;
+}
+::view-transition-new(root) {
+  z-index: 1;
+}
+
+@font-face {
+  font-family: "ZhuZiAWan";
+  src: url("https://npm.elemecdn.com/anzhiyu-blog@2.0.4/fonts/ZhuZiAWan.woff2");
+}
+* {
+  font-family: ZhuZiAWan;
+}

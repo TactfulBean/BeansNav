@@ -1,32 +1,38 @@
+html,
+body,
 #app {
-  width: 100%;
-  height: 100%;
-  -webkit-overflow-scrolling: touch;
-}
-html {
-  width: 100%;
-  height: 100%;
-}
-body {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  margin: 0;
-  background-color: darkgray !important;
+  padding: 0;
+  user-select: none;
 }
-@font-face {
-  font-family: "ZhuZiAWan";
-  src: url("https://npm.elemecdn.com/anzhiyu-blog@2.0.4/fonts/ZhuZiAWan.woff2");
+html {
+  font-size: 4px;
 }
-* {
-  font-family: ZhuZiAWan;
+body {
+  font-size: 16px;
 }
-@keyframes hide {
-  0% {
-    opacity: 1;
+
+// 自定义鼠标
+#cursor {
+  position: fixed;
+  z-index: 10086;
+  width: 18px;
+  height: 18px;
+  transition: 0.2s ease-in-out;
+  transition-property: background, opacity, transform;
+  pointer-events: none;
+  opacity: 0.25;
+  border-radius: 25px;
+  background: #fff;
+
+  &.hidden {
+    opacity: 0;
   }
 
-  100% {
-    opacity: 0;
+  &.active {
+    transform: scale(0.5);
+    opacity: 0.5;
   }
 }
