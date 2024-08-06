@@ -26,7 +26,7 @@
             class="linkBox justify-items-center items-center sm-gap-30 gap-10 rounded-2xl grid w-full absolute text-[#dddddd]"
           >
             <div v-for="child in item.child" class="flex-col flex-center gap-8 hover:scale-105 duration-300">
-              <a :href="child.link" class="w-60 h-60 border max-sm-w-48 max-sm-h-48 overflow-hidden rounded-15 flex flex-center bg-white">
+              <a :href="child.link" class="w-60 h-60 border-2 border-solid max-sm-w-48 max-sm-h-48 overflow-hidden rounded-12 flex flex-center bg-white">
                 <a-image :src="child.avatar" :width="mainStore.getScreenSize().width < 576 ? 48 : 60" fit="cover" />
               </a>
               <div class="w-70 text-center text-nowrap text-ellipsis overflow-hidden">
