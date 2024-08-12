@@ -19,17 +19,20 @@
           <div v-if="!arrivedState.right" class="rightArrow absolute right-0 text-20 w-20 text-[#dddddd] i-carbon:chevron-right"></div>
         </transition>
       </div>
-      <div class="flex-1 overflow-hidden pt-30 relative scrollBar overflow-y-scroll">
+      <div class="flex-1 pt-20 overflow-hidden relative scrollBar overflow-y-scroll">
         <transition v-for="(item, index) in LinkList" name="fade">
           <div
             v-show="mainStore.linkListPage == index + 1"
-            class="linkBox justify-items-center items-center sm-gap-30 gap-10 rounded-2xl grid w-full absolute text-[#dddddd]"
+            class="justify-center grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-24 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
           >
-            <div v-for="child in item.child" class="flex-col flex-center gap-8 hover:scale-105 duration-300">
-              <a :href="child.link" class="w-60 h-60 border-2 border-solid max-sm-w-48 max-sm-h-48 overflow-hidden rounded-12 flex flex-center bg-white">
-                <a-image :preview="false" :src="child.avatar" :width="mainStore.getScreenSize().width < 576 ? 48 : 60" fit="cover" />
+            <div v-for="child in item.child" class="gap-8 relative hover:scale-105 duration-300">
+              <a
+                :href="child.link"
+                class="w-60 h-60 border-2 border-solid max-sm-w-48 max-sm-h-48 overflow-hidden rounded-12 flex flex-center bg-white"
+              >
+                <img :src="child.avatar" alt="" class="wh-full" />
               </a>
-              <div class="w-70 text-center text-nowrap text-ellipsis overflow-hidden">
+              <div class="absolute w-full bottom--20 max-sm-bottom--16 text-center text-nowrap text-ellipsis overflow-hidden">
                 {{ child.name }}
               </div>
             </div>
@@ -95,8 +98,5 @@ onMounted(() => {
 }
 .rightArrow {
   animation: rightAm 0.5s ease-in-out infinite alternate;
-}
-.linkBox {
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 </style>
