@@ -23,7 +23,7 @@
         <transition v-for="(item, index) in LinkList" name="fade">
           <div
             v-show="mainStore.linkListPage == index + 1"
-            class="px-10 max-sm-px-5 py-20 justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-26 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
+            class="px-10 max-sm-px-5 py-20 justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-12 max-sm-gap-row-24 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
           >
             <div
               v-for="child in item.child"
