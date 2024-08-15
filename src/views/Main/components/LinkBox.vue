@@ -23,15 +23,15 @@
         <transition v-for="(item, index) in LinkList" name="fade">
           <div
             v-show="mainStore.linkListPage == index + 1"
-            class="px-10 py-20 justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-26 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
+            class="px-10 max-sm-px-5 py-20 justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-12 max-sm-gap-row-24 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
           >
             <div
               v-for="child in item.child"
-              :class="[child.size ? ` col-span-${child.size[0]} row-span-${child.size[1]}` : '']"
+              :class="[child.size ? `col-span-${child.size[0]} row-span-${child.size[1]}` : 'wh-60 max-sm-wh-48']"
               class="flex-center shadow1 relative hover:scale-105 duration-300"
             >
-              <a :href="child.link" class="bg-white flex wh-full rounded-16 max-sm-rounded-12 border-1 border-[#ffffffff] overflow-hidden">
-                <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="wh-full" />
+              <a :href="child.link" class="bg-white wh-full flex-1 flex rounded-16 max-sm-rounded-12 border-1 border-[#ffffffff] overflow-hidden">
+                <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="flex-1 wh-full" />
               </a>
               <div class="absolute w-full bottom--20 max-sm-bottom--16 text-center text-nowrap text-ellipsis overflow-hidden">
                 {{ child.name }}
