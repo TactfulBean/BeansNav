@@ -23,16 +23,17 @@
         <transition v-for="(item, index) in LinkList" name="fade">
           <div
             v-show="mainStore.linkListPage == index + 1"
-            class="justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,52px)] max-sm-grid-rows-[repeat(auto-fill,52px)] max-sm-gap-26 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
+            class="justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-26 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
           >
-            <div v-for="child in item.child" class="gap-8 relative hover:scale-105 duration-300">
-              <a
-                :href="child.link"
-                class="w-60 h-60 border-2 border-solid max-sm-w-52 max-sm-h-52 overflow-hidden rounded-12 flex flex-center bg-white"
-              >
-                <img :src="child.avatar" alt="" class="wh-full" />
+            <div
+              v-for="child in item.child"
+              :class="[child.size ? ` col-span-${child.size[0]} row-span-${child.size[1]}` : '']"
+              class="bg-white rounded-16 shadow1 max-sm-w-48 max-sm-h-48 gap-8 relative hover:scale-105 duration-300"
+            >
+              <a :href="child.link" class="flex-center wh-full rounded-16 overflow-hidden">
+                <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="wh-full" />
               </a>
-              <div class="absolute w-full bottom--20 max-sm-bottom--18 text-center text-nowrap text-ellipsis overflow-hidden">
+              <div class="absolute w-full bottom--20 max-sm-bottom--16 text-center text-nowrap text-ellipsis overflow-hidden">
                 {{ child.name }}
               </div>
             </div>
@@ -56,6 +57,8 @@ const LinkList = ref<
       name: string
       link: string
       avatar: string
+      scale: number
+      size: [number, number]
     }[]
   }[]
 >([])
@@ -69,8 +72,8 @@ const mouseWheel = (event: any) => {
 }
 
 onMounted(() => {
-  Request.get("./config/LinkList.json").then((res: any) => {
-    LinkList.value = res.data
+  Request.get("https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json").then((res: any) => {
+    LinkList.value = res.data.result
   })
 })
 </script>
