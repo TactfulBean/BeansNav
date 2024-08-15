@@ -19,18 +19,18 @@
           <div v-if="!arrivedState.right" class="rightArrow absolute right-0 text-20 w-20 text-[#dddddd] i-carbon:chevron-right"></div>
         </transition>
       </div>
-      <div class="flex-1 pt-20 overflow-hidden relative scrollBar overflow-y-scroll">
+      <div class="flex-1 overflow-hidden relative scrollBar overflow-y-scroll">
         <transition v-for="(item, index) in LinkList" name="fade">
           <div
             v-show="mainStore.linkListPage == index + 1"
-            class="justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-26 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
+            class="px-10 py-20 justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-26 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
           >
             <div
               v-for="child in item.child"
               :class="[child.size ? ` col-span-${child.size[0]} row-span-${child.size[1]}` : '']"
-              class="bg-white rounded-16 shadow1 max-sm-w-48 max-sm-h-48 gap-8 relative hover:scale-105 duration-300"
+              class="flex-center shadow1 relative hover:scale-105 duration-300"
             >
-              <a :href="child.link" class="flex-center wh-full rounded-16 overflow-hidden">
+              <a :href="child.link" class="bg-white flex wh-full rounded-16 max-sm-rounded-12 border-1 border-[#ffffffff] overflow-hidden">
                 <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="wh-full" />
               </a>
               <div class="absolute w-full bottom--20 max-sm-bottom--16 text-center text-nowrap text-ellipsis overflow-hidden">
