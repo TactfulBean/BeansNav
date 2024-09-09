@@ -28,7 +28,7 @@
             <div
               v-for="child in item.child"
               :class="[child.size ? `col-span-${child.size[0]} row-span-${child.size[1]}` : 'wh-60 max-sm-wh-48']"
-              class="flex-center shadow1 relative hover:scale-105 duration-300"
+              class="flex-center shadow1 rounded-16 max-sm-rounded-12 relative hover:scale-105 duration-300"
             >
               <a :href="child.link" class="bg-white wh-full flex-1 flex rounded-16 max-sm-rounded-12 border-1 border-[#ffffffff] overflow-hidden">
                 <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="flex-1 wh-full" />
