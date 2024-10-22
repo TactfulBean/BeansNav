@@ -16,12 +16,14 @@ import { onMounted, ref } from "vue"
 
 const mainStore = useMainStore()
 const wallPaperStore = useWallPaperStore()
-const wallPaper = ref()
+const wallPaper = ref(null)
 const wallImage = new Image()
 
 wallImage.onload = () => {
-  wallPaper.value.style.backgroundImage = `url(${wallImage.src})`
-  wallPaper.value.style.opacity = 1
+  if (wallPaper.value) {
+    wallPaper.value.style.backgroundImage = `url(${wallImage.src})`
+    wallPaper.value.style.opacity = 1
+  }
 }
 
 const size = ref()
@@ -37,12 +39,17 @@ const setWallPaper = async () => {
       wallImage.src = wallPaperStore.wallPaperSrc
     } else {
       const res = await getWallPaper()
-      const newWallPaperSrc = res.data.result[0].url
-      wallPaperStore.wallPaperSrc = newWallPaperSrc
-      wallPaperStore.wallPaperDate = currentDate
-      wallImage.src = newWallPaperSrc
+      if (res && res.data && res.data.result && res.data.result.length > 0) {
+        const newWallPaperSrc = res.data.result[0].url
+        wallPaperStore.wallPaperSrc = newWallPaperSrc
+        wallPaperStore.wallPaperDate = currentDate
+        wallImage.src = newWallPaperSrc
+      } else {
+        wallImage.src = "/image/background.jpg"
+      }
     }
   } catch (error) {
+    wallImage.src = "/image/background.jpg"
     Message.error("壁纸加载失败")
   }
 }

@@ -10,27 +10,27 @@
     "prettier": "npx prettier . --write"
   },
   "dependencies": {
-    "@unocss/reset": "^0.61.0",
-    "@vueuse/core": "^10.11.0",
-    "axios": "^1.7.2",
+    "@unocss/reset": "^0.63.6",
+    "@vueuse/core": "^11.1.0",
+    "axios": "^1.7.7",
     "axios-jsonp": "^1.0.4",
-    "pinia": "^2.1.7",
-    "pinia-plugin-persistedstate": "^3.2.1",
-    "sass": "^1.77.6",
-    "vue": "^3.4.29"
+    "pinia": "^2.2.4",
+    "pinia-plugin-persistedstate": "^4.1.1",
+    "sass": "^1.80.3",
+    "vue": "^3.5.12"
   },
   "devDependencies": {
-    "@arco-design/web-vue": "^2.55.3",
+    "@arco-design/web-vue": "^2.56.2",
     "@arco-plugins/vite-vue": "^1.4.5",
-    "@iconify-json/carbon": "^1.1.36",
-    "@iconify-json/mdi": "^1.1.66",
-    "@types/node": "^20.14.5",
-    "@vitejs/plugin-vue": "^5.0.5",
-    "prettier": "^3.3.2",
-    "typescript": "^5.4.5",
-    "unocss": "^0.61.0",
-    "vite": "^5.3.1",
+    "@iconify-json/carbon": "^1.2.3",
+    "@iconify-json/mdi": "^1.2.1",
+    "@types/node": "^22.7.8",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "unocss": "^0.63.6",
+    "vite": "^5.4.9",
     "vite-plugin-compression": "^0.5.1",
-    "vue-tsc": "^2.0.21"
+    "vue-tsc": "^2.1.6"
   }
 }
