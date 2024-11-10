@@ -48,6 +48,7 @@ import { useMainStore } from "@/stores/MainStore.ts"
 import { useScroll } from "@vueuse/core"
 import { onMounted, ref } from "vue"
 import Request from "@/utils/request.ts"
+
 const mainStore = useMainStore()
 
 const LinkList = ref<
@@ -72,7 +73,7 @@ const mouseWheel = (event: any) => {
 }
 
 onMounted(() => {
-  Request.get("https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json").then((res: any) => {
+  Request.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json").then((res: any) => {
     LinkList.value = res.data.result
   })
 })
