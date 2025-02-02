@@ -1,16 +1,19 @@
 <template>
   <div
     ref="wallPaper"
-    :style="{ width: `${size?.width}` + 'px', height: `${size?.height}` + 'px' }"
-    class="bg-center bg-cover duration-1000 opacity-0 pointer-events-none"
+    :style="{
+      width: `${mainStore.size?.width}px`,
+      height: `${mainStore.size?.height}px`,
+      backgroundSize: 'cover'
+    }"
+    class="bg-center transition-all duration-300 ease-out opacity-0 pointer-events-none"
   ></div>
   <div class="grayBG absolute-0 wh-full z-1 bg-[#00000019] pointer-events-none"></div>
 </template>
 <script lang="ts" setup>
 // import { getWallPaper } from "@/api"
 // import { useWallPaperStore } from "@/stores/Config.ts"
-import { useMainStore } from "@/stores/MainStore.ts"
-// import { getDate } from "@/utils"
+import { useMainStore } from "@/stores/MainStore.ts" // import { getDate } from "@/utils"
 // import { Message } from "@arco-design/web-vue"
 import { onMounted, ref } from "vue"
 
@@ -26,33 +29,17 @@ wallImage.onload = () => {
   }
 }
 
-const size = ref()
 onMounted(async () => {
+  mainStore.getScreenSize()
   await setWallPaper()
-  size.value = mainStore.getScreenSize()
 })
 
 const setWallPaper = async () => {
-  // try {
-  //   const currentDate = getDate()
-  //   if (currentDate === wallPaperStore.wallPaperDate && wallPaperStore.wallPaperSrc) {
-  //     wallImage.src = wallPaperStore.wallPaperSrc
-  //   } else {
-  //     const res = await getWallPaper()
-  //     if (res && res.data && res.data.result && res.data.result.length > 0) {
-  //       const newWallPaperSrc = res.data.result[0].url
-  //       wallPaperStore.wallPaperSrc = newWallPaperSrc
-  //       wallPaperStore.wallPaperDate = currentDate
-  //       wallImage.src = newWallPaperSrc
-  //     } else {
-  //       wallImage.src = "/image/background.jpg"
-  //     }
-  //   }
-  // } catch (error) {
-  //   wallImage.src = "/image/background.jpg"
-  //   Message.error("壁纸加载失败")
-  // }
-  wallImage.src = "https://bing.tactfulbean.top/1920x1080_302.php"
+  const tempImg = new Image()
+  tempImg.src = "https://bing.tactfulbean.top/1920x1080_302.php"
+  tempImg.onload = () => {
+    wallImage.src = tempImg.src
+  }
 }
 </script>
 <style lang="scss" scoped>
