@@ -4,14 +4,18 @@ import { defineStore } from "pinia"
 export const useMainStore = defineStore("mainStore", {
   state: () => ({
     darkTheme: false,
-    linkListPage: 1
+    linkListPage: 1,
+    size:{
+      width:0,
+      height:0
+    }
   }),
   getters: {},
   actions: {
-    getScreenSize: () => {
+    getScreenSize() {
       const { width, height } = useWindowSize()
-
-      return { width: width.value, height: height.value }
+      this.size.width = width
+      this.size.height = height
     }
   },
   persist: true
