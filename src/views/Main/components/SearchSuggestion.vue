@@ -30,13 +30,20 @@ const selectIndex = ref(-1)
 const KeyWord = defineModel<string>("KeyWord")
 const Show = defineModel<boolean>("Show")
 
+let time: number = 0
 const getResult = () => {
+  const now = Date.now()
+  time = now
   selectIndex.value = -1
-  if (KeyWord.value)
+  if (KeyWord.value) {
     getSearchSuggestions(KeyWord.value).then((res: any) => {
-      result.value = res.data.s
+      if (now == time) {
+        result.value = res.data.s || []
+      }
     })
-  else result.value = []
+  } else {
+    result.value = []
+  }
 }
 
 const changeSelect = (variation: 1 | -1) => {
@@ -48,13 +55,13 @@ const changeSelect = (variation: 1 | -1) => {
   KeyWord.value = result.value[selectIndex.value]
 }
 
-const clickToSearch = (text:string) => {
-  KeyWord.value=text
-  emits('search')
+const clickToSearch = (text: string) => {
+  KeyWord.value = text
+  emits("search")
 }
 
-const emits=defineEmits<{
-  search:[]
+const emits = defineEmits<{
+  search: []
 }>()
 
 defineExpose({

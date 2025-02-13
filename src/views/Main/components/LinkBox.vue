@@ -20,9 +20,11 @@
         </transition>
       </div>
       <div class="flex-1 overflow-hidden relative scrollBar overflow-y-scroll">
-        <transition v-for="(item, index) in LinkList" name="fade">
+        <transition-group :name="transitionName">
           <div
+            v-for="(item, index) in LinkList"
             v-show="mainStore.linkListPage == index + 1"
+            :key="index"
             class="px-10 max-sm-px-5 py-20 justify-between grid-cols-[repeat(auto-fill,60px)] grid-rows-[repeat(auto-fill,60px)] max-sm-grid-cols-[repeat(auto-fill,48px)] max-sm-grid-rows-[repeat(auto-fill,48px)] max-sm-gap-12 max-sm-gap-row-24 gap-30 rounded-2xl grid w-full absolute text-[#dddddd]"
           >
             <div
@@ -38,7 +40,7 @@
               </div>
             </div>
           </div>
-        </transition>
+        </transition-group>
       </div>
     </div>
   </transition>
@@ -46,7 +48,7 @@
 <script lang="ts" setup>
 import { useMainStore } from "@/stores/MainStore.ts"
 import { useScroll } from "@vueuse/core"
-import { onMounted, ref } from "vue"
+import { onMounted, ref, watch } from "vue"
 import Request from "@/utils/request.ts"
 
 const mainStore = useMainStore()
@@ -71,6 +73,14 @@ const mouseWheel = (event: any) => {
   if (event.deltaY > 0 && mainStore.linkListPage < LinkList.value.length) mainStore.linkListPage += 1
   if (event.deltaY < 0 && mainStore.linkListPage > 1) mainStore.linkListPage -= 1
 }
+
+const transitionName = ref("slide-left")
+watch(
+  () => mainStore.linkListPage,
+  (newPage, oldPage) => {
+    transitionName.value = newPage > oldPage ? "slide-left" : "slide-right"
+  }
+)
 
 onMounted(() => {
   Request.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json").then((res: any) => {
