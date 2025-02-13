@@ -27,7 +27,7 @@ export default defineConfig({
       style: "css"
     }),
     viteCompression({
-      threshold: 0
+      threshold: 10240
     })
   ]
 })
