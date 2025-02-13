@@ -78,7 +78,7 @@ const transitionName = ref("slide-left")
 watch(
   () => mainStore.linkListPage,
   (newPage, oldPage) => {
-    transitionName.value = newPage > oldPage ? "slide-left" : "slide-right"
+    transitionName.value = newPage > oldPage ? "slide-right" : "slide-left"
   }
 )
 
