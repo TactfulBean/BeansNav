@@ -33,7 +33,7 @@
               class="flex-center shadow1 rounded-16 max-sm-rounded-12 relative hover:scale-105 duration-300"
             >
               <a :href="child.link" class="bg-white wh-full flex-1 flex rounded-16 max-sm-rounded-12 border-1 border-[#ffffffff] overflow-hidden">
-                <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="flex-1 wh-full" />
+                <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="flex-1 wh-full" @error="handleImageError(child)" />
               </a>
               <div class="absolute w-full bottom--20 max-sm-bottom--16 text-center text-nowrap text-ellipsis overflow-hidden">
                 {{ child.name }}
@@ -46,10 +46,10 @@
   </transition>
 </template>
 <script lang="ts" setup>
+import { getLinkList } from "@/api"
 import { useMainStore } from "@/stores/MainStore.ts"
 import { useScroll } from "@vueuse/core"
 import { onMounted, ref, watch } from "vue"
-import Request from "@/utils/request.ts"
 
 const mainStore = useMainStore()
 
@@ -83,10 +83,21 @@ watch(
 )
 
 onMounted(() => {
-  Request.get("https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json").then((res: any) => {
-    LinkList.value = res.data.result
+  getLinkList().then((res: any) => {
+    LinkList.value = res.result.map((item: any) => {
+      item.child.forEach((child: any) => {
+        const img = new Image()
+        img.src = child.avatar
+      })
+      return item
+    })
   })
 })
+
+const handleImageError = (child: any) => {
+  child.avatar = "./icons/null.png"
+  child.scale = 80
+}
 </script>
 <style lang="scss" scoped>
 @media screen and (max-height: 576px) {
