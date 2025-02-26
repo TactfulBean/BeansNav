@@ -38,7 +38,7 @@ const getResult = () => {
   if (KeyWord.value) {
     getSearchSuggestions(KeyWord.value).then((res: any) => {
       if (now == time) {
-        result.value = res.data.s || []
+        result.value = res.s || []
       }
     })
   } else {

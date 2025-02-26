@@ -22,7 +22,7 @@ export class Request {
     )
     this.instance.interceptors.response.use(
       (response: AxiosResponse) => {
-        return response
+        return response.data
       },
       (error: any) => {
         let msg: string
