@@ -3,44 +3,45 @@
     "name": "常用网站",
     "child": [
       {
-        "name": "亿萌动漫",
-        "link": "https://www.acgyaojun.com/",
-        "avatar": ""
+        "name": "什么值得看",
+        "link": "https://smzdk.top/#/",
+        "avatar": "https://smzdk.top/ico/favicon.png"
       },
       {
-        "name": "AnFuns",
-        "link": "https://www.anfuns.cc/",
-        "avatar": "https://upyun.tactfulbean.top/2023/07/64aff6d2416eb.png"
+        "name": "OmoFun",
+        "link": "https://fb.omoo.tv/",
+        "avatar": "https://fb.omoo.tv/favicon.ico"
       },
       {
-        "name": "路漫漫",
-        "link": "https://www.lmm66.com",
-        "avatar": "https://www.lmm66.com/template/jable/statics/icon/favicon.ico"
+        "name": "iKanBot",
+        "link": "https://v.ikanbot.com/",
+        "avatar": "https://v.ikanbot.com/resources/logo.svg"
       },
       {
-        "name": "蓝猫动漫",
-        "link": "http://lmfun.vip/",
-        "avatar": ""
+        "name": "观影",
+        "link": "https://www.gyg.si/",
+        "avatar": "https://www.gyg.si/favicon.ico"
       },
       {
-        "name": "宫下动漫",
-        "link": "https://gxdm01.org/",
-        "avatar": "https://upload-bbs.miyoushe.com/upload/2023/07/23/313221705/b396c924aa9e44c60a3288fba2b5a97b_7627928695128547015.jpg"
+        "name": "LIBVIO",
+        "link": "https://www.libvio.fun/index",
+        "avatar": "https://www.libvio.fun/statics/img/favicon.ico",
+        "scale": 70
       },
       {
-        "name": "ZzzFun",
-        "link": "http://www.zzzfun.one/",
-        "avatar": ""
+        "name": "FreeOK",
+        "link": "https://link3.cc/freeok/",
+        "avatar": "https://link3.cc/favicon.ico"
       },
       {
-        "name": "哔嘀影视",
-        "link": "https://www.bdys01.com/",
-        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd44ade04b.png"
+        "name": "可可影视",
+        "link": "https://dl.keke10.com:51111/",
+        "avatar": "https://vf.ozuab.cn/vod_dl_static_kkdy/images/favicon.ico"
       },
       {
         "name": "Switch520",
         "link": "https://www.gamer520.com",
-        "avatar": "https://sway.office.com/s/bRQwebfLdaNez2Nl/images/P31w2bg4VTaH9a"
+        "avatar": "https://img.piclabo.xyz/2023/10/25/d67adcffb89dd.jpg"
       },
       {
         "name": "磁力熊猫",
@@ -48,24 +49,25 @@
         "avatar": "https://upyun.tactfulbean.top/2023/05/645cd2ad5aed3.png"
       },
       {
+        "name": "无极磁力",
+        "link": "https://cili404.com/",
+        "avatar": "https://cili404.com/favicon.ico",
+        "scale": 70
+      },
+      {
         "name": "哔哩哔哩",
         "link": "https://www.bilibili.com/",
         "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61cd12f.png"
       },
       {
-        "name": "斗鱼",
-        "link": "https://www.douyu.com/",
-        "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61c9cbe.png"
-      },
-      {
-        "name": "虎牙",
-        "link": "https://www.huya.com/",
-        "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61b8281.png"
-      },
-      {
         "name": "KOOK",
         "link": "https://www.kookapp.cn/",
         "avatar": "https://upyun.tactfulbean.top/2023/05/645ccf61be1c9.png"
+      },
+      {
+        "name": "Windy",
+        "link": "https://www.windy.com/",
+        "avatar": "https://www.windy.com/img/favicon.png"
       }
     ]
   },
@@ -73,24 +75,42 @@
     "name": "常用工具",
     "child": [
       {
-        "name": "ChatGPT",
-        "link": "https://gpt.tactfulbean.top/",
-        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd650e0328.png"
+        "name": "在问",
+        "link": "https://www.zaiwen.top/chat/working-edition",
+        "avatar": "https://www.zaiwen.top/favicon.ico",
+        "scale": 80
       },
       {
-        "name": "在问",
-        "link": "https://www.zaiwen.top/#/chat/working-edition",
-        "avatar": "https://www.zaiwen.top/favicon.ico"
+        "name": "Kimi",
+        "link": "https://kimi.moonshot.cn/",
+        "avatar": "https://statics.moonshot.cn/kimi-chat/favicon.ico"
+      },
+      {
+        "name": "DeepSeek",
+        "link": "https://chat.deepseek.com/",
+        "avatar": "https://chat.deepseek.com/favicon.svg",
+        "scale": 80
+      },
+      {
+        "name": "腾讯元宝",
+        "link": "https://yuanbao.tencent.com/",
+        "avatar": "https://cdn-bot.hunyuan.tencent.com/logo.png"
       },
       {
         "name": "IT-Tools",
         "link": "https://tool.tactfulbean.top/",
-        "avatar": "https://tool.tactfulbean.top/favicon.ico"
+        "avatar": "https://tool.tactfulbean.top/favicon.ico",
+        "scale": 80
       },
       {
         "name": "谷歌学术镜像",
         "link": "https://ac.scmor.com/",
         "avatar": "https://upyun.tactfulbean.top/2023/05/6451c925a35ea.png"
+      },
+      {
+        "name": "软件下载",
+        "link": "https://mp.weixin.qq.com/mp/homepage?__biz=MzA4MjU4MTg2Ng==&hid=18&sn=2dccf8223c0bac443c2b8f260731278a&scene=21#wechat_redirect",
+        "avatar": "https://mmbiz.qpic.cn/sz_mmbiz_png/mWLribm6sbwJH0zHsELoPaicK7jWoXY6MFicTiaDZp4NNAGxbRpKMibCKAG8m5icbUNibVfIiaeLAvLRsKwlnaWtFHFIbA/0?wx_fmt=png"
       },
       {
         "name": "JWT.io",
@@ -103,11 +123,6 @@
         "avatar": "https://icones.js.org/android-chrome-192x192.png"
       },
       {
-        "name": "Emoji表情大全",
-        "link": "https://emojixd.com/",
-        "avatar": "https://emojixd.com/favicon.ico"
-      },
-      {
         "name": "设计配色",
         "link": "https://color.uisdc.com/",
         "avatar": "https://www.uisdc.com/favicon.ico"
@@ -115,7 +130,8 @@
       {
         "name": "中国传统颜色",
         "link": "https://colors.ichuantong.cn/",
-        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd616ec6ff.png"
+        "avatar": "https://upyun.tactfulbean.top/2023/05/645cd616ec6ff.png",
+        "scale": 80
       },
       {
         "name": "聚合图床",
@@ -125,7 +141,8 @@
       {
         "name": "Convertio",
         "link": "https://convertio.co/zh/",
-        "avatar": "https://convertio.co/favicon.ico"
+        "avatar": "https://convertio.co/favicon.ico",
+        "scale": 80
       },
       {
         "name": "Docsmall",
@@ -133,14 +150,31 @@
         "avatar": "https://docsmall.com/favicon.png"
       },
       {
+        "name": "Squoosh",
+        "link": "https://squoosh.app/",
+        "avatar": "https://squoosh.app/c/icon-large-cb438cac.png"
+      },
+      {
+        "name": "iLovePDF",
+        "link": "https://www.ilovepdf.com/zh-cn",
+        "avatar": "https://www.ilovepdf.com/img/favicons-pdf/favicon-32x32.png",
+        "scale": 80
+      },
+      {
+        "name": "MikuTools",
+        "link": "https://tools.miku.ac/",
+        "avatar": "https://mikutools.cdn.hatsune.tech/icons/icon_144x144.3ecd30.png"
+      },
+      {
         "name": "公式识别",
         "link": "https://simpletex.cn/ai/latex_ocr",
         "avatar": "https://simpletex.cn/simpletex.ico"
       },
       {
-        "name": "蓝奏云",
-        "link": "https://up.woozooo.com/",
-        "avatar": "https://up.woozooo.com/favicon.ico"
+        "name": "MathDF",
+        "link": "https://mathdf.com/der/cn/",
+        "avatar": "https://mathdf.com/favicon.svg",
+        "scale": 80
       },
       {
         "name": "Shields.io",
@@ -151,6 +185,16 @@
         "name": "Patorjk",
         "link": "http://patorjk.com/",
         "avatar": "http://patorjk.com/favicon.ico"
+      },
+      {
+        "name": "Toepub",
+        "link": "https://toepub.com/zh/",
+        "avatar": "https://toepub.com/images/toepub/favicon.png"
+      },
+      {
+        "name": "图片转提示",
+        "link": "https://imagetoprompt.org/zh",
+        "avatar": "https://imagetoprompt.org/favicon.ico"
       }
     ]
   },
@@ -170,32 +214,35 @@
       {
         "name": "Vue3",
         "link": "https://cn.vuejs.org/",
-        "avatar": "https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/vuejs.svg"
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/vuejs.svg"
       },
       {
         "name": "Vite",
         "link": "https://cn.vitejs.dev/",
-        "avatar": "https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/vitejs.svg"
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/vitejs.svg"
       },
       {
         "name": "Pinia",
         "link": "https://pinia.vuejs.org/zh/",
-        "avatar": "https://pinia.web3doc.top/logo.png"
+        "avatar": "https://pinia.web3doc.top/logo.png",
+        "scale": 80
       },
       {
         "name": "VueUse",
-        "link": "http://www.vueusejs.com/",
-        "avatar": "http://www.vueusejs.com/favicon.svg"
+        "link": "https://vueuse.nodejs.cn/",
+        "avatar": "https://vueuse.nodejs.cn/favicon.svg",
+        "scale": 80
       },
       {
         "name": "Ant Design",
         "link": "https://ant-design.antgroup.com/index-cn",
-        "avatar": "https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/ant-design-vue.svg"
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/ant-design-vue.svg"
       },
       {
         "name": "Element Plus",
-        "link": "https://element-plus.gitee.io/zh-CN/",
-        "avatar": "https://element-plus.gitee.io/images/element-plus-logo-small.svg"
+        "link": "https://element-plus.org/zh-CN/",
+        "avatar": "https://element-plus.org/images/element-plus-logo-small.svg",
+        "scale": 80
       },
       {
         "name": "Arco Design",
@@ -205,62 +252,67 @@
       {
         "name": "Naive UI",
         "link": "https://www.naiveui.com/zh-CN/os-theme",
-        "avatar": "https://www.naiveui.com/assets/naivelogo-93278402.svg"
+        "avatar": "https://www.naiveui.com/assets/naivelogo-BdDVTUmz.svg",
+        "scale": 80
       },
       {
         "name": "Tailwind CSS",
         "link": "https://www.tailwindcss.cn/",
-        "avatar": "https://www.tailwindcss.cn/favicons/favicon.ico?v=3"
+        "avatar": "https://www.tailwindcss.cn/favicons/favicon.ico?v=3",
+        "scale": 80
       },
       {
         "name": "UnoCSS",
         "link": "https://unocss.dev/",
-        "avatar": "https://unocss.dev/favicon.svg"
+        "avatar": "https://unocss.dev/favicon.svg",
+        "scale": 80
+      },
+      {
+        "name": "Shadcn UI",
+        "link": "https://ui.shadcn.com/",
+        "avatar": "https://ui.shadcn.com/favicon.ico"
       },
       {
         "name": "Iconfont",
         "link": "https://www.iconfont.cn/",
-        "avatar": "https://img.alicdn.com/imgextra/i4/O1CN01Z5paLz1O0zuCC7osS_!!6000000001644-55-tps-83-82.svg"
+        "avatar": "https://img.alicdn.com/imgextra/i4/O1CN01Z5paLz1O0zuCC7osS_!!6000000001644-55-tps-83-82.svg",
+        "scale": 80
       },
       {
         "name": "Echarts",
-        "link": "https://echarts.apache.org/zh/index.html",
-        "avatar": "https://echarts.apache.org/zh/images/favicon.png?_v_=20200710_1"
+        "link": "https://echarts.js.cn/zh/index.html",
+        "avatar": "https://echarts.js.cn/zh/images/favicon.png?_v_=20240226",
+        "scale": 80
       },
       {
         "name": "OpenLayers",
         "link": "https://openlayers.org/",
-        "avatar": "https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/openlayers.svg"
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/openlayers.svg",
+        "scale": 80
       },
       {
         "name": "MapBox",
         "link": "https://docs.mapbox.com/",
-        "avatar": "https://static-assets.mapbox.com/branding/favicon/v1/favicon.ico?v=gAd4JjrGWl"
+        "avatar": "https://static-assets.mapbox.com/branding/favicon/v1/favicon.ico?v=gAd4JjrGWl",
+        "scale": 80
       },
       {
         "name": "AntV",
         "link": "https://antv.antgroup.com/",
-        "avatar": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7svFR6wkPMoAAAAAAAAAAAAADmJ7AQ/original"
+        "avatar": "https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*7svFR6wkPMoAAAAAAAAAAAAADmJ7AQ/original",
+        "scale": 80
       },
       {
-        "name": "JDK Download",
+        "name": "Oracle JDK",
         "link": "https://www.oracle.com/java/technologies/java-se-glance.html",
-        "avatar": "https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/Oracle%20Corporation%20Logo.svg"
+        "avatar": "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/Oracle%20Corporation%20Logo.svg",
+        "scale": 80
       },
       {
-        "name": "JSDelivr",
-        "link": "https://www.jsdelivr.com/",
-        "avatar": "https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/jsdelivr.svg"
-      },
-      {
-        "name": "Netlify",
-        "link": "https://app.netlify.com/",
-        "avatar": "https://alistapi.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/Resource/SVG/Icon/netlify.svg"
-      },
-      {
-        "name": "Three.js",
-        "link": "https://threejs.org/",
-        "avatar": "https://threejs.org/files/favicon.ico"
+        "name": "Zulu JDK",
+        "link": "https://www.azul.com/downloads/",
+        "avatar": "https://www.azul.com/wp-content/themes/azul/assets/img/azul-favicon-block.png",
+        "scale": 80
       }
     ]
   },
@@ -270,7 +322,8 @@
       {
         "name": "Emoji合成",
         "link": "https://tikolu.net/emojimix/",
-        "avatar": "https://tikolu.net/emojimix/icons/meowtle.png"
+        "avatar": "https://tikolu.net/emojimix/icons/meowtle.png",
+        "scale": 80
       },
       {
         "name": "小霸王",
@@ -294,13 +347,20 @@
       },
       {
         "name": "猫国建设者",
-        "link": "https://likexia.gitee.io/cat-zh/#",
+        "link": "https://kittensgame.com/web/#",
         "avatar": "https://likexia.gitee.io/cat-zh/res/favicon.gif"
       },
       {
         "name": "画物理线条",
         "link": "https://www.xiwnn.com/huaxian/",
-        "avatar": "https://www.xiwnn.com/favicon.ico"
+        "avatar": "https://www.xiwnn.com/favicon.ico",
+        "scale": 80
+      },
+      {
+        "name": "梅尔沃放置",
+        "link": "https://melvoridle.com/index_game.php",
+        "avatar": "https://melvoridle.com/assets/media/favicons/favicon.png",
+        "scale": 80
       }
     ]
   },
@@ -323,19 +383,9 @@
         "avatar": "https://upyun.tactfulbean.top/2023/05/6451c92591ef7.png"
       },
       {
-        "name": "战双帕弥什 Wiki",
-        "link": "https://wiki.biligame.com/zspms/%E9%A6%96%E9%A1%B5",
-        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c9259c72b.png"
-      },
-      {
         "name": "星露谷物语 Wiki",
         "link": "https://zh.stardewvalleywiki.com/Stardew_Valley_Wiki",
         "avatar": "https://upyun.tactfulbean.top/2023/05/6451c925b79cf.png"
-      },
-      {
-        "name": "原神 Wiki",
-        "link": "https://bbs.mihoyo.com/ys/obc/?bbs_presentation_style=no_header",
-        "avatar": "https://upyun.tactfulbean.top/2023/05/6451c9fc3262b.png"
       },
       {
         "name": "明日方舟 Wiki",
@@ -346,6 +396,11 @@
         "name": "饥荒 Wiki",
         "link": "https://dontstarve.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5",
         "avatar": "https://upyun.tactfulbean.top/2023/05/6454a09390e46.png"
+      },
+      {
+        "name": "以撒的结合 Wiki",
+        "link": "https://isaac.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5",
+        "avatar": "https://av.huijiwiki.com/site_avatar_isaac_l.png?1702789452"
       }
     ]
   }

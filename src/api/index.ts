@@ -3,7 +3,7 @@ import jsonpAdapter from "axios-jsonp"
 
 export const getLinkList = () => {
   return Request.instance({
-    url: "https://alist.tactfulbean.top/d/%F0%9F%92%BE%E4%B8%83%E7%89%9B%E4%BA%91Kodo/LinkList.json",
+    url: "./config/LinkList.json",
     method: "get"
   })
 }
