@@ -84,7 +84,7 @@ watch(
 
 onMounted(() => {
   getLinkList().then((res: any) => {
-    LinkList.value = res.result.map((item: any) => {
+    LinkList.value = res.map((item: any) => {
       item.child.forEach((child: any) => {
         const img = new Image()
         img.src = child.avatar
