@@ -33,7 +33,14 @@
               class="flex-center shadow1 rounded-16 max-sm-rounded-12 relative hover:scale-105 duration-300"
             >
               <a :href="child.link" class="bg-white wh-full flex-1 flex rounded-16 max-sm-rounded-12 border-1 border-[#ffffffff] overflow-hidden">
-                <img :src="child.avatar" :style="{ scale: child.scale + '%' }" alt="" class="flex-1 wh-full" @error="handleImageError(child)" />
+                <img
+                  v-lazy="child.avatar"
+                  :data-src="child.avatar"
+                  :style="{ scale: child.scale + '%' }"
+                  alt=""
+                  class="flex-1 wh-full"
+                  @error="handleImageError($event, child)"
+                />
               </a>
               <div class="absolute w-full bottom--20 max-sm-bottom--16 text-center text-nowrap text-ellipsis overflow-hidden">
                 {{ child.name }}
@@ -48,7 +55,7 @@
 <script lang="ts" setup>
 import { getLinkList } from "@/api"
 import { useMainStore } from "@/stores/MainStore.ts"
-import { useScroll } from "@vueuse/core"
+import { useIntersectionObserver, useScroll } from "@vueuse/core"
 import { onMounted, ref, watch } from "vue"
 
 const mainStore = useMainStore()
@@ -84,19 +91,35 @@ watch(
 
 onMounted(() => {
   getLinkList().then((res: any) => {
-    LinkList.value = res.map((item: any) => {
-      item.child.forEach((child: any) => {
-        const img = new Image()
-        img.src = child.avatar
-      })
-      return item
-    })
+    LinkList.value = res
   })
 })
 
-const handleImageError = (child: any) => {
-  child.avatar = "./icons/null.png"
+const handleImageError = (event: Event, child: any) => {
+  const imgElement = event.target as HTMLImageElement
+  imgElement.src = "./icons/null.png"
   child.scale = 80
+  imgElement.onerror = null
+}
+
+const vLazy = {
+  mounted(el: HTMLImageElement, binding: any) {
+    el.src = "./icons/null.png"
+    lazyLoad(el, binding.value)
+  }
+}
+
+const lazyLoad = (el: HTMLImageElement, src: string) => {
+  const { stop } = useIntersectionObserver(
+    el,
+    ([{ isIntersecting }]) => {
+      if (isIntersecting) {
+        el.src = src
+        stop()
+      }
+    },
+    { threshold: 0.1 }
+  )
 }
 </script>
 <style lang="scss" scoped>

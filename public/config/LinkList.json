@@ -229,7 +229,7 @@
       },
       {
         "name": "VueUse",
-        "link": "https://vueuse.nodejs.cn/",
+        "link": "https://vueuse.org/",
         "avatar": "https://vueuse.nodejs.cn/favicon.svg",
         "scale": 80
       },
@@ -280,7 +280,7 @@
       },
       {
         "name": "Echarts",
-        "link": "https://echarts.js.cn/zh/index.html",
+        "link": "https://echarts.apache.org/zh/index.html",
         "avatar": "https://echarts.js.cn/zh/images/favicon.png?_v_=20240226",
         "scale": 80
       },
