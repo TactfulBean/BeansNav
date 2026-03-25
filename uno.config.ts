@@ -1,7 +1,16 @@
-import { defineConfig, presetAttributify, presetIcons, presetUno } from "unocss"
+import presetLegacyCompat from "@unocss/preset-legacy-compat"
+import { defineConfig, presetAttributify, presetIcons, presetWind3 } from "unocss"
 
 export default defineConfig({
-  presets: [presetUno(), presetAttributify(), presetIcons()],
+  presets: [
+    presetWind3(),
+    presetAttributify(),
+    presetIcons(),
+    presetLegacyCompat({
+      commaStyleColorFunction: true,
+      legacyColorSpace: true
+    })
+  ],
   shortcuts: [
     ["wh-full", "w-full h-full"],
     ["flex-col", "flex flex-col"],
