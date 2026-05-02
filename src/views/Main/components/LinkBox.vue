@@ -36,11 +36,11 @@
                 <img
                   v-lazy="child.avatar"
                   :data-src="child.avatar"
-                  :style="{ scale: getImageScale(child) }"
+                  :style="getImageStyle(child)"
                   alt=""
                   class="flex-1 wh-full"
-                  @load="handleImageLoad($event, child)"
                   @error="handleImageError($event, child)"
+                  @load="handleImageLoad($event, child)"
                 />
               </a>
               <div class="absolute w-full bottom--20 max-sm-bottom--16 text-center text-nowrap text-ellipsis overflow-hidden">
@@ -77,12 +77,21 @@ const LinkList = ref<
 const scrollRef = ref()
 const { arrivedState } = useScroll(scrollRef)
 const FALLBACK_ICON = "./icons/null.png"
-const DEFAULT_SCALE = "80%"
+const DEFAULT_SCALE = 0.8
 const imageLoadedMap = ref<Record<string, boolean>>({})
 
 const getImageKey = (child: { link: string; avatar: string }) => `${child.link}|${child.avatar}`
-const getImageScale = (child: { link: string; avatar: string; scale: number }) =>
-  imageLoadedMap.value[getImageKey(child)] ? `${child.scale}%` : DEFAULT_SCALE
+const normalizeScale = (scale?: number) => {
+  if (typeof scale !== "number" || Number.isNaN(scale)) return 1
+  return scale > 2 ? scale / 100 : scale
+}
+
+const getImageStyle = (child: { link: string; avatar: string; scale: number }) => {
+  const scaleValue = imageLoadedMap.value[getImageKey(child)] ? normalizeScale(child.scale) : DEFAULT_SCALE
+  return {
+    transform: `scale(${scaleValue})`
+  }
+}
 
 const mouseWheel = (event: any) => {
   if (event.deltaY > 0 && mainStore.linkListPage < LinkList.value.length) mainStore.linkListPage += 1
