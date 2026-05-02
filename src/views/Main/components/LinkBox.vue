@@ -36,9 +36,10 @@
                 <img
                   v-lazy="child.avatar"
                   :data-src="child.avatar"
-                  :style="{ scale: child.scale + '%' }"
+                  :style="{ scale: getImageScale(child) }"
                   alt=""
                   class="flex-1 wh-full"
+                  @load="handleImageLoad($event, child)"
                   @error="handleImageError($event, child)"
                 />
               </a>
@@ -75,6 +76,13 @@ const LinkList = ref<
 
 const scrollRef = ref()
 const { arrivedState } = useScroll(scrollRef)
+const FALLBACK_ICON = "./icons/null.png"
+const DEFAULT_SCALE = "80%"
+const imageLoadedMap = ref<Record<string, boolean>>({})
+
+const getImageKey = (child: { link: string; avatar: string }) => `${child.link}|${child.avatar}`
+const getImageScale = (child: { link: string; avatar: string; scale: number }) =>
+  imageLoadedMap.value[getImageKey(child)] ? `${child.scale}%` : DEFAULT_SCALE
 
 const mouseWheel = (event: any) => {
   if (event.deltaY > 0 && mainStore.linkListPage < LinkList.value.length) mainStore.linkListPage += 1
@@ -92,19 +100,27 @@ watch(
 onMounted(() => {
   getLinkList().then((res: any) => {
     LinkList.value = res
+    imageLoadedMap.value = {}
   })
 })
 
+const handleImageLoad = (event: Event, child: any) => {
+  const imgElement = event.target as HTMLImageElement
+  const rawSrc = imgElement.getAttribute("src")
+  if (rawSrc === FALLBACK_ICON) return
+  imageLoadedMap.value[getImageKey(child)] = true
+}
+
 const handleImageError = (event: Event, child: any) => {
   const imgElement = event.target as HTMLImageElement
-  imgElement.src = "./icons/null.png"
-  child.scale = 80
+  imageLoadedMap.value[getImageKey(child)] = false
+  imgElement.src = FALLBACK_ICON
   imgElement.onerror = null
 }
 
 const vLazy = {
   mounted(el: HTMLImageElement, binding: any) {
-    el.src = "./icons/null.png"
+    el.src = FALLBACK_ICON
     lazyLoad(el, binding.value)
   }
 }
