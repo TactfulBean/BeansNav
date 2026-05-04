@@ -14,7 +14,6 @@
 // import { getWallPaper } from "@/api"
 // import { useWallPaperStore } from "@/stores/Config.ts"
 import { useMainStore } from "@/stores/MainStore.ts" // import { getDate } from "@/utils"
-// import { Message } from "@arco-design/web-vue"
 import { onMounted, ref } from "vue"
 
 const mainStore = useMainStore()

@@ -20,8 +20,6 @@
     "vue": "^3.5.30"
   },
   "devDependencies": {
-    "@arco-design/web-vue": "^2.57.0",
-    "@arco-plugins/vite-vue": "^1.4.6",
     "@iconify-json/carbon": "^1.2.19",
     "@iconify-json/mdi": "^1.2.3",
     "@types/node": "^25.5.0",

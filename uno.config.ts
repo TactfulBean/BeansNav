@@ -39,32 +39,5 @@ export default defineConfig({
     [/^hc-(\d+)$/, ([, d]) => ({ height: `calc(100% - ${Number(d) / 4}rem)` })],
     [/^wc-(\d+)$/, ([, d]) => ({ width: `calc(100% - ${Number(d) / 4}rem)` })],
     [/^wh-(\d+)$/, ([, d]) => ({ width: `${Number(d) / 4}rem`, height: `${Number(d) / 4}rem` })]
-  ],
-  theme: {
-    colors: {
-      // 背景色
-      color_bg_1: "var(--b-color-bg-1)",
-      color_bg_2: "var(--b-color-bg-2)",
-      color_bg_3: "var(--b-color-bg-3)",
-      color_bg_4: "var(--b-color-bg-4)",
-      color_bg_5: "var(--b-color-bg-5)",
-      color_bg_white: "var(--b-color-bg-white)",
-      color_bg_opacity: "var(--b-color-bg-opacity)",
-      // 填充颜色
-      color_fill_1: "var(--b-color-fill-1)",
-      color_fill_2: "var(--b-color-fill-2)",
-      color_fill_3: "var(--b-color-fill-3)",
-      color_fill_4: "var(--b-color-fill-4)",
-      // 字体颜色
-      color_text_1: "var(--b-color-text-1)",
-      color_text_2: "var(--b-color-text-2)",
-      color_text_3: "var(--b-color-text-3)",
-      color_text_4: "var(--b-color-text-4)",
-      // 边框
-      color_border_1: "var(--b-color-border-1)",
-      color_border_2: "var(--b-color-border-2)",
-      color_border_3: "var(--b-color-border-3)",
-      color_border_4: "var(--b-color-border-4)"
-    }
-  }
+  ]
 })
