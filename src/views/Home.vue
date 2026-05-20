@@ -5,7 +5,6 @@
 </template>
 <script lang="ts" setup>
 import WallPaper from "@/components/WallPaper.vue"
-import Header from "@/views/Header/index.vue"
 import Main from "@/views/Main/index.vue"
 import Footer from "@/views/Footer/index.vue"
 </script>

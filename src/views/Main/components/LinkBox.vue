@@ -98,11 +98,11 @@ const mouseWheel = (event: any) => {
   if (event.deltaY < 0 && mainStore.linkListPage > 1) mainStore.linkListPage -= 1
 }
 
-const transitionName = ref("slide-left")
+const transitionName = ref("slide-right")
 watch(
   () => mainStore.linkListPage,
   (newPage, oldPage) => {
-    transitionName.value = newPage > oldPage ? "slide-right" : "slide-left"
+    transitionName.value = newPage > oldPage ? "slide-left" : "slide-right"
   }
 )
 
