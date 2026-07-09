@@ -17,5 +17,11 @@ export const useWallPaperStore = defineStore("wallPaperStore", {
     wallPaperSrc: defaultConfig.wallPaperSrc,
     wallPaperType: defaultConfig.wallPaperType
   }),
+  actions: {
+    setWallPaper(payload: { src: string; date?: string }) {
+      this.wallPaperSrc = payload.src
+      this.wallPaperDate = payload.date || ""
+    }
+  },
   persist: true
 })

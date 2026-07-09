@@ -12,36 +12,66 @@
 </template>
 <script lang="ts" setup>
 import { getWallPaper } from "@/api"
+import { useWallPaperStore } from "@/stores/Config.ts"
 import { useMainStore } from "@/stores/MainStore.ts"
-import { onMounted, ref } from "vue"
+import { onMounted, useTemplateRef } from "vue"
 
 const mainStore = useMainStore()
-const wallPaper = ref<HTMLDivElement | null>(null)
-const wallImage = new Image()
-
-wallImage.onload = () => {
-  if (wallPaper.value) {
-    wallPaper.value.style.backgroundImage = `url(${wallImage.src})`
-    wallPaper.value.style.opacity = 1
-  }
-}
+const wallPaperStore = useWallPaperStore()
+const wallPaper = useTemplateRef<HTMLDivElement>("wallPaper")
 
 onMounted(async () => {
   mainStore.getScreenSize()
+
+  if (wallPaperStore.wallPaperSrc) {
+    applyWallPaper(wallPaperStore.wallPaperSrc)
+  }
+
   await setWallPaper()
 })
 
 const setWallPaper = async () => {
   const response = await getWallPaper()
   const wallPaperSrc = response?.data?.cover_4k || response?.data?.cover
+  const wallPaperDate = response?.data?.update_date
 
   if (!wallPaperSrc) return
-
-  const tempImg = new Image()
-  tempImg.src = wallPaperSrc
-  tempImg.onload = () => {
-    wallImage.src = tempImg.src
+  if (wallPaperSrc === wallPaperStore.wallPaperSrc) {
+    if (wallPaperDate !== wallPaperStore.wallPaperDate) {
+      wallPaperStore.setWallPaper({
+        src: wallPaperSrc,
+        date: wallPaperDate
+      })
+    }
+    return
   }
+
+  try {
+    await preloadWallPaper(wallPaperSrc)
+    applyWallPaper(wallPaperSrc)
+    wallPaperStore.setWallPaper({
+      src: wallPaperSrc,
+      date: wallPaperDate
+    })
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const preloadWallPaper = (src: string) => {
+  return new Promise<void>((resolve, reject) => {
+    const image = new Image()
+    image.onload = () => resolve()
+    image.onerror = () => reject(new Error(`Failed to load wallpaper: ${src}`))
+    image.src = src
+  })
+}
+
+const applyWallPaper = (src: string) => {
+  if (!wallPaper.value) return
+
+  wallPaper.value.style.backgroundImage = `url(${src})`
+  wallPaper.value.style.opacity = "1"
 }
 </script>
 <style lang="scss" scoped>
