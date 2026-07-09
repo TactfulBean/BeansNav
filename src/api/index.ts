@@ -1,9 +1,17 @@
 import Request from "@/utils/request.ts"
 import jsonpAdapter from "axios-jsonp"
+import type { Wallpaper } from "@/types/Wallpaper"
 
 export const getLinkList = () => {
   return Request.instance({
     url: "./config/LinkList.json",
+    method: "get"
+  })
+}
+
+export const getWallPaper = () => {
+  return Request.instance<Wallpaper>({
+    url: "https://60s.tactfulbean.top/v2/bing",
     method: "get"
   })
 }

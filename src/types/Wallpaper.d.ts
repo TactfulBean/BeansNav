@@ -1,12 +1,17 @@
 export type Wallpaper = {
   code: number
-  result: Result[]
-  msg: string
+  message: string
+  data: WallpaperData
 }
-type Result = {
-  copyright: string
-  copyrightlink: string
+
+export type WallpaperData = {
   title: string
-  url: string
-  date: string
+  headline: string
+  description: string
+  main_text: string
+  cover: string
+  cover_4k: string
+  copyright: string
+  update_date: string
+  update_date_at: number
 }

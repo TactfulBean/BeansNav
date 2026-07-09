@@ -11,14 +11,12 @@
   <div class="grayBG absolute-0 wh-full z-1 bg-[#00000019] pointer-events-none"></div>
 </template>
 <script lang="ts" setup>
-// import { getWallPaper } from "@/api"
-// import { useWallPaperStore } from "@/stores/Config.ts"
-import { useMainStore } from "@/stores/MainStore.ts" // import { getDate } from "@/utils"
+import { getWallPaper } from "@/api"
+import { useMainStore } from "@/stores/MainStore.ts"
 import { onMounted, ref } from "vue"
 
 const mainStore = useMainStore()
-// const wallPaperStore = useWallPaperStore()
-const wallPaper = ref(null)
+const wallPaper = ref<HTMLDivElement | null>(null)
 const wallImage = new Image()
 
 wallImage.onload = () => {
@@ -34,8 +32,13 @@ onMounted(async () => {
 })
 
 const setWallPaper = async () => {
+  const response = await getWallPaper()
+  const wallPaperSrc = response?.data?.cover_4k || response?.data?.cover
+
+  if (!wallPaperSrc) return
+
   const tempImg = new Image()
-  tempImg.src = "https://bing.tactfulbean.top/1920x1080_302.php"
+  tempImg.src = wallPaperSrc
   tempImg.onload = () => {
     wallImage.src = tempImg.src
   }
